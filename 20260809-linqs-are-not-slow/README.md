@@ -1,11 +1,10 @@
 # LINQ Isn't Slow. These LINQ Patterns Are.
 
-This directory contains the article, complete BenchmarkDotNet source, and the
-raw evidence behind its reported numbers.
+This directory contains the complete BenchmarkDotNet source and the raw
+evidence behind the corresponding article's reported numbers.
 
 ## Layout
 
-- `LINQ-Isnt-Slow-These-LINQ-Patterns-Are.md` — article source
 - `benchmarks/` — compilable .NET 10 BenchmarkDotNet project
 - `results/` — unedited console logs plus Markdown and CSV exports from the
   complete benchmark runs
