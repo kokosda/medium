@@ -1,0 +1,3 @@
+benchmarks/bin/
+benchmarks/obj/
+benchmarks/BenchmarkDotNet.Artifacts/

@@ -1,0 +1,2968 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 28 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet  restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/" /p:OutDir="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0/" /p:OutputPath="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0/" /p:PublishDir="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/publish/" in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1
+// command took 0.58 sec and exited with 0
+// start dotnet  build -c Release --no-restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/" /p:OutDir="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0/" /p:OutputPath="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0/" /p:PublishDir="/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/publish/" --output "/Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0/" in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1
+// command took 1.89 sec and exited with 0
+// ***** Done, took 00:00:02 (2.5 sec)   *****
+// Found 28 benchmarks:
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+//   NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+//   NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+//   NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+//   NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers100_Orders10)" --job ".NET 10.0.8" --benchmarkId 0 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 96500.00 ns, 96.5000 us/op
+WorkloadJitting  1: 1 op, 104958.00 ns, 104.9580 us/op
+
+OverheadJitting  2: 16 op, 180958.00 ns, 11.3099 us/op
+WorkloadJitting  2: 16 op, 293792.00 ns, 18.3620 us/op
+
+WorkloadPilot    1: 16 op, 162208.00 ns, 10.1380 us/op
+WorkloadPilot    2: 32 op, 288000.00 ns, 9.0000 us/op
+WorkloadPilot    3: 64 op, 530542.00 ns, 8.2897 us/op
+WorkloadPilot    4: 128 op, 1052417.00 ns, 8.2220 us/op
+WorkloadPilot    5: 256 op, 1974083.00 ns, 7.7113 us/op
+WorkloadPilot    6: 512 op, 3978459.00 ns, 7.7704 us/op
+WorkloadPilot    7: 1024 op, 8140708.00 ns, 7.9499 us/op
+WorkloadPilot    8: 2048 op, 15831500.00 ns, 7.7302 us/op
+WorkloadPilot    9: 4096 op, 31140833.00 ns, 7.6027 us/op
+WorkloadPilot   10: 8192 op, 62726959.00 ns, 7.6571 us/op
+WorkloadPilot   11: 16384 op, 35116583.00 ns, 2.1433 us/op
+WorkloadPilot   12: 32768 op, 10106166.00 ns, 308.4157 ns/op
+WorkloadPilot   13: 65536 op, 20040167.00 ns, 305.7887 ns/op
+WorkloadPilot   14: 131072 op, 39897125.00 ns, 304.3909 ns/op
+WorkloadPilot   15: 262144 op, 80430000.00 ns, 306.8161 ns/op
+WorkloadPilot   16: 524288 op, 160405125.00 ns, 305.9485 ns/op
+WorkloadPilot   17: 1048576 op, 327746042.00 ns, 312.5630 ns/op
+WorkloadPilot   18: 2097152 op, 637799125.00 ns, 304.1263 ns/op
+
+OverheadWarmup   1: 2097152 op, 3832000.00 ns, 1.8272 ns/op
+OverheadWarmup   2: 2097152 op, 3996500.00 ns, 1.9057 ns/op
+OverheadWarmup   3: 2097152 op, 3831750.00 ns, 1.8271 ns/op
+OverheadWarmup   4: 2097152 op, 3811333.00 ns, 1.8174 ns/op
+OverheadWarmup   5: 2097152 op, 3835042.00 ns, 1.8287 ns/op
+OverheadWarmup   6: 2097152 op, 3952833.00 ns, 1.8849 ns/op
+OverheadWarmup   7: 2097152 op, 3817625.00 ns, 1.8204 ns/op
+
+OverheadActual   1: 2097152 op, 3821209.00 ns, 1.8221 ns/op
+OverheadActual   2: 2097152 op, 3839250.00 ns, 1.8307 ns/op
+OverheadActual   3: 2097152 op, 3845333.00 ns, 1.8336 ns/op
+OverheadActual   4: 2097152 op, 3824666.00 ns, 1.8237 ns/op
+OverheadActual   5: 2097152 op, 3834958.00 ns, 1.8287 ns/op
+OverheadActual   6: 2097152 op, 3974250.00 ns, 1.8951 ns/op
+OverheadActual   7: 2097152 op, 3843125.00 ns, 1.8325 ns/op
+OverheadActual   8: 2097152 op, 3813667.00 ns, 1.8185 ns/op
+OverheadActual   9: 2097152 op, 3834375.00 ns, 1.8284 ns/op
+OverheadActual  10: 2097152 op, 3952250.00 ns, 1.8846 ns/op
+OverheadActual  11: 2097152 op, 3831291.00 ns, 1.8269 ns/op
+OverheadActual  12: 2097152 op, 3821083.00 ns, 1.8220 ns/op
+OverheadActual  13: 2097152 op, 3841625.00 ns, 1.8318 ns/op
+OverheadActual  14: 2097152 op, 4014166.00 ns, 1.9141 ns/op
+OverheadActual  15: 2097152 op, 3833291.00 ns, 1.8279 ns/op
+
+WorkloadWarmup   1: 2097152 op, 644221750.00 ns, 307.1889 ns/op
+WorkloadWarmup   2: 2097152 op, 637738041.00 ns, 304.0972 ns/op
+WorkloadWarmup   3: 2097152 op, 636388583.00 ns, 303.4537 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 2097152 op, 638715750.00 ns, 304.5634 ns/op
+WorkloadActual   2: 2097152 op, 638256375.00 ns, 304.3444 ns/op
+WorkloadActual   3: 2097152 op, 638494834.00 ns, 304.4581 ns/op
+WorkloadActual   4: 2097152 op, 641266917.00 ns, 305.7799 ns/op
+WorkloadActual   5: 2097152 op, 639825167.00 ns, 305.0924 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 2097152 op, 634880792.00 ns, 302.7348 ns/op
+WorkloadResult   2: 2097152 op, 634421417.00 ns, 302.5157 ns/op
+WorkloadResult   3: 2097152 op, 634659876.00 ns, 302.6294 ns/op
+WorkloadResult   4: 2097152 op, 637431959.00 ns, 303.9512 ns/op
+WorkloadResult   5: 2097152 op, 635990209.00 ns, 303.2638 ns/op
+// GC:  220 0 0 1845493760 2097152
+// Threading:  0 0 2097152
+
+// AfterAll
+// Benchmark Process 7287 has exited with code 0.
+
+Mean = 303.019 ns, StdErr = 0.266 ns (0.09%), N = 5, StdDev = 0.595 ns
+Min = 302.516 ns, Q1 = 302.629 ns, Median = 302.735 ns, Q3 = 303.264 ns, Max = 303.951 ns
+IQR = 0.634 ns, LowerFence = 301.678 ns, UpperFence = 304.215 ns
+ConfidenceInterval = [300.729 ns; 305.309 ns] (CI 99.9%), Margin = 2.290 ns (0.76% of Mean)
+Skewness = 0.59, Kurtosis = 1.36, MValue = 2
+
+// ** Remained 27 (96.4%) benchmark(s) to run. Estimated finish 2026-08-08 22:45 (0h 3m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers100_Orders10)" --job ".NET 10.0.8" --benchmarkId 1 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 88541.00 ns, 88.5410 us/op
+WorkloadJitting  1: 1 op, 87459.00 ns, 87.4590 us/op
+
+OverheadJitting  2: 16 op, 177917.00 ns, 11.1198 us/op
+WorkloadJitting  2: 16 op, 293583.00 ns, 18.3489 us/op
+
+WorkloadPilot    1: 16 op, 101625.00 ns, 6.3516 us/op
+WorkloadPilot    2: 32 op, 209584.00 ns, 6.5495 us/op
+WorkloadPilot    3: 64 op, 510584.00 ns, 7.9779 us/op
+WorkloadPilot    4: 128 op, 958542.00 ns, 7.4886 us/op
+WorkloadPilot    5: 256 op, 1812292.00 ns, 7.0793 us/op
+WorkloadPilot    6: 512 op, 3464250.00 ns, 6.7661 us/op
+WorkloadPilot    7: 1024 op, 6812042.00 ns, 6.6524 us/op
+WorkloadPilot    8: 2048 op, 13253333.00 ns, 6.4714 us/op
+WorkloadPilot    9: 4096 op, 26006583.00 ns, 6.3493 us/op
+WorkloadPilot   10: 8192 op, 52187125.00 ns, 6.3705 us/op
+WorkloadPilot   11: 16384 op, 66770958.00 ns, 4.0754 us/op
+WorkloadPilot   12: 32768 op, 52751958.00 ns, 1.6099 us/op
+WorkloadPilot   13: 65536 op, 105892084.00 ns, 1.6158 us/op
+WorkloadPilot   14: 131072 op, 259457334.00 ns, 1.9795 us/op
+WorkloadPilot   15: 262144 op, 482331542.00 ns, 1.8399 us/op
+WorkloadPilot   16: 524288 op, 856950500.00 ns, 1.6345 us/op
+
+OverheadWarmup   1: 524288 op, 989084.00 ns, 1.8865 ns/op
+OverheadWarmup   2: 524288 op, 975875.00 ns, 1.8613 ns/op
+OverheadWarmup   3: 524288 op, 959000.00 ns, 1.8291 ns/op
+OverheadWarmup   4: 524288 op, 973750.00 ns, 1.8573 ns/op
+OverheadWarmup   5: 524288 op, 960458.00 ns, 1.8319 ns/op
+OverheadWarmup   6: 524288 op, 965500.00 ns, 1.8415 ns/op
+OverheadWarmup   7: 524288 op, 959958.00 ns, 1.8310 ns/op
+
+OverheadActual   1: 524288 op, 962375.00 ns, 1.8356 ns/op
+OverheadActual   2: 524288 op, 965041.00 ns, 1.8407 ns/op
+OverheadActual   3: 524288 op, 978333.00 ns, 1.8660 ns/op
+OverheadActual   4: 524288 op, 966750.00 ns, 1.8439 ns/op
+OverheadActual   5: 524288 op, 990875.00 ns, 1.8899 ns/op
+OverheadActual   6: 524288 op, 967750.00 ns, 1.8458 ns/op
+OverheadActual   7: 524288 op, 975792.00 ns, 1.8612 ns/op
+OverheadActual   8: 524288 op, 958208.00 ns, 1.8276 ns/op
+OverheadActual   9: 524288 op, 960459.00 ns, 1.8319 ns/op
+OverheadActual  10: 524288 op, 959375.00 ns, 1.8299 ns/op
+OverheadActual  11: 524288 op, 957000.00 ns, 1.8253 ns/op
+OverheadActual  12: 524288 op, 962625.00 ns, 1.8361 ns/op
+OverheadActual  13: 524288 op, 961833.00 ns, 1.8346 ns/op
+OverheadActual  14: 524288 op, 960500.00 ns, 1.8320 ns/op
+OverheadActual  15: 524288 op, 989167.00 ns, 1.8867 ns/op
+
+WorkloadWarmup   1: 524288 op, 858717917.00 ns, 1.6379 us/op
+WorkloadWarmup   2: 524288 op, 858581000.00 ns, 1.6376 us/op
+WorkloadWarmup   3: 524288 op, 851111583.00 ns, 1.6234 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 524288 op, 860146083.00 ns, 1.6406 us/op
+WorkloadActual   2: 524288 op, 859158917.00 ns, 1.6387 us/op
+WorkloadActual   3: 524288 op, 857825208.00 ns, 1.6362 us/op
+WorkloadActual   4: 524288 op, 846059041.00 ns, 1.6137 us/op
+WorkloadActual   5: 524288 op, 843295167.00 ns, 1.6085 us/op
+
+// AfterActualRun
+WorkloadResult   1: 524288 op, 859183458.00 ns, 1.6388 us/op
+WorkloadResult   2: 524288 op, 858196292.00 ns, 1.6369 us/op
+WorkloadResult   3: 524288 op, 856862583.00 ns, 1.6343 us/op
+WorkloadResult   4: 524288 op, 845096416.00 ns, 1.6119 us/op
+WorkloadResult   5: 524288 op, 842332542.00 ns, 1.6066 us/op
+// GC:  698 25 0 5842665472 524288
+// Threading:  0 0 524288
+
+// AfterAll
+// Benchmark Process 7293 has exited with code 0.
+
+Mean = 1.626 μs, StdErr = 0.007 μs (0.42%), N = 5, StdDev = 0.015 μs
+Min = 1.607 μs, Q1 = 1.612 μs, Median = 1.634 μs, Q3 = 1.637 μs, Max = 1.639 μs
+IQR = 0.025 μs, LowerFence = 1.574 μs, UpperFence = 1.674 μs
+ConfidenceInterval = [1.567 μs; 1.684 μs] (CI 99.9%), Margin = 0.059 μs (3.60% of Mean)
+Skewness = -0.3, Kurtosis = 0.82, MValue = 2
+
+// ** Remained 26 (92.9%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 3m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers100_Orders10)" --job ".NET 10.0.8" --benchmarkId 2 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 97667.00 ns, 97.6670 us/op
+WorkloadJitting  1: 1 op, 73375.00 ns, 73.3750 us/op
+
+OverheadJitting  2: 16 op, 178166.00 ns, 11.1354 us/op
+WorkloadJitting  2: 16 op, 260583.00 ns, 16.2864 us/op
+
+WorkloadPilot    1: 16 op, 53291.00 ns, 3.3307 us/op
+WorkloadPilot    2: 32 op, 99666.00 ns, 3.1146 us/op
+WorkloadPilot    3: 64 op, 292166.00 ns, 4.5651 us/op
+WorkloadPilot    4: 128 op, 574250.00 ns, 4.4863 us/op
+WorkloadPilot    5: 256 op, 1005375.00 ns, 3.9272 us/op
+WorkloadPilot    6: 512 op, 1867500.00 ns, 3.6475 us/op
+WorkloadPilot    7: 1024 op, 3721958.00 ns, 3.6347 us/op
+WorkloadPilot    8: 2048 op, 7073125.00 ns, 3.4537 us/op
+WorkloadPilot    9: 4096 op, 13808917.00 ns, 3.3713 us/op
+WorkloadPilot   10: 8192 op, 27338375.00 ns, 3.3372 us/op
+WorkloadPilot   11: 16384 op, 54814666.00 ns, 3.3456 us/op
+WorkloadPilot   12: 32768 op, 57939042.00 ns, 1.7682 us/op
+WorkloadPilot   13: 65536 op, 19531292.00 ns, 298.0239 ns/op
+WorkloadPilot   14: 131072 op, 37496541.00 ns, 286.0759 ns/op
+WorkloadPilot   15: 262144 op, 73460917.00 ns, 280.2312 ns/op
+WorkloadPilot   16: 524288 op, 149034209.00 ns, 284.2602 ns/op
+WorkloadPilot   17: 1048576 op, 295058500.00 ns, 281.3897 ns/op
+WorkloadPilot   18: 2097152 op, 589012041.00 ns, 280.8628 ns/op
+
+OverheadWarmup   1: 2097152 op, 3973333.00 ns, 1.8946 ns/op
+OverheadWarmup   2: 2097152 op, 3859042.00 ns, 1.8401 ns/op
+OverheadWarmup   3: 2097152 op, 3844125.00 ns, 1.8330 ns/op
+OverheadWarmup   4: 2097152 op, 3879042.00 ns, 1.8497 ns/op
+OverheadWarmup   5: 2097152 op, 3955666.00 ns, 1.8862 ns/op
+OverheadWarmup   6: 2097152 op, 3851000.00 ns, 1.8363 ns/op
+OverheadWarmup   7: 2097152 op, 3850333.00 ns, 1.8360 ns/op
+OverheadWarmup   8: 2097152 op, 3997541.00 ns, 1.9062 ns/op
+OverheadWarmup   9: 2097152 op, 3884334.00 ns, 1.8522 ns/op
+
+OverheadActual   1: 2097152 op, 3900750.00 ns, 1.8600 ns/op
+OverheadActual   2: 2097152 op, 3885292.00 ns, 1.8527 ns/op
+OverheadActual   3: 2097152 op, 4104333.00 ns, 1.9571 ns/op
+OverheadActual   4: 2097152 op, 3877292.00 ns, 1.8488 ns/op
+OverheadActual   5: 2097152 op, 3869750.00 ns, 1.8452 ns/op
+OverheadActual   6: 2097152 op, 3915125.00 ns, 1.8669 ns/op
+OverheadActual   7: 2097152 op, 3854292.00 ns, 1.8379 ns/op
+OverheadActual   8: 2097152 op, 3926625.00 ns, 1.8724 ns/op
+OverheadActual   9: 2097152 op, 3866750.00 ns, 1.8438 ns/op
+OverheadActual  10: 2097152 op, 4019750.00 ns, 1.9168 ns/op
+OverheadActual  11: 2097152 op, 3865292.00 ns, 1.8431 ns/op
+OverheadActual  12: 2097152 op, 3835166.00 ns, 1.8287 ns/op
+OverheadActual  13: 2097152 op, 3859458.00 ns, 1.8403 ns/op
+OverheadActual  14: 2097152 op, 3954084.00 ns, 1.8855 ns/op
+OverheadActual  15: 2097152 op, 3864625.00 ns, 1.8428 ns/op
+
+WorkloadWarmup   1: 2097152 op, 581751167.00 ns, 277.4006 ns/op
+WorkloadWarmup   2: 2097152 op, 579415458.00 ns, 276.2868 ns/op
+WorkloadWarmup   3: 2097152 op, 583424250.00 ns, 278.1984 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 2097152 op, 578767500.00 ns, 275.9778 ns/op
+WorkloadActual   2: 2097152 op, 579642833.00 ns, 276.3952 ns/op
+WorkloadActual   3: 2097152 op, 581831166.00 ns, 277.4387 ns/op
+WorkloadActual   4: 2097152 op, 578342916.00 ns, 275.7754 ns/op
+WorkloadActual   5: 2097152 op, 575780333.00 ns, 274.5535 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 2097152 op, 574890208.00 ns, 274.1290 ns/op
+WorkloadResult   2: 2097152 op, 575765541.00 ns, 274.5464 ns/op
+WorkloadResult   3: 2097152 op, 574465624.00 ns, 273.9266 ns/op
+WorkloadResult   4: 2097152 op, 571903041.00 ns, 272.7046 ns/op
+// GC:  677 4 0 5670699008 2097152
+// Threading:  0 0 2097152
+
+// AfterAll
+// Benchmark Process 7298 has exited with code 0.
+
+Mean = 273.827 ns, StdErr = 0.396 ns (0.14%), N = 4, StdDev = 0.791 ns
+Min = 272.705 ns, Q1 = 273.621 ns, Median = 274.028 ns, Q3 = 274.233 ns, Max = 274.546 ns
+IQR = 0.612 ns, LowerFence = 272.703 ns, UpperFence = 275.152 ns
+ConfidenceInterval = [268.713 ns; 278.940 ns] (CI 99.9%), Margin = 5.113 ns (1.87% of Mean)
+Skewness = -0.51, Kurtosis = 1.19, MValue = 2
+
+// ** Remained 25 (89.3%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 3m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers100_Orders10)" --job ".NET 10.0.8" --benchmarkId 3 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 919084.00 ns, 919.0840 us/op
+WorkloadJitting  1: 1 op, 73000.00 ns, 73.0000 us/op
+
+OverheadJitting  2: 16 op, 199250.00 ns, 12.4531 us/op
+WorkloadJitting  2: 16 op, 214167.00 ns, 13.3854 us/op
+
+WorkloadPilot    1: 16 op, 10708.00 ns, 669.2500 ns/op
+WorkloadPilot    2: 32 op, 19000.00 ns, 593.7500 ns/op
+WorkloadPilot    3: 64 op, 35834.00 ns, 559.9063 ns/op
+WorkloadPilot    4: 128 op, 64875.00 ns, 506.8359 ns/op
+WorkloadPilot    5: 256 op, 122875.00 ns, 479.9805 ns/op
+WorkloadPilot    6: 512 op, 268042.00 ns, 523.5195 ns/op
+WorkloadPilot    7: 1024 op, 599500.00 ns, 585.4492 ns/op
+WorkloadPilot    8: 2048 op, 1064041.00 ns, 519.5513 ns/op
+WorkloadPilot    9: 4096 op, 2011792.00 ns, 491.1602 ns/op
+WorkloadPilot   10: 8192 op, 3834167.00 ns, 468.0380 ns/op
+WorkloadPilot   11: 16384 op, 7818875.00 ns, 477.2263 ns/op
+WorkloadPilot   12: 32768 op, 15249875.00 ns, 465.3893 ns/op
+WorkloadPilot   13: 65536 op, 30733334.00 ns, 468.9535 ns/op
+WorkloadPilot   14: 131072 op, 60838458.00 ns, 464.1606 ns/op
+WorkloadPilot   15: 262144 op, 39246208.00 ns, 149.7124 ns/op
+WorkloadPilot   16: 524288 op, 9035916.00 ns, 17.2346 ns/op
+WorkloadPilot   17: 1048576 op, 18018250.00 ns, 17.1835 ns/op
+WorkloadPilot   18: 2097152 op, 35945833.00 ns, 17.1403 ns/op
+WorkloadPilot   19: 4194304 op, 72000208.00 ns, 17.1662 ns/op
+WorkloadPilot   20: 8388608 op, 169067584.00 ns, 20.1544 ns/op
+WorkloadPilot   21: 16777216 op, 287980792.00 ns, 17.1650 ns/op
+WorkloadPilot   22: 33554432 op, 575165000.00 ns, 17.1413 ns/op
+
+OverheadWarmup   1: 33554432 op, 61813542.00 ns, 1.8422 ns/op
+OverheadWarmup   2: 33554432 op, 61796458.00 ns, 1.8417 ns/op
+OverheadWarmup   3: 33554432 op, 61700833.00 ns, 1.8388 ns/op
+OverheadWarmup   4: 33554432 op, 51038250.00 ns, 1.5211 ns/op
+OverheadWarmup   5: 33554432 op, 44256625.00 ns, 1.3190 ns/op
+OverheadWarmup   6: 33554432 op, 44264541.00 ns, 1.3192 ns/op
+OverheadWarmup   7: 33554432 op, 44124375.00 ns, 1.3150 ns/op
+OverheadWarmup   8: 33554432 op, 44025250.00 ns, 1.3121 ns/op
+OverheadWarmup   9: 33554432 op, 44372667.00 ns, 1.3224 ns/op
+OverheadWarmup  10: 33554432 op, 44498625.00 ns, 1.3262 ns/op
+
+OverheadActual   1: 33554432 op, 44061000.00 ns, 1.3131 ns/op
+OverheadActual   2: 33554432 op, 44246958.00 ns, 1.3187 ns/op
+OverheadActual   3: 33554432 op, 44308167.00 ns, 1.3205 ns/op
+OverheadActual   4: 33554432 op, 44335041.00 ns, 1.3213 ns/op
+OverheadActual   5: 33554432 op, 44193667.00 ns, 1.3171 ns/op
+OverheadActual   6: 33554432 op, 44359125.00 ns, 1.3220 ns/op
+OverheadActual   7: 33554432 op, 44273584.00 ns, 1.3195 ns/op
+OverheadActual   8: 33554432 op, 44464292.00 ns, 1.3251 ns/op
+OverheadActual   9: 33554432 op, 44227958.00 ns, 1.3181 ns/op
+OverheadActual  10: 33554432 op, 44272291.00 ns, 1.3194 ns/op
+OverheadActual  11: 33554432 op, 44146375.00 ns, 1.3157 ns/op
+OverheadActual  12: 33554432 op, 44388292.00 ns, 1.3229 ns/op
+OverheadActual  13: 33554432 op, 44171792.00 ns, 1.3164 ns/op
+OverheadActual  14: 33554432 op, 44213875.00 ns, 1.3177 ns/op
+OverheadActual  15: 33554432 op, 44188875.00 ns, 1.3169 ns/op
+
+WorkloadWarmup   1: 33554432 op, 576204625.00 ns, 17.1722 ns/op
+WorkloadWarmup   2: 33554432 op, 575555209.00 ns, 17.1529 ns/op
+WorkloadWarmup   3: 33554432 op, 575233250.00 ns, 17.1433 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 33554432 op, 574998708.00 ns, 17.1363 ns/op
+WorkloadActual   2: 33554432 op, 575179542.00 ns, 17.1417 ns/op
+WorkloadActual   3: 33554432 op, 577697334.00 ns, 17.2167 ns/op
+WorkloadActual   4: 33554432 op, 577471459.00 ns, 17.2100 ns/op
+WorkloadActual   5: 33554432 op, 575457834.00 ns, 17.1500 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 33554432 op, 530751750.00 ns, 15.8176 ns/op
+WorkloadResult   2: 33554432 op, 530932584.00 ns, 15.8230 ns/op
+WorkloadResult   3: 33554432 op, 533450376.00 ns, 15.8981 ns/op
+WorkloadResult   4: 33554432 op, 533224501.00 ns, 15.8913 ns/op
+WorkloadResult   5: 33554432 op, 531210876.00 ns, 15.8313 ns/op
+// GC:  0 0 0 0 33554432
+// Threading:  0 0 33554432
+
+// AfterAll
+// Benchmark Process 7305 has exited with code 0.
+
+Mean = 15.852 ns, StdErr = 0.017 ns (0.11%), N = 5, StdDev = 0.039 ns
+Min = 15.818 ns, Q1 = 15.823 ns, Median = 15.831 ns, Q3 = 15.891 ns, Max = 15.898 ns
+IQR = 0.068 ns, LowerFence = 15.721 ns, UpperFence = 15.994 ns
+ConfidenceInterval = [15.702 ns; 16.003 ns] (CI 99.9%), Margin = 0.151 ns (0.95% of Mean)
+Skewness = 0.27, Kurtosis = 0.78, MValue = 2
+
+// ** Remained 24 (85.7%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 3m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers100_Orders100)" --job ".NET 10.0.8" --benchmarkId 4 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 89375.00 ns, 89.3750 us/op
+WorkloadJitting  1: 1 op, 132834.00 ns, 132.8340 us/op
+
+OverheadJitting  2: 16 op, 173750.00 ns, 10.8594 us/op
+WorkloadJitting  2: 16 op, 1271500.00 ns, 79.4688 us/op
+
+WorkloadPilot    1: 16 op, 950875.00 ns, 59.4297 us/op
+WorkloadPilot    2: 32 op, 1884416.00 ns, 58.8880 us/op
+WorkloadPilot    3: 64 op, 3875083.00 ns, 60.5482 us/op
+WorkloadPilot    4: 128 op, 7651125.00 ns, 59.7744 us/op
+WorkloadPilot    5: 256 op, 15198125.00 ns, 59.3677 us/op
+WorkloadPilot    6: 512 op, 30102416.00 ns, 58.7938 us/op
+WorkloadPilot    7: 1024 op, 59540709.00 ns, 58.1452 us/op
+WorkloadPilot    8: 2048 op, 44960125.00 ns, 21.9532 us/op
+WorkloadPilot    9: 4096 op, 10517459.00 ns, 2.5677 us/op
+WorkloadPilot   10: 8192 op, 21012042.00 ns, 2.5649 us/op
+WorkloadPilot   11: 16384 op, 41803917.00 ns, 2.5515 us/op
+WorkloadPilot   12: 32768 op, 83382583.00 ns, 2.5446 us/op
+WorkloadPilot   13: 65536 op, 166795417.00 ns, 2.5451 us/op
+WorkloadPilot   14: 131072 op, 333774083.00 ns, 2.5465 us/op
+WorkloadPilot   15: 262144 op, 666690708.00 ns, 2.5432 us/op
+
+OverheadWarmup   1: 262144 op, 502792.00 ns, 1.9180 ns/op
+OverheadWarmup   2: 262144 op, 485125.00 ns, 1.8506 ns/op
+OverheadWarmup   3: 262144 op, 483625.00 ns, 1.8449 ns/op
+OverheadWarmup   4: 262144 op, 481667.00 ns, 1.8374 ns/op
+OverheadWarmup   5: 262144 op, 486792.00 ns, 1.8570 ns/op
+OverheadWarmup   6: 262144 op, 480500.00 ns, 1.8330 ns/op
+OverheadWarmup   7: 262144 op, 484875.00 ns, 1.8497 ns/op
+OverheadWarmup   8: 262144 op, 487750.00 ns, 1.8606 ns/op
+OverheadWarmup   9: 262144 op, 481750.00 ns, 1.8377 ns/op
+
+OverheadActual   1: 262144 op, 481208.00 ns, 1.8357 ns/op
+OverheadActual   2: 262144 op, 479875.00 ns, 1.8306 ns/op
+OverheadActual   3: 262144 op, 496125.00 ns, 1.8926 ns/op
+OverheadActual   4: 262144 op, 481750.00 ns, 1.8377 ns/op
+OverheadActual   5: 262144 op, 482208.00 ns, 1.8395 ns/op
+OverheadActual   6: 262144 op, 482208.00 ns, 1.8395 ns/op
+OverheadActual   7: 262144 op, 503375.00 ns, 1.9202 ns/op
+OverheadActual   8: 262144 op, 486959.00 ns, 1.8576 ns/op
+OverheadActual   9: 262144 op, 491417.00 ns, 1.8746 ns/op
+OverheadActual  10: 262144 op, 482875.00 ns, 1.8420 ns/op
+OverheadActual  11: 262144 op, 481875.00 ns, 1.8382 ns/op
+OverheadActual  12: 262144 op, 486792.00 ns, 1.8570 ns/op
+OverheadActual  13: 262144 op, 481667.00 ns, 1.8374 ns/op
+OverheadActual  14: 262144 op, 481500.00 ns, 1.8368 ns/op
+OverheadActual  15: 262144 op, 480542.00 ns, 1.8331 ns/op
+
+WorkloadWarmup   1: 262144 op, 673114042.00 ns, 2.5677 us/op
+WorkloadWarmup   2: 262144 op, 669346542.00 ns, 2.5534 us/op
+WorkloadWarmup   3: 262144 op, 668028000.00 ns, 2.5483 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 667050000.00 ns, 2.5446 us/op
+WorkloadActual   2: 262144 op, 666289250.00 ns, 2.5417 us/op
+WorkloadActual   3: 262144 op, 666127375.00 ns, 2.5411 us/op
+WorkloadActual   4: 262144 op, 669786625.00 ns, 2.5550 us/op
+WorkloadActual   5: 262144 op, 667428667.00 ns, 2.5460 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 666567792.00 ns, 2.5428 us/op
+WorkloadResult   2: 262144 op, 665807042.00 ns, 2.5399 us/op
+WorkloadResult   3: 262144 op, 665645167.00 ns, 2.5392 us/op
+WorkloadResult   4: 262144 op, 666946459.00 ns, 2.5442 us/op
+// GC:  275 0 0 2306867200 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7311 has exited with code 0.
+
+Mean = 2.542 μs, StdErr = 0.001 μs (0.05%), N = 4, StdDev = 0.002 μs
+Min = 2.539 μs, Q1 = 2.540 μs, Median = 2.541 μs, Q3 = 2.543 μs, Max = 2.544 μs
+IQR = 0.003 μs, LowerFence = 2.535 μs, UpperFence = 2.548 μs
+ConfidenceInterval = [2.526 μs; 2.557 μs] (CI 99.9%), Margin = 0.015 μs (0.60% of Mean)
+Skewness = 0.1, Kurtosis = 0.72, MValue = 2
+
+// ** Remained 23 (82.1%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 3m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers100_Orders100)" --job ".NET 10.0.8" --benchmarkId 5 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 97125.00 ns, 97.1250 us/op
+WorkloadJitting  1: 1 op, 87958.00 ns, 87.9580 us/op
+
+OverheadJitting  2: 16 op, 176166.00 ns, 11.0104 us/op
+WorkloadJitting  2: 16 op, 397250.00 ns, 24.8281 us/op
+
+WorkloadPilot    1: 16 op, 196125.00 ns, 12.2578 us/op
+WorkloadPilot    2: 32 op, 396291.00 ns, 12.3841 us/op
+WorkloadPilot    3: 64 op, 1060500.00 ns, 16.5703 us/op
+WorkloadPilot    4: 128 op, 1982000.00 ns, 15.4844 us/op
+WorkloadPilot    5: 256 op, 3669291.00 ns, 14.3332 us/op
+WorkloadPilot    6: 512 op, 7110250.00 ns, 13.8872 us/op
+WorkloadPilot    7: 1024 op, 13766583.00 ns, 13.4439 us/op
+WorkloadPilot    8: 2048 op, 27181667.00 ns, 13.2723 us/op
+WorkloadPilot    9: 4096 op, 54610458.00 ns, 13.3326 us/op
+WorkloadPilot   10: 8192 op, 64362750.00 ns, 7.8568 us/op
+WorkloadPilot   11: 16384 op, 41517542.00 ns, 2.5340 us/op
+WorkloadPilot   12: 32768 op, 83304125.00 ns, 2.5422 us/op
+WorkloadPilot   13: 65536 op, 166346333.00 ns, 2.5382 us/op
+WorkloadPilot   14: 131072 op, 332680750.00 ns, 2.5382 us/op
+WorkloadPilot   15: 262144 op, 665532083.00 ns, 2.5388 us/op
+
+OverheadWarmup   1: 262144 op, 492417.00 ns, 1.8784 ns/op
+OverheadWarmup   2: 262144 op, 482166.00 ns, 1.8393 ns/op
+OverheadWarmup   3: 262144 op, 484250.00 ns, 1.8473 ns/op
+OverheadWarmup   4: 262144 op, 481458.00 ns, 1.8366 ns/op
+OverheadWarmup   5: 262144 op, 483084.00 ns, 1.8428 ns/op
+OverheadWarmup   6: 262144 op, 485292.00 ns, 1.8512 ns/op
+OverheadWarmup   7: 262144 op, 489000.00 ns, 1.8654 ns/op
+OverheadWarmup   8: 262144 op, 483667.00 ns, 1.8450 ns/op
+
+OverheadActual   1: 262144 op, 489916.00 ns, 1.8689 ns/op
+OverheadActual   2: 262144 op, 489917.00 ns, 1.8689 ns/op
+OverheadActual   3: 262144 op, 494375.00 ns, 1.8859 ns/op
+OverheadActual   4: 262144 op, 491666.00 ns, 1.8756 ns/op
+OverheadActual   5: 262144 op, 496291.00 ns, 1.8932 ns/op
+OverheadActual   6: 262144 op, 483375.00 ns, 1.8439 ns/op
+OverheadActual   7: 262144 op, 483333.00 ns, 1.8438 ns/op
+OverheadActual   8: 262144 op, 486625.00 ns, 1.8563 ns/op
+OverheadActual   9: 262144 op, 483375.00 ns, 1.8439 ns/op
+OverheadActual  10: 262144 op, 500000.00 ns, 1.9073 ns/op
+OverheadActual  11: 262144 op, 486209.00 ns, 1.8547 ns/op
+OverheadActual  12: 262144 op, 485416.00 ns, 1.8517 ns/op
+OverheadActual  13: 262144 op, 486084.00 ns, 1.8543 ns/op
+OverheadActual  14: 262144 op, 483375.00 ns, 1.8439 ns/op
+OverheadActual  15: 262144 op, 483834.00 ns, 1.8457 ns/op
+
+WorkloadWarmup   1: 262144 op, 668378250.00 ns, 2.5497 us/op
+WorkloadWarmup   2: 262144 op, 669043042.00 ns, 2.5522 us/op
+WorkloadWarmup   3: 262144 op, 665312166.00 ns, 2.5380 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 664398375.00 ns, 2.5345 us/op
+WorkloadActual   2: 262144 op, 664020333.00 ns, 2.5330 us/op
+WorkloadActual   3: 262144 op, 663225958.00 ns, 2.5300 us/op
+WorkloadActual   4: 262144 op, 664561458.00 ns, 2.5351 us/op
+WorkloadActual   5: 262144 op, 667037958.00 ns, 2.5445 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 663912166.00 ns, 2.5326 us/op
+WorkloadResult   2: 262144 op, 663534124.00 ns, 2.5312 us/op
+WorkloadResult   3: 262144 op, 662739749.00 ns, 2.5282 us/op
+WorkloadResult   4: 262144 op, 664075249.00 ns, 2.5332 us/op
+// GC:  349 12 0 2921332736 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7314 has exited with code 0.
+
+Mean = 2.531 μs, StdErr = 0.001 μs (0.04%), N = 4, StdDev = 0.002 μs
+Min = 2.528 μs, Q1 = 2.530 μs, Median = 2.532 μs, Q3 = 2.533 μs, Max = 2.533 μs
+IQR = 0.002 μs, LowerFence = 2.527 μs, UpperFence = 2.536 μs
+ConfidenceInterval = [2.517 μs; 2.546 μs] (CI 99.9%), Margin = 0.015 μs (0.58% of Mean)
+Skewness = -0.46, Kurtosis = 1.09, MValue = 2
+
+// ** Remained 22 (78.6%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers100_Orders100)" --job ".NET 10.0.8" --benchmarkId 6 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 97750.00 ns, 97.7500 us/op
+WorkloadJitting  1: 1 op, 108417.00 ns, 108.4170 us/op
+
+OverheadJitting  2: 16 op, 188500.00 ns, 11.7813 us/op
+WorkloadJitting  2: 16 op, 271584.00 ns, 16.9740 us/op
+
+WorkloadPilot    1: 16 op, 118291.00 ns, 7.3932 us/op
+WorkloadPilot    2: 32 op, 241708.00 ns, 7.5534 us/op
+WorkloadPilot    3: 64 op, 639375.00 ns, 9.9902 us/op
+WorkloadPilot    4: 128 op, 1247209.00 ns, 9.7438 us/op
+WorkloadPilot    5: 256 op, 2231000.00 ns, 8.7148 us/op
+WorkloadPilot    6: 512 op, 4156458.00 ns, 8.1181 us/op
+WorkloadPilot    7: 1024 op, 7971542.00 ns, 7.7847 us/op
+WorkloadPilot    8: 2048 op, 15703292.00 ns, 7.6676 us/op
+WorkloadPilot    9: 4096 op, 30735250.00 ns, 7.5037 us/op
+WorkloadPilot   10: 8192 op, 60867666.00 ns, 7.4301 us/op
+WorkloadPilot   11: 16384 op, 44547042.00 ns, 2.7189 us/op
+WorkloadPilot   12: 32768 op, 13828125.00 ns, 422.0009 ns/op
+WorkloadPilot   13: 65536 op, 27632292.00 ns, 421.6353 ns/op
+WorkloadPilot   14: 131072 op, 55060417.00 ns, 420.0776 ns/op
+WorkloadPilot   15: 262144 op, 110179208.00 ns, 420.3003 ns/op
+WorkloadPilot   16: 524288 op, 220495125.00 ns, 420.5611 ns/op
+WorkloadPilot   17: 1048576 op, 439571583.00 ns, 419.2081 ns/op
+WorkloadPilot   18: 2097152 op, 884731750.00 ns, 421.8730 ns/op
+
+OverheadWarmup   1: 2097152 op, 3848958.00 ns, 1.8353 ns/op
+OverheadWarmup   2: 2097152 op, 3863625.00 ns, 1.8423 ns/op
+OverheadWarmup   3: 2097152 op, 3844416.00 ns, 1.8332 ns/op
+OverheadWarmup   4: 2097152 op, 3885333.00 ns, 1.8527 ns/op
+OverheadWarmup   5: 2097152 op, 3860000.00 ns, 1.8406 ns/op
+
+OverheadActual   1: 2097152 op, 3845042.00 ns, 1.8335 ns/op
+OverheadActual   2: 2097152 op, 3891083.00 ns, 1.8554 ns/op
+OverheadActual   3: 2097152 op, 3833500.00 ns, 1.8280 ns/op
+OverheadActual   4: 2097152 op, 3870375.00 ns, 1.8455 ns/op
+OverheadActual   5: 2097152 op, 3847583.00 ns, 1.8347 ns/op
+OverheadActual   6: 2097152 op, 3911625.00 ns, 1.8652 ns/op
+OverheadActual   7: 2097152 op, 3857917.00 ns, 1.8396 ns/op
+OverheadActual   8: 2097152 op, 3840625.00 ns, 1.8314 ns/op
+OverheadActual   9: 2097152 op, 3885709.00 ns, 1.8529 ns/op
+OverheadActual  10: 2097152 op, 3894583.00 ns, 1.8571 ns/op
+OverheadActual  11: 2097152 op, 3875125.00 ns, 1.8478 ns/op
+OverheadActual  12: 2097152 op, 3846750.00 ns, 1.8343 ns/op
+OverheadActual  13: 2097152 op, 3873250.00 ns, 1.8469 ns/op
+OverheadActual  14: 2097152 op, 3901167.00 ns, 1.8602 ns/op
+OverheadActual  15: 2097152 op, 3841375.00 ns, 1.8317 ns/op
+
+WorkloadWarmup   1: 2097152 op, 889729583.00 ns, 424.2561 ns/op
+WorkloadWarmup   2: 2097152 op, 881534292.00 ns, 420.3483 ns/op
+WorkloadWarmup   3: 2097152 op, 879528959.00 ns, 419.3921 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 2097152 op, 877253542.00 ns, 418.3071 ns/op
+WorkloadActual   2: 2097152 op, 876560833.00 ns, 417.9768 ns/op
+WorkloadActual   3: 2097152 op, 880930542.00 ns, 420.0604 ns/op
+WorkloadActual   4: 2097152 op, 876837833.00 ns, 418.1089 ns/op
+WorkloadActual   5: 2097152 op, 876699666.00 ns, 418.0430 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 2097152 op, 873383167.00 ns, 416.4615 ns/op
+WorkloadResult   2: 2097152 op, 872690458.00 ns, 416.1312 ns/op
+WorkloadResult   3: 2097152 op, 872967458.00 ns, 416.2633 ns/op
+WorkloadResult   4: 2097152 op, 872829291.00 ns, 416.1974 ns/op
+// GC:  677 4 0 5670699008 2097152
+// Threading:  0 0 2097152
+
+// AfterAll
+// Benchmark Process 7322 has exited with code 0.
+
+Mean = 416.263 ns, StdErr = 0.071 ns (0.02%), N = 4, StdDev = 0.143 ns
+Min = 416.131 ns, Q1 = 416.181 ns, Median = 416.230 ns, Q3 = 416.313 ns, Max = 416.462 ns
+IQR = 0.132 ns, LowerFence = 415.983 ns, UpperFence = 416.511 ns
+ConfidenceInterval = [415.341 ns; 417.185 ns] (CI 99.9%), Margin = 0.922 ns (0.22% of Mean)
+Skewness = 0.45, Kurtosis = 1.13, MValue = 2
+
+// ** Remained 21 (75.0%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers100_Orders100)" --job ".NET 10.0.8" --benchmarkId 7 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 90792.00 ns, 90.7920 us/op
+WorkloadJitting  1: 1 op, 80125.00 ns, 80.1250 us/op
+
+OverheadJitting  2: 16 op, 184792.00 ns, 11.5495 us/op
+WorkloadJitting  2: 16 op, 228250.00 ns, 14.2656 us/op
+
+WorkloadPilot    1: 16 op, 72209.00 ns, 4.5131 us/op
+WorkloadPilot    2: 32 op, 147083.00 ns, 4.5963 us/op
+WorkloadPilot    3: 64 op, 398583.00 ns, 6.2279 us/op
+WorkloadPilot    4: 128 op, 682667.00 ns, 5.3333 us/op
+WorkloadPilot    5: 256 op, 1309208.00 ns, 5.1141 us/op
+WorkloadPilot    6: 512 op, 2457250.00 ns, 4.7993 us/op
+WorkloadPilot    7: 1024 op, 4706625.00 ns, 4.5963 us/op
+WorkloadPilot    8: 2048 op, 9115417.00 ns, 4.4509 us/op
+WorkloadPilot    9: 4096 op, 17883708.00 ns, 4.3661 us/op
+WorkloadPilot   10: 8192 op, 35849209.00 ns, 4.3761 us/op
+WorkloadPilot   11: 16384 op, 71282916.00 ns, 4.3508 us/op
+WorkloadPilot   12: 32768 op, 17731708.00 ns, 541.1288 ns/op
+WorkloadPilot   13: 65536 op, 11142417.00 ns, 170.0198 ns/op
+WorkloadPilot   14: 131072 op, 22152750.00 ns, 169.0121 ns/op
+WorkloadPilot   15: 262144 op, 44178166.00 ns, 168.5263 ns/op
+WorkloadPilot   16: 524288 op, 88416625.00 ns, 168.6413 ns/op
+WorkloadPilot   17: 1048576 op, 177174125.00 ns, 168.9664 ns/op
+WorkloadPilot   18: 2097152 op, 354177916.00 ns, 168.8852 ns/op
+WorkloadPilot   19: 4194304 op, 706084708.00 ns, 168.3437 ns/op
+
+OverheadWarmup   1: 4194304 op, 7600791.00 ns, 1.8122 ns/op
+OverheadWarmup   2: 4194304 op, 7786959.00 ns, 1.8566 ns/op
+OverheadWarmup   3: 4194304 op, 7580208.00 ns, 1.8073 ns/op
+OverheadWarmup   4: 4194304 op, 7705208.00 ns, 1.8371 ns/op
+OverheadWarmup   5: 4194304 op, 7566041.00 ns, 1.8039 ns/op
+
+OverheadActual   1: 4194304 op, 7711709.00 ns, 1.8386 ns/op
+OverheadActual   2: 4194304 op, 7585209.00 ns, 1.8085 ns/op
+OverheadActual   3: 4194304 op, 7700000.00 ns, 1.8358 ns/op
+OverheadActual   4: 4194304 op, 7575500.00 ns, 1.8061 ns/op
+OverheadActual   5: 4194304 op, 7650459.00 ns, 1.8240 ns/op
+OverheadActual   6: 4194304 op, 7581625.00 ns, 1.8076 ns/op
+OverheadActual   7: 4194304 op, 7680166.00 ns, 1.8311 ns/op
+OverheadActual   8: 4194304 op, 7609708.00 ns, 1.8143 ns/op
+OverheadActual   9: 4194304 op, 7700416.00 ns, 1.8359 ns/op
+OverheadActual  10: 4194304 op, 7598834.00 ns, 1.8117 ns/op
+OverheadActual  11: 4194304 op, 7641625.00 ns, 1.8219 ns/op
+OverheadActual  12: 4194304 op, 7581708.00 ns, 1.8076 ns/op
+OverheadActual  13: 4194304 op, 7646166.00 ns, 1.8230 ns/op
+OverheadActual  14: 4194304 op, 7600292.00 ns, 1.8121 ns/op
+OverheadActual  15: 4194304 op, 7635375.00 ns, 1.8204 ns/op
+
+WorkloadWarmup   1: 4194304 op, 705565667.00 ns, 168.2200 ns/op
+WorkloadWarmup   2: 4194304 op, 704430166.00 ns, 167.9492 ns/op
+WorkloadWarmup   3: 4194304 op, 705060375.00 ns, 168.0995 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 4194304 op, 705741500.00 ns, 168.2619 ns/op
+WorkloadActual   2: 4194304 op, 707126625.00 ns, 168.5921 ns/op
+WorkloadActual   3: 4194304 op, 704859125.00 ns, 168.0515 ns/op
+WorkloadActual   4: 4194304 op, 704695875.00 ns, 168.0126 ns/op
+WorkloadActual   5: 4194304 op, 704573875.00 ns, 167.9835 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 4194304 op, 698106125.00 ns, 166.4415 ns/op
+WorkloadResult   2: 4194304 op, 699491250.00 ns, 166.7717 ns/op
+WorkloadResult   3: 4194304 op, 697223750.00 ns, 166.2311 ns/op
+WorkloadResult   4: 4194304 op, 697060500.00 ns, 166.1922 ns/op
+WorkloadResult   5: 4194304 op, 696938500.00 ns, 166.1631 ns/op
+// GC:  0 0 0 0 4194304
+// Threading:  0 0 4194304
+
+// AfterAll
+// Benchmark Process 7329 has exited with code 0.
+
+Mean = 166.360 ns, StdErr = 0.114 ns (0.07%), N = 5, StdDev = 0.255 ns
+Min = 166.163 ns, Q1 = 166.192 ns, Median = 166.231 ns, Q3 = 166.441 ns, Max = 166.772 ns
+IQR = 0.249 ns, LowerFence = 165.818 ns, UpperFence = 166.815 ns
+ConfidenceInterval = [165.379 ns; 167.341 ns] (CI 99.9%), Margin = 0.981 ns (0.59% of Mean)
+Skewness = 0.68, Kurtosis = 1.49, MValue = 2
+
+// ** Remained 20 (71.4%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers1000_Orders10)" --job ".NET 10.0.8" --benchmarkId 8 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 89542.00 ns, 89.5420 us/op
+WorkloadJitting  1: 1 op, 217750.00 ns, 217.7500 us/op
+
+OverheadJitting  2: 16 op, 204375.00 ns, 12.7734 us/op
+WorkloadJitting  2: 16 op, 1495041.00 ns, 93.4401 us/op
+
+WorkloadPilot    1: 16 op, 1181041.00 ns, 73.8151 us/op
+WorkloadPilot    2: 32 op, 2245166.00 ns, 70.1614 us/op
+WorkloadPilot    3: 64 op, 4469917.00 ns, 69.8425 us/op
+WorkloadPilot    4: 128 op, 8922709.00 ns, 69.7087 us/op
+WorkloadPilot    5: 256 op, 18255291.00 ns, 71.3097 us/op
+WorkloadPilot    6: 512 op, 35473542.00 ns, 69.2843 us/op
+WorkloadPilot    7: 1024 op, 71043917.00 ns, 69.3788 us/op
+WorkloadPilot    8: 2048 op, 22722791.00 ns, 11.0951 us/op
+WorkloadPilot    9: 4096 op, 8029875.00 ns, 1.9604 us/op
+WorkloadPilot   10: 8192 op, 16132042.00 ns, 1.9692 us/op
+WorkloadPilot   11: 16384 op, 32350542.00 ns, 1.9745 us/op
+WorkloadPilot   12: 32768 op, 64204208.00 ns, 1.9594 us/op
+WorkloadPilot   13: 65536 op, 128624916.00 ns, 1.9627 us/op
+WorkloadPilot   14: 131072 op, 257299083.00 ns, 1.9630 us/op
+WorkloadPilot   15: 262144 op, 514530792.00 ns, 1.9628 us/op
+
+OverheadWarmup   1: 262144 op, 478583.00 ns, 1.8256 ns/op
+OverheadWarmup   2: 262144 op, 493291.00 ns, 1.8818 ns/op
+OverheadWarmup   3: 262144 op, 481875.00 ns, 1.8382 ns/op
+OverheadWarmup   4: 262144 op, 493167.00 ns, 1.8813 ns/op
+OverheadWarmup   5: 262144 op, 483375.00 ns, 1.8439 ns/op
+
+OverheadActual   1: 262144 op, 482375.00 ns, 1.8401 ns/op
+OverheadActual   2: 262144 op, 479375.00 ns, 1.8287 ns/op
+OverheadActual   3: 262144 op, 480500.00 ns, 1.8330 ns/op
+OverheadActual   4: 262144 op, 481417.00 ns, 1.8365 ns/op
+OverheadActual   5: 262144 op, 482417.00 ns, 1.8403 ns/op
+OverheadActual   6: 262144 op, 478916.00 ns, 1.8269 ns/op
+OverheadActual   7: 262144 op, 499250.00 ns, 1.9045 ns/op
+OverheadActual   8: 262144 op, 479166.00 ns, 1.8279 ns/op
+OverheadActual   9: 262144 op, 493458.00 ns, 1.8824 ns/op
+OverheadActual  10: 262144 op, 491500.00 ns, 1.8749 ns/op
+OverheadActual  11: 262144 op, 479334.00 ns, 1.8285 ns/op
+OverheadActual  12: 262144 op, 493125.00 ns, 1.8811 ns/op
+OverheadActual  13: 262144 op, 490083.00 ns, 1.8695 ns/op
+OverheadActual  14: 262144 op, 483583.00 ns, 1.8447 ns/op
+OverheadActual  15: 262144 op, 479500.00 ns, 1.8291 ns/op
+
+WorkloadWarmup   1: 262144 op, 512840667.00 ns, 1.9563 us/op
+WorkloadWarmup   2: 262144 op, 511719875.00 ns, 1.9521 us/op
+WorkloadWarmup   3: 262144 op, 511901875.00 ns, 1.9528 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 512188833.00 ns, 1.9538 us/op
+WorkloadActual   2: 262144 op, 513276167.00 ns, 1.9580 us/op
+WorkloadActual   3: 262144 op, 512384625.00 ns, 1.9546 us/op
+WorkloadActual   4: 262144 op, 514732583.00 ns, 1.9635 us/op
+WorkloadActual   5: 262144 op, 513421792.00 ns, 1.9585 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 511706458.00 ns, 1.9520 us/op
+WorkloadResult   2: 262144 op, 512793792.00 ns, 1.9562 us/op
+WorkloadResult   3: 262144 op, 511902250.00 ns, 1.9528 us/op
+WorkloadResult   4: 262144 op, 514250208.00 ns, 1.9617 us/op
+WorkloadResult   5: 262144 op, 512939417.00 ns, 1.9567 us/op
+// GC:  27 0 0 230686720 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7331 has exited with code 0.
+
+Mean = 1.956 μs, StdErr = 0.002 μs (0.09%), N = 5, StdDev = 0.004 μs
+Min = 1.952 μs, Q1 = 1.953 μs, Median = 1.956 μs, Q3 = 1.957 μs, Max = 1.962 μs
+IQR = 0.004 μs, LowerFence = 1.947 μs, UpperFence = 1.963 μs
+ConfidenceInterval = [1.941 μs; 1.971 μs] (CI 99.9%), Margin = 0.015 μs (0.76% of Mean)
+Skewness = 0.39, Kurtosis = 1.34, MValue = 2
+
+// ** Remained 19 (67.9%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers1000_Orders10)" --job ".NET 10.0.8" --benchmarkId 9 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 90750.00 ns, 90.7500 us/op
+WorkloadJitting  1: 1 op, 132833.00 ns, 132.8330 us/op
+
+OverheadJitting  2: 16 op, 177625.00 ns, 11.1016 us/op
+WorkloadJitting  2: 16 op, 2101209.00 ns, 131.3256 us/op
+
+WorkloadPilot    1: 16 op, 954834.00 ns, 59.6771 us/op
+WorkloadPilot    2: 32 op, 1939375.00 ns, 60.6055 us/op
+WorkloadPilot    3: 64 op, 3807875.00 ns, 59.4980 us/op
+WorkloadPilot    4: 128 op, 6997459.00 ns, 54.6676 us/op
+WorkloadPilot    5: 256 op, 13941166.00 ns, 54.4577 us/op
+WorkloadPilot    6: 512 op, 27817916.00 ns, 54.3319 us/op
+WorkloadPilot    7: 1024 op, 55122875.00 ns, 53.8309 us/op
+WorkloadPilot    8: 2048 op, 68631041.00 ns, 33.5113 us/op
+WorkloadPilot    9: 4096 op, 60172416.00 ns, 14.6905 us/op
+WorkloadPilot   10: 8192 op, 120134375.00 ns, 14.6648 us/op
+WorkloadPilot   11: 16384 op, 243086000.00 ns, 14.8368 us/op
+WorkloadPilot   12: 32768 op, 479557250.00 ns, 14.6349 us/op
+WorkloadPilot   13: 65536 op, 961111333.00 ns, 14.6654 us/op
+
+OverheadWarmup   1: 65536 op, 129125.00 ns, 1.9703 ns/op
+OverheadWarmup   2: 65536 op, 126125.00 ns, 1.9245 ns/op
+OverheadWarmup   3: 65536 op, 126500.00 ns, 1.9302 ns/op
+OverheadWarmup   4: 65536 op, 122750.00 ns, 1.8730 ns/op
+OverheadWarmup   5: 65536 op, 125417.00 ns, 1.9137 ns/op
+OverheadWarmup   6: 65536 op, 127084.00 ns, 1.9391 ns/op
+OverheadWarmup   7: 65536 op, 123833.00 ns, 1.8895 ns/op
+
+OverheadActual   1: 65536 op, 124166.00 ns, 1.8946 ns/op
+OverheadActual   2: 65536 op, 122250.00 ns, 1.8654 ns/op
+OverheadActual   3: 65536 op, 124125.00 ns, 1.8940 ns/op
+OverheadActual   4: 65536 op, 123667.00 ns, 1.8870 ns/op
+OverheadActual   5: 65536 op, 120250.00 ns, 1.8349 ns/op
+OverheadActual   6: 65536 op, 123833.00 ns, 1.8895 ns/op
+OverheadActual   7: 65536 op, 125792.00 ns, 1.9194 ns/op
+OverheadActual   8: 65536 op, 123708.00 ns, 1.8876 ns/op
+OverheadActual   9: 65536 op, 122750.00 ns, 1.8730 ns/op
+OverheadActual  10: 65536 op, 124125.00 ns, 1.8940 ns/op
+OverheadActual  11: 65536 op, 124458.00 ns, 1.8991 ns/op
+OverheadActual  12: 65536 op, 122667.00 ns, 1.8717 ns/op
+OverheadActual  13: 65536 op, 124292.00 ns, 1.8965 ns/op
+OverheadActual  14: 65536 op, 123416.00 ns, 1.8832 ns/op
+OverheadActual  15: 65536 op, 124417.00 ns, 1.8985 ns/op
+
+WorkloadWarmup   1: 65536 op, 965832583.00 ns, 14.7374 us/op
+WorkloadWarmup   2: 65536 op, 957613458.00 ns, 14.6120 us/op
+WorkloadWarmup   3: 65536 op, 957298333.00 ns, 14.6072 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 65536 op, 945095167.00 ns, 14.4210 us/op
+WorkloadActual   2: 65536 op, 1071713333.00 ns, 16.3530 us/op
+WorkloadActual   3: 65536 op, 1035564167.00 ns, 15.8015 us/op
+WorkloadActual   4: 65536 op, 966522708.00 ns, 14.7480 us/op
+WorkloadActual   5: 65536 op, 951540834.00 ns, 14.5194 us/op
+
+// AfterActualRun
+WorkloadResult   1: 65536 op, 944971334.00 ns, 14.4191 us/op
+WorkloadResult   2: 65536 op, 1071589500.00 ns, 16.3512 us/op
+WorkloadResult   3: 65536 op, 1035440334.00 ns, 15.7996 us/op
+WorkloadResult   4: 65536 op, 966398875.00 ns, 14.7461 us/op
+WorkloadResult   5: 65536 op, 951417001.00 ns, 14.5175 us/op
+// GC:  820 203 0 6863454208 65536
+// Threading:  0 0 65536
+
+// AfterAll
+// Benchmark Process 7335 has exited with code 0.
+
+Mean = 15.167 μs, StdErr = 0.385 μs (2.54%), N = 5, StdDev = 0.860 μs
+Min = 14.419 μs, Q1 = 14.517 μs, Median = 14.746 μs, Q3 = 15.800 μs, Max = 16.351 μs
+IQR = 1.282 μs, LowerFence = 12.594 μs, UpperFence = 17.723 μs
+ConfidenceInterval = [11.854 μs; 18.480 μs] (CI 99.9%), Margin = 3.313 μs (21.84% of Mean)
+Skewness = 0.36, Kurtosis = 0.97, MValue = 2
+
+// ** Remained 18 (64.3%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers1000_Orders10)" --job ".NET 10.0.8" --benchmarkId 10 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 99541.00 ns, 99.5410 us/op
+WorkloadJitting  1: 1 op, 896084.00 ns, 896.0840 us/op
+
+OverheadJitting  2: 16 op, 174416.00 ns, 10.9010 us/op
+WorkloadJitting  2: 16 op, 1511459.00 ns, 94.4662 us/op
+
+WorkloadPilot    1: 16 op, 619083.00 ns, 38.6927 us/op
+WorkloadPilot    2: 32 op, 1150583.00 ns, 35.9557 us/op
+WorkloadPilot    3: 64 op, 2116417.00 ns, 33.0690 us/op
+WorkloadPilot    4: 128 op, 4218333.00 ns, 32.9557 us/op
+WorkloadPilot    5: 256 op, 7978041.00 ns, 31.1642 us/op
+WorkloadPilot    6: 512 op, 15776416.00 ns, 30.8133 us/op
+WorkloadPilot    7: 1024 op, 31339375.00 ns, 30.6049 us/op
+WorkloadPilot    8: 2048 op, 62779041.00 ns, 30.6538 us/op
+WorkloadPilot    9: 4096 op, 44429250.00 ns, 10.8470 us/op
+WorkloadPilot   10: 8192 op, 20813334.00 ns, 2.5407 us/op
+WorkloadPilot   11: 16384 op, 41982708.00 ns, 2.5624 us/op
+WorkloadPilot   12: 32768 op, 84026083.00 ns, 2.5643 us/op
+WorkloadPilot   13: 65536 op, 162306250.00 ns, 2.4766 us/op
+WorkloadPilot   14: 131072 op, 320095250.00 ns, 2.4421 us/op
+WorkloadPilot   15: 262144 op, 642561625.00 ns, 2.4512 us/op
+
+OverheadWarmup   1: 262144 op, 485333.00 ns, 1.8514 ns/op
+OverheadWarmup   2: 262144 op, 480250.00 ns, 1.8320 ns/op
+OverheadWarmup   3: 262144 op, 493208.00 ns, 1.8814 ns/op
+OverheadWarmup   4: 262144 op, 493083.00 ns, 1.8810 ns/op
+OverheadWarmup   5: 262144 op, 492417.00 ns, 1.8784 ns/op
+OverheadWarmup   6: 262144 op, 483083.00 ns, 1.8428 ns/op
+OverheadWarmup   7: 262144 op, 507084.00 ns, 1.9344 ns/op
+OverheadWarmup   8: 262144 op, 492291.00 ns, 1.8779 ns/op
+
+OverheadActual   1: 262144 op, 487292.00 ns, 1.8589 ns/op
+OverheadActual   2: 262144 op, 480666.00 ns, 1.8336 ns/op
+OverheadActual   3: 262144 op, 486459.00 ns, 1.8557 ns/op
+OverheadActual   4: 262144 op, 481333.00 ns, 1.8361 ns/op
+OverheadActual   5: 262144 op, 486750.00 ns, 1.8568 ns/op
+OverheadActual   6: 262144 op, 483125.00 ns, 1.8430 ns/op
+OverheadActual   7: 262144 op, 485250.00 ns, 1.8511 ns/op
+OverheadActual   8: 262144 op, 484083.00 ns, 1.8466 ns/op
+OverheadActual   9: 262144 op, 487333.00 ns, 1.8590 ns/op
+OverheadActual  10: 262144 op, 487500.00 ns, 1.8597 ns/op
+OverheadActual  11: 262144 op, 482708.00 ns, 1.8414 ns/op
+OverheadActual  12: 262144 op, 482750.00 ns, 1.8415 ns/op
+OverheadActual  13: 262144 op, 483708.00 ns, 1.8452 ns/op
+OverheadActual  14: 262144 op, 483042.00 ns, 1.8427 ns/op
+OverheadActual  15: 262144 op, 482333.00 ns, 1.8400 ns/op
+
+WorkloadWarmup   1: 262144 op, 640265084.00 ns, 2.4424 us/op
+WorkloadWarmup   2: 262144 op, 641586375.00 ns, 2.4475 us/op
+WorkloadWarmup   3: 262144 op, 660531375.00 ns, 2.5197 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 639973542.00 ns, 2.4413 us/op
+WorkloadActual   2: 262144 op, 637694292.00 ns, 2.4326 us/op
+WorkloadActual   3: 262144 op, 642952583.00 ns, 2.4527 us/op
+WorkloadActual   4: 262144 op, 665730792.00 ns, 2.5396 us/op
+WorkloadActual   5: 262144 op, 649610125.00 ns, 2.4781 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 639489834.00 ns, 2.4395 us/op
+WorkloadResult   2: 262144 op, 637210584.00 ns, 2.4308 us/op
+WorkloadResult   3: 262144 op, 642468875.00 ns, 2.4508 us/op
+WorkloadResult   4: 262144 op, 649126417.00 ns, 2.4762 us/op
+// GC:  832 75 0 6975127552 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7340 has exited with code 0.
+
+Mean = 2.449 μs, StdErr = 0.010 μs (0.40%), N = 4, StdDev = 0.020 μs
+Min = 2.431 μs, Q1 = 2.437 μs, Median = 2.445 μs, Q3 = 2.457 μs, Max = 2.476 μs
+IQR = 0.020 μs, LowerFence = 2.407 μs, UpperFence = 2.487 μs
+ConfidenceInterval = [2.322 μs; 2.577 μs] (CI 99.9%), Margin = 0.127 μs (5.20% of Mean)
+Skewness = 0.4, Kurtosis = 1.08, MValue = 2
+
+// ** Remained 17 (60.7%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers1000_Orders10)" --job ".NET 10.0.8" --benchmarkId 11 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 98834.00 ns, 98.8340 us/op
+WorkloadJitting  1: 1 op, 81916.00 ns, 81.9160 us/op
+
+OverheadJitting  2: 16 op, 238625.00 ns, 14.9141 us/op
+WorkloadJitting  2: 16 op, 242458.00 ns, 15.1536 us/op
+
+WorkloadPilot    1: 16 op, 10709.00 ns, 669.3125 ns/op
+WorkloadPilot    2: 32 op, 19167.00 ns, 598.9688 ns/op
+WorkloadPilot    3: 64 op, 31833.00 ns, 497.3906 ns/op
+WorkloadPilot    4: 128 op, 62667.00 ns, 489.5859 ns/op
+WorkloadPilot    5: 256 op, 123166.00 ns, 481.1172 ns/op
+WorkloadPilot    6: 512 op, 267125.00 ns, 521.7285 ns/op
+WorkloadPilot    7: 1024 op, 607334.00 ns, 593.0996 ns/op
+WorkloadPilot    8: 2048 op, 1076500.00 ns, 525.6348 ns/op
+WorkloadPilot    9: 4096 op, 1994167.00 ns, 486.8572 ns/op
+WorkloadPilot   10: 8192 op, 3919625.00 ns, 478.4698 ns/op
+WorkloadPilot   11: 16384 op, 7746916.00 ns, 472.8342 ns/op
+WorkloadPilot   12: 32768 op, 15200000.00 ns, 463.8672 ns/op
+WorkloadPilot   13: 65536 op, 30349625.00 ns, 463.0985 ns/op
+WorkloadPilot   14: 131072 op, 60380958.00 ns, 460.6702 ns/op
+WorkloadPilot   15: 262144 op, 40678250.00 ns, 155.1752 ns/op
+WorkloadPilot   16: 524288 op, 8866750.00 ns, 16.9120 ns/op
+WorkloadPilot   17: 1048576 op, 17929708.00 ns, 17.0991 ns/op
+WorkloadPilot   18: 2097152 op, 35700583.00 ns, 17.0234 ns/op
+WorkloadPilot   19: 4194304 op, 71542209.00 ns, 17.0570 ns/op
+WorkloadPilot   20: 8388608 op, 142468042.00 ns, 16.9835 ns/op
+WorkloadPilot   21: 16777216 op, 285005708.00 ns, 16.9877 ns/op
+WorkloadPilot   22: 33554432 op, 569822792.00 ns, 16.9820 ns/op
+
+OverheadWarmup   1: 33554432 op, 61843250.00 ns, 1.8431 ns/op
+OverheadWarmup   2: 33554432 op, 61391625.00 ns, 1.8296 ns/op
+OverheadWarmup   3: 33554432 op, 61625292.00 ns, 1.8366 ns/op
+OverheadWarmup   4: 33554432 op, 51487875.00 ns, 1.5345 ns/op
+OverheadWarmup   5: 33554432 op, 44417750.00 ns, 1.3238 ns/op
+OverheadWarmup   6: 33554432 op, 44324791.00 ns, 1.3210 ns/op
+OverheadWarmup   7: 33554432 op, 44286041.00 ns, 1.3198 ns/op
+OverheadWarmup   8: 33554432 op, 44226458.00 ns, 1.3181 ns/op
+OverheadWarmup   9: 33554432 op, 44379584.00 ns, 1.3226 ns/op
+OverheadWarmup  10: 33554432 op, 44389875.00 ns, 1.3229 ns/op
+
+OverheadActual   1: 33554432 op, 44108250.00 ns, 1.3145 ns/op
+OverheadActual   2: 33554432 op, 44446417.00 ns, 1.3246 ns/op
+OverheadActual   3: 33554432 op, 44313917.00 ns, 1.3207 ns/op
+OverheadActual   4: 33554432 op, 44255041.00 ns, 1.3189 ns/op
+OverheadActual   5: 33554432 op, 44208709.00 ns, 1.3175 ns/op
+OverheadActual   6: 33554432 op, 44426583.00 ns, 1.3240 ns/op
+OverheadActual   7: 33554432 op, 44258792.00 ns, 1.3190 ns/op
+OverheadActual   8: 33554432 op, 44335459.00 ns, 1.3213 ns/op
+OverheadActual   9: 33554432 op, 44225667.00 ns, 1.3180 ns/op
+OverheadActual  10: 33554432 op, 44263208.00 ns, 1.3191 ns/op
+OverheadActual  11: 33554432 op, 44353041.00 ns, 1.3218 ns/op
+OverheadActual  12: 33554432 op, 44216666.00 ns, 1.3178 ns/op
+OverheadActual  13: 33554432 op, 44083834.00 ns, 1.3138 ns/op
+OverheadActual  14: 33554432 op, 44256125.00 ns, 1.3189 ns/op
+OverheadActual  15: 33554432 op, 44309209.00 ns, 1.3205 ns/op
+
+WorkloadWarmup   1: 33554432 op, 569424000.00 ns, 16.9702 ns/op
+WorkloadWarmup   2: 33554432 op, 569925833.00 ns, 16.9851 ns/op
+WorkloadWarmup   3: 33554432 op, 573714291.00 ns, 17.0980 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 33554432 op, 571149791.00 ns, 17.0216 ns/op
+WorkloadActual   2: 33554432 op, 569922667.00 ns, 16.9850 ns/op
+WorkloadActual   3: 33554432 op, 569392958.00 ns, 16.9692 ns/op
+WorkloadActual   4: 33554432 op, 569739375.00 ns, 16.9796 ns/op
+WorkloadActual   5: 33554432 op, 569564541.00 ns, 16.9743 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 33554432 op, 525663875.00 ns, 15.6660 ns/op
+WorkloadResult   2: 33554432 op, 525134166.00 ns, 15.6502 ns/op
+WorkloadResult   3: 33554432 op, 525480583.00 ns, 15.6605 ns/op
+WorkloadResult   4: 33554432 op, 525305749.00 ns, 15.6553 ns/op
+// GC:  0 0 0 0 33554432
+// Threading:  0 0 33554432
+
+// AfterAll
+// Benchmark Process 7344 has exited with code 0.
+
+Mean = 15.658 ns, StdErr = 0.003 ns (0.02%), N = 4, StdDev = 0.007 ns
+Min = 15.650 ns, Q1 = 15.654 ns, Median = 15.658 ns, Q3 = 15.662 ns, Max = 15.666 ns
+IQR = 0.008 ns, LowerFence = 15.642 ns, UpperFence = 15.674 ns
+ConfidenceInterval = [15.614 ns; 15.702 ns] (CI 99.9%), Margin = 0.044 ns (0.28% of Mean)
+Skewness = 0.02, Kurtosis = 0.93, MValue = 2
+
+// ** Remained 16 (57.1%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 2m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers1000_Orders50)" --job ".NET 10.0.8" --benchmarkId 12 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 93375.00 ns, 93.3750 us/op
+WorkloadJitting  1: 1 op, 376083.00 ns, 376.0830 us/op
+
+OverheadJitting  2: 16 op, 176125.00 ns, 11.0078 us/op
+WorkloadJitting  2: 16 op, 4630583.00 ns, 289.4114 us/op
+
+WorkloadPilot    1: 16 op, 4359833.00 ns, 272.4896 us/op
+WorkloadPilot    2: 32 op, 8425167.00 ns, 263.2865 us/op
+WorkloadPilot    3: 64 op, 17045042.00 ns, 266.3288 us/op
+WorkloadPilot    4: 128 op, 34234166.00 ns, 267.4544 us/op
+WorkloadPilot    5: 256 op, 68461292.00 ns, 267.4269 us/op
+WorkloadPilot    6: 512 op, 27859583.00 ns, 54.4132 us/op
+WorkloadPilot    7: 1024 op, 8120333.00 ns, 7.9300 us/op
+WorkloadPilot    8: 2048 op, 35824833.00 ns, 17.4926 us/op
+WorkloadPilot    9: 4096 op, 36498875.00 ns, 8.9109 us/op
+WorkloadPilot   10: 8192 op, 63055958.00 ns, 7.6973 us/op
+WorkloadPilot   11: 16384 op, 126639791.00 ns, 7.7295 us/op
+WorkloadPilot   12: 32768 op, 252492459.00 ns, 7.7055 us/op
+WorkloadPilot   13: 65536 op, 504142625.00 ns, 7.6926 us/op
+
+OverheadWarmup   1: 65536 op, 121458.00 ns, 1.8533 ns/op
+OverheadWarmup   2: 65536 op, 127709.00 ns, 1.9487 ns/op
+OverheadWarmup   3: 65536 op, 125125.00 ns, 1.9093 ns/op
+OverheadWarmup   4: 65536 op, 125208.00 ns, 1.9105 ns/op
+OverheadWarmup   5: 65536 op, 124125.00 ns, 1.8940 ns/op
+
+OverheadActual   1: 65536 op, 123667.00 ns, 1.8870 ns/op
+OverheadActual   2: 65536 op, 122625.00 ns, 1.8711 ns/op
+OverheadActual   3: 65536 op, 122209.00 ns, 1.8648 ns/op
+OverheadActual   4: 65536 op, 123375.00 ns, 1.8826 ns/op
+OverheadActual   5: 65536 op, 123666.00 ns, 1.8870 ns/op
+OverheadActual   6: 65536 op, 120708.00 ns, 1.8419 ns/op
+OverheadActual   7: 65536 op, 124000.00 ns, 1.8921 ns/op
+OverheadActual   8: 65536 op, 118708.00 ns, 1.8113 ns/op
+OverheadActual   9: 65536 op, 138292.00 ns, 2.1102 ns/op
+OverheadActual  10: 65536 op, 134125.00 ns, 2.0466 ns/op
+OverheadActual  11: 65536 op, 126000.00 ns, 1.9226 ns/op
+OverheadActual  12: 65536 op, 131500.00 ns, 2.0065 ns/op
+OverheadActual  13: 65536 op, 122750.00 ns, 1.8730 ns/op
+OverheadActual  14: 65536 op, 122708.00 ns, 1.8724 ns/op
+OverheadActual  15: 65536 op, 123250.00 ns, 1.8806 ns/op
+
+WorkloadWarmup   1: 65536 op, 516009000.00 ns, 7.8737 us/op
+WorkloadWarmup   2: 65536 op, 504261625.00 ns, 7.6944 us/op
+WorkloadWarmup   3: 65536 op, 504233917.00 ns, 7.6940 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 65536 op, 504108625.00 ns, 7.6921 us/op
+WorkloadActual   2: 65536 op, 515114500.00 ns, 7.8600 us/op
+WorkloadActual   3: 65536 op, 518347166.00 ns, 7.9094 us/op
+WorkloadActual   4: 65536 op, 507771750.00 ns, 7.7480 us/op
+WorkloadActual   5: 65536 op, 510114208.00 ns, 7.7837 us/op
+
+// AfterActualRun
+WorkloadResult   1: 65536 op, 503985250.00 ns, 7.6902 us/op
+WorkloadResult   2: 65536 op, 514991125.00 ns, 7.8581 us/op
+WorkloadResult   3: 65536 op, 518223791.00 ns, 7.9075 us/op
+WorkloadResult   4: 65536 op, 507648375.00 ns, 7.7461 us/op
+WorkloadResult   5: 65536 op, 509990833.00 ns, 7.7818 us/op
+// GC:  34 0 0 288358400 65536
+// Threading:  0 0 65536
+
+// AfterAll
+// Benchmark Process 7347 has exited with code 0.
+
+Mean = 7.797 μs, StdErr = 0.039 μs (0.50%), N = 5, StdDev = 0.087 μs
+Min = 7.690 μs, Q1 = 7.746 μs, Median = 7.782 μs, Q3 = 7.858 μs, Max = 7.907 μs
+IQR = 0.112 μs, LowerFence = 7.578 μs, UpperFence = 8.026 μs
+ConfidenceInterval = [7.462 μs; 8.131 μs] (CI 99.9%), Margin = 0.334 μs (4.29% of Mean)
+Skewness = 0.08, Kurtosis = 1.05, MValue = 2
+
+// ** Remained 15 (53.6%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers1000_Orders50)" --job ".NET 10.0.8" --benchmarkId 13 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 87833.00 ns, 87.8330 us/op
+WorkloadJitting  1: 1 op, 134917.00 ns, 134.9170 us/op
+
+OverheadJitting  2: 16 op, 171834.00 ns, 10.7396 us/op
+WorkloadJitting  2: 16 op, 2429167.00 ns, 151.8229 us/op
+
+WorkloadPilot    1: 16 op, 1180916.00 ns, 73.8073 us/op
+WorkloadPilot    2: 32 op, 2363375.00 ns, 73.8555 us/op
+WorkloadPilot    3: 64 op, 4552292.00 ns, 71.1296 us/op
+WorkloadPilot    4: 128 op, 9056667.00 ns, 70.7552 us/op
+WorkloadPilot    5: 256 op, 17721125.00 ns, 69.2231 us/op
+WorkloadPilot    6: 512 op, 35556083.00 ns, 69.4455 us/op
+WorkloadPilot    7: 1024 op, 70613625.00 ns, 68.9586 us/op
+WorkloadPilot    8: 2048 op, 45207458.00 ns, 22.0740 us/op
+WorkloadPilot    9: 4096 op, 61218292.00 ns, 14.9459 us/op
+WorkloadPilot   10: 8192 op, 121425500.00 ns, 14.8224 us/op
+WorkloadPilot   11: 16384 op, 243680791.00 ns, 14.8731 us/op
+WorkloadPilot   12: 32768 op, 515611083.00 ns, 15.7352 us/op
+
+OverheadWarmup   1: 32768 op, 61792.00 ns, 1.8857 ns/op
+OverheadWarmup   2: 32768 op, 61041.00 ns, 1.8628 ns/op
+OverheadWarmup   3: 32768 op, 59083.00 ns, 1.8031 ns/op
+OverheadWarmup   4: 32768 op, 66541.00 ns, 2.0307 ns/op
+OverheadWarmup   5: 32768 op, 63708.00 ns, 1.9442 ns/op
+OverheadWarmup   6: 32768 op, 64375.00 ns, 1.9646 ns/op
+OverheadWarmup   7: 32768 op, 63042.00 ns, 1.9239 ns/op
+
+OverheadActual   1: 32768 op, 63208.00 ns, 1.9290 ns/op
+OverheadActual   2: 32768 op, 61584.00 ns, 1.8794 ns/op
+OverheadActual   3: 32768 op, 73292.00 ns, 2.2367 ns/op
+OverheadActual   4: 32768 op, 66583.00 ns, 2.0320 ns/op
+OverheadActual   5: 32768 op, 63667.00 ns, 1.9430 ns/op
+OverheadActual   6: 32768 op, 63959.00 ns, 1.9519 ns/op
+OverheadActual   7: 32768 op, 63458.00 ns, 1.9366 ns/op
+OverheadActual   8: 32768 op, 64417.00 ns, 1.9659 ns/op
+OverheadActual   9: 32768 op, 63708.00 ns, 1.9442 ns/op
+OverheadActual  10: 32768 op, 61833.00 ns, 1.8870 ns/op
+OverheadActual  11: 32768 op, 63042.00 ns, 1.9239 ns/op
+OverheadActual  12: 32768 op, 63958.00 ns, 1.9518 ns/op
+OverheadActual  13: 32768 op, 63375.00 ns, 1.9341 ns/op
+OverheadActual  14: 32768 op, 74167.00 ns, 2.2634 ns/op
+OverheadActual  15: 32768 op, 64292.00 ns, 1.9620 ns/op
+
+WorkloadWarmup   1: 32768 op, 504777750.00 ns, 15.4046 us/op
+WorkloadWarmup   2: 32768 op, 498405542.00 ns, 15.2101 us/op
+WorkloadWarmup   3: 32768 op, 496470334.00 ns, 15.1511 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 32768 op, 518334541.00 ns, 15.8183 us/op
+WorkloadActual   2: 32768 op, 498421750.00 ns, 15.2106 us/op
+WorkloadActual   3: 32768 op, 491598292.00 ns, 15.0024 us/op
+WorkloadActual   4: 32768 op, 490603708.00 ns, 14.9720 us/op
+WorkloadActual   5: 32768 op, 502116500.00 ns, 15.3234 us/op
+
+// AfterActualRun
+WorkloadResult   1: 32768 op, 498358042.00 ns, 15.2087 us/op
+WorkloadResult   2: 32768 op, 491534584.00 ns, 15.0004 us/op
+WorkloadResult   3: 32768 op, 490540000.00 ns, 14.9701 us/op
+WorkloadResult   4: 32768 op, 502052792.00 ns, 15.3214 us/op
+// GC:  410 101 0 3431727104 32768
+// Threading:  0 0 32768
+
+// AfterAll
+// Benchmark Process 7351 has exited with code 0.
+
+Mean = 15.125 μs, StdErr = 0.084 μs (0.56%), N = 4, StdDev = 0.168 μs
+Min = 14.970 μs, Q1 = 14.993 μs, Median = 15.105 μs, Q3 = 15.237 μs, Max = 15.321 μs
+IQR = 0.244 μs, LowerFence = 14.627 μs, UpperFence = 15.603 μs
+ConfidenceInterval = [14.037 μs; 16.214 μs] (CI 99.9%), Margin = 1.088 μs (7.20% of Mean)
+Skewness = 0.13, Kurtosis = 0.73, MValue = 2
+
+// ** Remained 14 (50.0%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers1000_Orders50)" --job ".NET 10.0.8" --benchmarkId 14 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 784333.00 ns, 784.3330 us/op
+WorkloadJitting  1: 1 op, 116750.00 ns, 116.7500 us/op
+
+OverheadJitting  2: 16 op, 204041.00 ns, 12.7526 us/op
+WorkloadJitting  2: 16 op, 1580417.00 ns, 98.7761 us/op
+
+WorkloadPilot    1: 16 op, 647583.00 ns, 40.4739 us/op
+WorkloadPilot    2: 32 op, 1176333.00 ns, 36.7604 us/op
+WorkloadPilot    3: 64 op, 2242750.00 ns, 35.0430 us/op
+WorkloadPilot    4: 128 op, 4455375.00 ns, 34.8076 us/op
+WorkloadPilot    5: 256 op, 8490042.00 ns, 33.1642 us/op
+WorkloadPilot    6: 512 op, 16754375.00 ns, 32.7234 us/op
+WorkloadPilot    7: 1024 op, 32648791.00 ns, 31.8836 us/op
+WorkloadPilot    8: 2048 op, 64997458.00 ns, 31.7370 us/op
+WorkloadPilot    9: 4096 op, 39316625.00 ns, 9.5988 us/op
+WorkloadPilot   10: 8192 op, 20691625.00 ns, 2.5258 us/op
+WorkloadPilot   11: 16384 op, 40469833.00 ns, 2.4701 us/op
+WorkloadPilot   12: 32768 op, 81422375.00 ns, 2.4848 us/op
+WorkloadPilot   13: 65536 op, 167470333.00 ns, 2.5554 us/op
+WorkloadPilot   14: 131072 op, 350337083.00 ns, 2.6729 us/op
+WorkloadPilot   15: 262144 op, 712217291.00 ns, 2.7169 us/op
+
+OverheadWarmup   1: 262144 op, 484125.00 ns, 1.8468 ns/op
+OverheadWarmup   2: 262144 op, 480500.00 ns, 1.8330 ns/op
+OverheadWarmup   3: 262144 op, 482333.00 ns, 1.8400 ns/op
+OverheadWarmup   4: 262144 op, 508292.00 ns, 1.9390 ns/op
+OverheadWarmup   5: 262144 op, 482208.00 ns, 1.8395 ns/op
+OverheadWarmup   6: 262144 op, 490667.00 ns, 1.8717 ns/op
+OverheadWarmup   7: 262144 op, 490666.00 ns, 1.8717 ns/op
+
+OverheadActual   1: 262144 op, 496334.00 ns, 1.8934 ns/op
+OverheadActual   2: 262144 op, 510250.00 ns, 1.9464 ns/op
+OverheadActual   3: 262144 op, 486750.00 ns, 1.8568 ns/op
+OverheadActual   4: 262144 op, 481667.00 ns, 1.8374 ns/op
+OverheadActual   5: 262144 op, 483583.00 ns, 1.8447 ns/op
+OverheadActual   6: 262144 op, 483125.00 ns, 1.8430 ns/op
+OverheadActual   7: 262144 op, 482167.00 ns, 1.8393 ns/op
+OverheadActual   8: 262144 op, 482125.00 ns, 1.8392 ns/op
+OverheadActual   9: 262144 op, 484709.00 ns, 1.8490 ns/op
+OverheadActual  10: 262144 op, 483917.00 ns, 1.8460 ns/op
+OverheadActual  11: 262144 op, 484625.00 ns, 1.8487 ns/op
+OverheadActual  12: 262144 op, 482500.00 ns, 1.8406 ns/op
+OverheadActual  13: 262144 op, 483917.00 ns, 1.8460 ns/op
+OverheadActual  14: 262144 op, 490667.00 ns, 1.8717 ns/op
+OverheadActual  15: 262144 op, 489542.00 ns, 1.8675 ns/op
+
+WorkloadWarmup   1: 262144 op, 652404667.00 ns, 2.4887 us/op
+WorkloadWarmup   2: 262144 op, 648101250.00 ns, 2.4723 us/op
+WorkloadWarmup   3: 262144 op, 797508042.00 ns, 3.0423 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 662210958.00 ns, 2.5261 us/op
+WorkloadActual   2: 262144 op, 653683000.00 ns, 2.4936 us/op
+WorkloadActual   3: 262144 op, 653979250.00 ns, 2.4947 us/op
+WorkloadActual   4: 262144 op, 644245500.00 ns, 2.4576 us/op
+WorkloadActual   5: 262144 op, 644833917.00 ns, 2.4598 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 661727041.00 ns, 2.5243 us/op
+WorkloadResult   2: 262144 op, 653199083.00 ns, 2.4918 us/op
+WorkloadResult   3: 262144 op, 653495333.00 ns, 2.4929 us/op
+WorkloadResult   4: 262144 op, 643761583.00 ns, 2.4558 us/op
+WorkloadResult   5: 262144 op, 644350000.00 ns, 2.4580 us/op
+// GC:  832 75 0 6975127552 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7355 has exited with code 0.
+
+Mean = 2.485 μs, StdErr = 0.013 μs (0.51%), N = 5, StdDev = 0.028 μs
+Min = 2.456 μs, Q1 = 2.458 μs, Median = 2.492 μs, Q3 = 2.493 μs, Max = 2.524 μs
+IQR = 0.035 μs, LowerFence = 2.406 μs, UpperFence = 2.545 μs
+ConfidenceInterval = [2.375 μs; 2.594 μs] (CI 99.9%), Margin = 0.109 μs (4.41% of Mean)
+Skewness = 0.18, Kurtosis = 1.13, MValue = 2
+
+// ** Remained 13 (46.4%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers1000_Orders50)" --job ".NET 10.0.8" --benchmarkId 15 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 97041.00 ns, 97.0410 us/op
+WorkloadJitting  1: 1 op, 63833.00 ns, 63.8330 us/op
+
+OverheadJitting  2: 16 op, 172416.00 ns, 10.7760 us/op
+WorkloadJitting  2: 16 op, 237750.00 ns, 14.8594 us/op
+
+WorkloadPilot    1: 16 op, 41667.00 ns, 2.6042 us/op
+WorkloadPilot    2: 32 op, 76375.00 ns, 2.3867 us/op
+WorkloadPilot    3: 64 op, 144750.00 ns, 2.2617 us/op
+WorkloadPilot    4: 128 op, 372000.00 ns, 2.9063 us/op
+WorkloadPilot    5: 256 op, 736667.00 ns, 2.8776 us/op
+WorkloadPilot    6: 512 op, 1256667.00 ns, 2.4544 us/op
+WorkloadPilot    7: 1024 op, 2371375.00 ns, 2.3158 us/op
+WorkloadPilot    8: 2048 op, 4629917.00 ns, 2.2607 us/op
+WorkloadPilot    9: 4096 op, 9437958.00 ns, 2.3042 us/op
+WorkloadPilot   10: 8192 op, 18387583.00 ns, 2.2446 us/op
+WorkloadPilot   11: 16384 op, 36960833.00 ns, 2.2559 us/op
+WorkloadPilot   12: 32768 op, 72980750.00 ns, 2.2272 us/op
+WorkloadPilot   13: 65536 op, 11067250.00 ns, 168.8728 ns/op
+WorkloadPilot   14: 131072 op, 11213166.00 ns, 85.5497 ns/op
+WorkloadPilot   15: 262144 op, 22086667.00 ns, 84.2539 ns/op
+WorkloadPilot   16: 524288 op, 43681583.00 ns, 83.3160 ns/op
+WorkloadPilot   17: 1048576 op, 87245833.00 ns, 83.2041 ns/op
+WorkloadPilot   18: 2097152 op, 174991458.00 ns, 83.4424 ns/op
+WorkloadPilot   19: 4194304 op, 351698500.00 ns, 83.8515 ns/op
+WorkloadPilot   20: 8388608 op, 709398000.00 ns, 84.5668 ns/op
+
+OverheadWarmup   1: 8388608 op, 15486625.00 ns, 1.8461 ns/op
+OverheadWarmup   2: 8388608 op, 15588416.00 ns, 1.8583 ns/op
+OverheadWarmup   3: 8388608 op, 15685666.00 ns, 1.8699 ns/op
+OverheadWarmup   4: 8388608 op, 15580667.00 ns, 1.8574 ns/op
+OverheadWarmup   5: 8388608 op, 15666459.00 ns, 1.8676 ns/op
+OverheadWarmup   6: 8388608 op, 15547708.00 ns, 1.8534 ns/op
+
+OverheadActual   1: 8388608 op, 15491833.00 ns, 1.8468 ns/op
+OverheadActual   2: 8388608 op, 15438583.00 ns, 1.8404 ns/op
+OverheadActual   3: 8388608 op, 15532541.00 ns, 1.8516 ns/op
+OverheadActual   4: 8388608 op, 15486750.00 ns, 1.8462 ns/op
+OverheadActual   5: 8388608 op, 15473375.00 ns, 1.8446 ns/op
+OverheadActual   6: 8388608 op, 15529541.00 ns, 1.8513 ns/op
+OverheadActual   7: 8388608 op, 15515542.00 ns, 1.8496 ns/op
+OverheadActual   8: 8388608 op, 15362500.00 ns, 1.8314 ns/op
+OverheadActual   9: 8388608 op, 15504916.00 ns, 1.8483 ns/op
+OverheadActual  10: 8388608 op, 15530917.00 ns, 1.8514 ns/op
+OverheadActual  11: 8388608 op, 15572000.00 ns, 1.8563 ns/op
+OverheadActual  12: 8388608 op, 15664208.00 ns, 1.8673 ns/op
+OverheadActual  13: 8388608 op, 15557708.00 ns, 1.8546 ns/op
+OverheadActual  14: 8388608 op, 13065833.00 ns, 1.5576 ns/op
+OverheadActual  15: 8388608 op, 10925042.00 ns, 1.3024 ns/op
+OverheadActual  16: 8388608 op, 10935250.00 ns, 1.3036 ns/op
+OverheadActual  17: 8388608 op, 10951541.00 ns, 1.3055 ns/op
+OverheadActual  18: 8388608 op, 10863791.00 ns, 1.2951 ns/op
+OverheadActual  19: 8388608 op, 10954291.00 ns, 1.3059 ns/op
+OverheadActual  20: 8388608 op, 11098084.00 ns, 1.3230 ns/op
+
+WorkloadWarmup   1: 8388608 op, 706516500.00 ns, 84.2233 ns/op
+WorkloadWarmup   2: 8388608 op, 702965000.00 ns, 83.8000 ns/op
+WorkloadWarmup   3: 8388608 op, 824971875.00 ns, 98.3443 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 8388608 op, 698038083.00 ns, 83.2126 ns/op
+WorkloadActual   2: 8388608 op, 700373167.00 ns, 83.4910 ns/op
+WorkloadActual   3: 8388608 op, 710872125.00 ns, 84.7426 ns/op
+WorkloadActual   4: 8388608 op, 705193416.00 ns, 84.0656 ns/op
+WorkloadActual   5: 8388608 op, 697856333.00 ns, 83.1910 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 8388608 op, 682558020.50 ns, 81.3673 ns/op
+WorkloadResult   2: 8388608 op, 684893104.50 ns, 81.6456 ns/op
+WorkloadResult   3: 8388608 op, 695392062.50 ns, 82.8972 ns/op
+WorkloadResult   4: 8388608 op, 689713353.50 ns, 82.2202 ns/op
+WorkloadResult   5: 8388608 op, 682376270.50 ns, 81.3456 ns/op
+// GC:  0 0 0 0 8388608
+// Threading:  0 0 8388608
+
+// AfterAll
+// Benchmark Process 7358 has exited with code 0.
+
+Mean = 81.895 ns, StdErr = 0.296 ns (0.36%), N = 5, StdDev = 0.662 ns
+Min = 81.346 ns, Q1 = 81.367 ns, Median = 81.646 ns, Q3 = 82.220 ns, Max = 82.897 ns
+IQR = 0.853 ns, LowerFence = 80.088 ns, UpperFence = 83.500 ns
+ConfidenceInterval = [79.346 ns; 84.444 ns] (CI 99.9%), Margin = 2.549 ns (3.11% of Mean)
+Skewness = 0.49, Kurtosis = 1.24, MValue = 2
+
+// ** Remained 12 (42.9%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers1000_Orders100)" --job ".NET 10.0.8" --benchmarkId 16 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 96208.00 ns, 96.2080 us/op
+WorkloadJitting  1: 1 op, 660750.00 ns, 660.7500 us/op
+
+OverheadJitting  2: 16 op, 198084.00 ns, 12.3803 us/op
+WorkloadJitting  2: 16 op, 8856667.00 ns, 553.5417 us/op
+
+WorkloadPilot    1: 16 op, 8641875.00 ns, 540.1172 us/op
+WorkloadPilot    2: 32 op, 17518959.00 ns, 547.4675 us/op
+WorkloadPilot    3: 64 op, 34928709.00 ns, 545.7611 us/op
+WorkloadPilot    4: 128 op, 70041625.00 ns, 547.2002 us/op
+WorkloadPilot    5: 256 op, 25528709.00 ns, 99.7215 us/op
+WorkloadPilot    6: 512 op, 8003542.00 ns, 15.6319 us/op
+WorkloadPilot    7: 1024 op, 15885500.00 ns, 15.5132 us/op
+WorkloadPilot    8: 2048 op, 31072417.00 ns, 15.1721 us/op
+WorkloadPilot    9: 4096 op, 62561583.00 ns, 15.2738 us/op
+WorkloadPilot   10: 8192 op, 125741209.00 ns, 15.3493 us/op
+WorkloadPilot   11: 16384 op, 251180542.00 ns, 15.3308 us/op
+WorkloadPilot   12: 32768 op, 507553292.00 ns, 15.4893 us/op
+
+OverheadWarmup   1: 32768 op, 64291.00 ns, 1.9620 ns/op
+OverheadWarmup   2: 32768 op, 92583.00 ns, 2.8254 ns/op
+OverheadWarmup   3: 32768 op, 65708.00 ns, 2.0052 ns/op
+OverheadWarmup   4: 32768 op, 62708.00 ns, 1.9137 ns/op
+OverheadWarmup   5: 32768 op, 63375.00 ns, 1.9341 ns/op
+OverheadWarmup   6: 32768 op, 62542.00 ns, 1.9086 ns/op
+
+OverheadActual   1: 32768 op, 63208.00 ns, 1.9290 ns/op
+OverheadActual   2: 32768 op, 61292.00 ns, 1.8705 ns/op
+OverheadActual   3: 32768 op, 63833.00 ns, 1.9480 ns/op
+OverheadActual   4: 32768 op, 63667.00 ns, 1.9430 ns/op
+OverheadActual   5: 32768 op, 62000.00 ns, 1.8921 ns/op
+OverheadActual   6: 32768 op, 65000.00 ns, 1.9836 ns/op
+OverheadActual   7: 32768 op, 62792.00 ns, 1.9163 ns/op
+OverheadActual   8: 32768 op, 71458.00 ns, 2.1807 ns/op
+OverheadActual   9: 32768 op, 62958.00 ns, 1.9213 ns/op
+OverheadActual  10: 32768 op, 62917.00 ns, 1.9201 ns/op
+OverheadActual  11: 32768 op, 64583.00 ns, 1.9709 ns/op
+OverheadActual  12: 32768 op, 64917.00 ns, 1.9811 ns/op
+OverheadActual  13: 32768 op, 63292.00 ns, 1.9315 ns/op
+OverheadActual  14: 32768 op, 63291.00 ns, 1.9315 ns/op
+OverheadActual  15: 32768 op, 63417.00 ns, 1.9353 ns/op
+
+WorkloadWarmup   1: 32768 op, 498898875.00 ns, 15.2252 us/op
+WorkloadWarmup   2: 32768 op, 498493209.00 ns, 15.2128 us/op
+WorkloadWarmup   3: 32768 op, 502343375.00 ns, 15.3303 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 32768 op, 497640250.00 ns, 15.1868 us/op
+WorkloadActual   2: 32768 op, 497683042.00 ns, 15.1881 us/op
+WorkloadActual   3: 32768 op, 497145708.00 ns, 15.1717 us/op
+WorkloadActual   4: 32768 op, 500740125.00 ns, 15.2814 us/op
+WorkloadActual   5: 32768 op, 500314167.00 ns, 15.2684 us/op
+
+// AfterActualRun
+WorkloadResult   1: 32768 op, 497576958.00 ns, 15.1848 us/op
+WorkloadResult   2: 32768 op, 497619750.00 ns, 15.1861 us/op
+WorkloadResult   3: 32768 op, 497082416.00 ns, 15.1698 us/op
+WorkloadResult   4: 32768 op, 500676833.00 ns, 15.2794 us/op
+WorkloadResult   5: 32768 op, 500250875.00 ns, 15.2664 us/op
+// GC:  34 0 0 288358400 32768
+// Threading:  0 0 32768
+
+// AfterAll
+// Benchmark Process 7363 has exited with code 0.
+
+Mean = 15.217 μs, StdErr = 0.023 μs (0.15%), N = 5, StdDev = 0.051 μs
+Min = 15.170 μs, Q1 = 15.185 μs, Median = 15.186 μs, Q3 = 15.266 μs, Max = 15.279 μs
+IQR = 0.082 μs, LowerFence = 15.062 μs, UpperFence = 15.389 μs
+ConfidenceInterval = [15.019 μs; 15.415 μs] (CI 99.9%), Margin = 0.198 μs (1.30% of Mean)
+Skewness = 0.27, Kurtosis = 0.8, MValue = 2
+
+// ** Remained 11 (39.3%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers1000_Orders100)" --job ".NET 10.0.8" --benchmarkId 17 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 92959.00 ns, 92.9590 us/op
+WorkloadJitting  1: 1 op, 144625.00 ns, 144.6250 us/op
+
+OverheadJitting  2: 16 op, 178500.00 ns, 11.1563 us/op
+WorkloadJitting  2: 16 op, 2175459.00 ns, 135.9662 us/op
+
+WorkloadPilot    1: 16 op, 1072041.00 ns, 67.0026 us/op
+WorkloadPilot    2: 32 op, 2132791.00 ns, 66.6497 us/op
+WorkloadPilot    3: 64 op, 4274041.00 ns, 66.7819 us/op
+WorkloadPilot    4: 128 op, 8122333.00 ns, 63.4557 us/op
+WorkloadPilot    5: 256 op, 15988208.00 ns, 62.4539 us/op
+WorkloadPilot    6: 512 op, 31505417.00 ns, 61.5340 us/op
+WorkloadPilot    7: 1024 op, 62811500.00 ns, 61.3394 us/op
+WorkloadPilot    8: 2048 op, 59190375.00 ns, 28.9016 us/op
+WorkloadPilot    9: 4096 op, 63486542.00 ns, 15.4996 us/op
+WorkloadPilot   10: 8192 op, 127351625.00 ns, 15.5459 us/op
+WorkloadPilot   11: 16384 op, 252855041.00 ns, 15.4330 us/op
+WorkloadPilot   12: 32768 op, 505451833.00 ns, 15.4252 us/op
+
+OverheadWarmup   1: 32768 op, 65916.00 ns, 2.0116 ns/op
+OverheadWarmup   2: 32768 op, 63208.00 ns, 1.9290 ns/op
+OverheadWarmup   3: 32768 op, 63750.00 ns, 1.9455 ns/op
+OverheadWarmup   4: 32768 op, 64125.00 ns, 1.9569 ns/op
+OverheadWarmup   5: 32768 op, 61542.00 ns, 1.8781 ns/op
+OverheadWarmup   6: 32768 op, 63750.00 ns, 1.9455 ns/op
+OverheadWarmup   7: 32768 op, 73209.00 ns, 2.2342 ns/op
+OverheadWarmup   8: 32768 op, 63208.00 ns, 1.9290 ns/op
+
+OverheadActual   1: 32768 op, 64458.00 ns, 1.9671 ns/op
+OverheadActual   2: 32768 op, 63250.00 ns, 1.9302 ns/op
+OverheadActual   3: 32768 op, 63250.00 ns, 1.9302 ns/op
+OverheadActual   4: 32768 op, 63166.00 ns, 1.9277 ns/op
+OverheadActual   5: 32768 op, 64416.00 ns, 1.9658 ns/op
+OverheadActual   6: 32768 op, 64750.00 ns, 1.9760 ns/op
+OverheadActual   7: 32768 op, 63167.00 ns, 1.9277 ns/op
+OverheadActual   8: 32768 op, 64041.00 ns, 1.9544 ns/op
+OverheadActual   9: 32768 op, 63708.00 ns, 1.9442 ns/op
+OverheadActual  10: 32768 op, 63917.00 ns, 1.9506 ns/op
+OverheadActual  11: 32768 op, 64833.00 ns, 1.9785 ns/op
+OverheadActual  12: 32768 op, 64083.00 ns, 1.9557 ns/op
+OverheadActual  13: 32768 op, 63083.00 ns, 1.9251 ns/op
+OverheadActual  14: 32768 op, 66000.00 ns, 2.0142 ns/op
+OverheadActual  15: 32768 op, 63792.00 ns, 1.9468 ns/op
+
+WorkloadWarmup   1: 32768 op, 503992042.00 ns, 15.3806 us/op
+WorkloadWarmup   2: 32768 op, 501976958.00 ns, 15.3191 us/op
+WorkloadWarmup   3: 32768 op, 504353083.00 ns, 15.3916 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 32768 op, 515360917.00 ns, 15.7276 us/op
+WorkloadActual   2: 32768 op, 516409125.00 ns, 15.7596 us/op
+WorkloadActual   3: 32768 op, 518726291.00 ns, 15.8303 us/op
+WorkloadActual   4: 32768 op, 547754041.00 ns, 16.7161 us/op
+WorkloadActual   5: 32768 op, 555134875.00 ns, 16.9414 us/op
+
+// AfterActualRun
+WorkloadResult   1: 32768 op, 515297000.00 ns, 15.7256 us/op
+WorkloadResult   2: 32768 op, 516345208.00 ns, 15.7576 us/op
+WorkloadResult   3: 32768 op, 518662374.00 ns, 15.8283 us/op
+WorkloadResult   4: 32768 op, 547690124.00 ns, 16.7142 us/op
+WorkloadResult   5: 32768 op, 555070958.00 ns, 16.9394 us/op
+// GC:  410 101 0 3431727104 32768
+// Threading:  0 0 32768
+
+// AfterAll
+// Benchmark Process 7370 has exited with code 0.
+
+Mean = 16.193 μs, StdErr = 0.262 μs (1.62%), N = 5, StdDev = 0.585 μs
+Min = 15.726 μs, Q1 = 15.758 μs, Median = 15.828 μs, Q3 = 16.714 μs, Max = 16.939 μs
+IQR = 0.957 μs, LowerFence = 14.323 μs, UpperFence = 18.149 μs
+ConfidenceInterval = [13.940 μs; 18.446 μs] (CI 99.9%), Margin = 2.253 μs (13.92% of Mean)
+Skewness = 0.32, Kurtosis = 0.83, MValue = 2
+
+// ** Remained 10 (35.7%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers1000_Orders100)" --job ".NET 10.0.8" --benchmarkId 18 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 87833.00 ns, 87.8330 us/op
+WorkloadJitting  1: 1 op, 98459.00 ns, 98.4590 us/op
+
+OverheadJitting  2: 16 op, 208291.00 ns, 13.0182 us/op
+WorkloadJitting  2: 16 op, 1674458.00 ns, 104.6536 us/op
+
+WorkloadPilot    1: 16 op, 708625.00 ns, 44.2891 us/op
+WorkloadPilot    2: 32 op, 1255083.00 ns, 39.2213 us/op
+WorkloadPilot    3: 64 op, 2460417.00 ns, 38.4440 us/op
+WorkloadPilot    4: 128 op, 4686500.00 ns, 36.6133 us/op
+WorkloadPilot    5: 256 op, 9333500.00 ns, 36.4590 us/op
+WorkloadPilot    6: 512 op, 18165000.00 ns, 35.4785 us/op
+WorkloadPilot    7: 1024 op, 38418083.00 ns, 37.5177 us/op
+WorkloadPilot    8: 2048 op, 70235542.00 ns, 34.2947 us/op
+WorkloadPilot    9: 4096 op, 24226416.00 ns, 5.9147 us/op
+WorkloadPilot   10: 8192 op, 20983625.00 ns, 2.5615 us/op
+WorkloadPilot   11: 16384 op, 43009000.00 ns, 2.6251 us/op
+WorkloadPilot   12: 32768 op, 82909792.00 ns, 2.5302 us/op
+WorkloadPilot   13: 65536 op, 166280917.00 ns, 2.5372 us/op
+WorkloadPilot   14: 131072 op, 334233792.00 ns, 2.5500 us/op
+WorkloadPilot   15: 262144 op, 785399417.00 ns, 2.9961 us/op
+
+OverheadWarmup   1: 262144 op, 487166.00 ns, 1.8584 ns/op
+OverheadWarmup   2: 262144 op, 491292.00 ns, 1.8741 ns/op
+OverheadWarmup   3: 262144 op, 505500.00 ns, 1.9283 ns/op
+OverheadWarmup   4: 262144 op, 485041.00 ns, 1.8503 ns/op
+OverheadWarmup   5: 262144 op, 493125.00 ns, 1.8811 ns/op
+OverheadWarmup   6: 262144 op, 490459.00 ns, 1.8710 ns/op
+
+OverheadActual   1: 262144 op, 747333.00 ns, 2.8508 ns/op
+OverheadActual   2: 262144 op, 633625.00 ns, 2.4171 ns/op
+OverheadActual   3: 262144 op, 618916.00 ns, 2.3610 ns/op
+OverheadActual   4: 262144 op, 601042.00 ns, 2.2928 ns/op
+OverheadActual   5: 262144 op, 493292.00 ns, 1.8818 ns/op
+OverheadActual   6: 262144 op, 489292.00 ns, 1.8665 ns/op
+OverheadActual   7: 262144 op, 504041.00 ns, 1.9228 ns/op
+OverheadActual   8: 262144 op, 485667.00 ns, 1.8527 ns/op
+OverheadActual   9: 262144 op, 595542.00 ns, 2.2718 ns/op
+OverheadActual  10: 262144 op, 488875.00 ns, 1.8649 ns/op
+OverheadActual  11: 262144 op, 662750.00 ns, 2.5282 ns/op
+OverheadActual  12: 262144 op, 598583.00 ns, 2.2834 ns/op
+OverheadActual  13: 262144 op, 513417.00 ns, 1.9585 ns/op
+OverheadActual  14: 262144 op, 606417.00 ns, 2.3133 ns/op
+OverheadActual  15: 262144 op, 504875.00 ns, 1.9259 ns/op
+OverheadActual  16: 262144 op, 487292.00 ns, 1.8589 ns/op
+OverheadActual  17: 262144 op, 489917.00 ns, 1.8689 ns/op
+OverheadActual  18: 262144 op, 490500.00 ns, 1.8711 ns/op
+OverheadActual  19: 262144 op, 485792.00 ns, 1.8531 ns/op
+OverheadActual  20: 262144 op, 488541.00 ns, 1.8636 ns/op
+
+WorkloadWarmup   1: 262144 op, 687974209.00 ns, 2.6244 us/op
+WorkloadWarmup   2: 262144 op, 665118708.00 ns, 2.5372 us/op
+WorkloadWarmup   3: 262144 op, 665895459.00 ns, 2.5402 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 262144 op, 662061375.00 ns, 2.5256 us/op
+WorkloadActual   2: 262144 op, 661750042.00 ns, 2.5244 us/op
+WorkloadActual   3: 262144 op, 662520625.00 ns, 2.5273 us/op
+WorkloadActual   4: 262144 op, 664846833.00 ns, 2.5362 us/op
+WorkloadActual   5: 262144 op, 661937917.00 ns, 2.5251 us/op
+
+// AfterActualRun
+WorkloadResult   1: 262144 op, 661556917.00 ns, 2.5236 us/op
+WorkloadResult   2: 262144 op, 661245584.00 ns, 2.5225 us/op
+WorkloadResult   3: 262144 op, 662016167.00 ns, 2.5254 us/op
+WorkloadResult   4: 262144 op, 661433459.00 ns, 2.5232 us/op
+// GC:  832 75 0 6975127552 262144
+// Threading:  0 0 262144
+
+// AfterAll
+// Benchmark Process 7373 has exited with code 0.
+
+Mean = 2.524 μs, StdErr = 0.001 μs (0.02%), N = 4, StdDev = 0.001 μs
+Min = 2.522 μs, Q1 = 2.523 μs, Median = 2.523 μs, Q3 = 2.524 μs, Max = 2.525 μs
+IQR = 0.001 μs, LowerFence = 2.521 μs, UpperFence = 2.526 μs
+ConfidenceInterval = [2.516 μs; 2.532 μs] (CI 99.9%), Margin = 0.008 μs (0.32% of Mean)
+Skewness = 0.42, Kurtosis = 1.13, MValue = 2
+
+// ** Remained 9 (32.1%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers1000_Orders100)" --job ".NET 10.0.8" --benchmarkId 19 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 94750.00 ns, 94.7500 us/op
+WorkloadJitting  1: 1 op, 91000.00 ns, 91.0000 us/op
+
+OverheadJitting  2: 16 op, 181000.00 ns, 11.3125 us/op
+WorkloadJitting  2: 16 op, 261333.00 ns, 16.3333 us/op
+
+WorkloadPilot    1: 16 op, 76084.00 ns, 4.7553 us/op
+WorkloadPilot    2: 32 op, 148625.00 ns, 4.6445 us/op
+WorkloadPilot    3: 64 op, 357667.00 ns, 5.5885 us/op
+WorkloadPilot    4: 128 op, 703417.00 ns, 5.4954 us/op
+WorkloadPilot    5: 256 op, 1262333.00 ns, 4.9310 us/op
+WorkloadPilot    6: 512 op, 2371333.00 ns, 4.6315 us/op
+WorkloadPilot    7: 1024 op, 4666791.00 ns, 4.5574 us/op
+WorkloadPilot    8: 2048 op, 9122375.00 ns, 4.4543 us/op
+WorkloadPilot    9: 4096 op, 17647459.00 ns, 4.3085 us/op
+WorkloadPilot   10: 8192 op, 36043750.00 ns, 4.3999 us/op
+WorkloadPilot   11: 16384 op, 71475041.00 ns, 4.3625 us/op
+WorkloadPilot   12: 32768 op, 8164250.00 ns, 249.1531 ns/op
+WorkloadPilot   13: 65536 op, 11923250.00 ns, 181.9344 ns/op
+WorkloadPilot   14: 131072 op, 22296584.00 ns, 170.1094 ns/op
+WorkloadPilot   15: 262144 op, 44485584.00 ns, 169.6990 ns/op
+WorkloadPilot   16: 524288 op, 89284250.00 ns, 170.2962 ns/op
+WorkloadPilot   17: 1048576 op, 178081666.00 ns, 169.8319 ns/op
+WorkloadPilot   18: 2097152 op, 380890875.00 ns, 181.6229 ns/op
+WorkloadPilot   19: 4194304 op, 709348833.00 ns, 169.1219 ns/op
+
+OverheadWarmup   1: 4194304 op, 7667416.00 ns, 1.8281 ns/op
+OverheadWarmup   2: 4194304 op, 7707125.00 ns, 1.8375 ns/op
+OverheadWarmup   3: 4194304 op, 7686167.00 ns, 1.8325 ns/op
+OverheadWarmup   4: 4194304 op, 7726291.00 ns, 1.8421 ns/op
+OverheadWarmup   5: 4194304 op, 7663875.00 ns, 1.8272 ns/op
+
+OverheadActual   1: 4194304 op, 7722792.00 ns, 1.8413 ns/op
+OverheadActual   2: 4194304 op, 7724959.00 ns, 1.8418 ns/op
+OverheadActual   3: 4194304 op, 7733375.00 ns, 1.8438 ns/op
+OverheadActual   4: 4194304 op, 7681125.00 ns, 1.8313 ns/op
+OverheadActual   5: 4194304 op, 7739417.00 ns, 1.8452 ns/op
+OverheadActual   6: 4194304 op, 7827917.00 ns, 1.8663 ns/op
+OverheadActual   7: 4194304 op, 7731250.00 ns, 1.8433 ns/op
+OverheadActual   8: 4194304 op, 7686709.00 ns, 1.8327 ns/op
+OverheadActual   9: 4194304 op, 8015333.00 ns, 1.9110 ns/op
+OverheadActual  10: 4194304 op, 7734084.00 ns, 1.8439 ns/op
+OverheadActual  11: 4194304 op, 7837959.00 ns, 1.8687 ns/op
+OverheadActual  12: 4194304 op, 7687209.00 ns, 1.8328 ns/op
+OverheadActual  13: 4194304 op, 7780625.00 ns, 1.8550 ns/op
+OverheadActual  14: 4194304 op, 7654584.00 ns, 1.8250 ns/op
+OverheadActual  15: 4194304 op, 7796834.00 ns, 1.8589 ns/op
+
+WorkloadWarmup   1: 4194304 op, 712611708.00 ns, 169.8999 ns/op
+WorkloadWarmup   2: 4194304 op, 710821041.00 ns, 169.4729 ns/op
+WorkloadWarmup   3: 4194304 op, 708777750.00 ns, 168.9858 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 4194304 op, 710471541.00 ns, 169.3896 ns/op
+WorkloadActual   2: 4194304 op, 708961750.00 ns, 169.0297 ns/op
+WorkloadActual   3: 4194304 op, 708678208.00 ns, 168.9621 ns/op
+WorkloadActual   4: 4194304 op, 709181750.00 ns, 169.0821 ns/op
+WorkloadActual   5: 4194304 op, 708958958.00 ns, 169.0290 ns/op
+
+// AfterActualRun
+WorkloadResult   1: 4194304 op, 701228375.00 ns, 167.1859 ns/op
+WorkloadResult   2: 4194304 op, 700944833.00 ns, 167.1183 ns/op
+WorkloadResult   3: 4194304 op, 701448375.00 ns, 167.2383 ns/op
+WorkloadResult   4: 4194304 op, 701225583.00 ns, 167.1852 ns/op
+// GC:  0 0 0 0 4194304
+// Threading:  0 0 4194304
+
+// AfterAll
+// Benchmark Process 7376 has exited with code 0.
+
+Mean = 167.182 ns, StdErr = 0.025 ns (0.01%), N = 4, StdDev = 0.049 ns
+Min = 167.118 ns, Q1 = 167.168 ns, Median = 167.186 ns, Q3 = 167.199 ns, Max = 167.238 ns
+IQR = 0.031 ns, LowerFence = 167.123 ns, UpperFence = 167.245 ns
+ConfidenceInterval = [166.864 ns; 167.500 ns] (CI 99.9%), Margin = 0.318 ns (0.19% of Mean)
+Skewness = -0.16, Kurtosis = 1.13, MValue = 2
+
+// ** Remained 8 (28.6%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 1m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers1000_Orders1000)" --job ".NET 10.0.8" --benchmarkId 20 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 101000.00 ns, 101.0000 us/op
+WorkloadJitting  1: 1 op, 5544125.00 ns, 5.5441 ms/op
+
+OverheadJitting  2: 16 op, 182417.00 ns, 11.4011 us/op
+WorkloadJitting  2: 16 op, 87650291.00 ns, 5.4781 ms/op
+
+WorkloadPilot    1: 16 op, 86558667.00 ns, 5.4099 ms/op
+WorkloadPilot    2: 32 op, 172036125.00 ns, 5.3761 ms/op
+WorkloadPilot    3: 64 op, 26537875.00 ns, 414.6543 us/op
+WorkloadPilot    4: 128 op, 19842500.00 ns, 155.0195 us/op
+WorkloadPilot    5: 256 op, 39240125.00 ns, 153.2817 us/op
+WorkloadPilot    6: 512 op, 78237833.00 ns, 152.8083 us/op
+WorkloadPilot    7: 1024 op, 156438500.00 ns, 152.7720 us/op
+WorkloadPilot    8: 2048 op, 313109917.00 ns, 152.8857 us/op
+WorkloadPilot    9: 4096 op, 625486542.00 ns, 152.7067 us/op
+
+OverheadWarmup   1: 4096 op, 10834.00 ns, 2.6450 ns/op
+OverheadWarmup   2: 4096 op, 9417.00 ns, 2.2991 ns/op
+OverheadWarmup   3: 4096 op, 9292.00 ns, 2.2686 ns/op
+OverheadWarmup   4: 4096 op, 9125.00 ns, 2.2278 ns/op
+OverheadWarmup   5: 4096 op, 9417.00 ns, 2.2991 ns/op
+OverheadWarmup   6: 4096 op, 9500.00 ns, 2.3193 ns/op
+OverheadWarmup   7: 4096 op, 9167.00 ns, 2.2380 ns/op
+OverheadWarmup   8: 4096 op, 9541.00 ns, 2.3293 ns/op
+OverheadWarmup   9: 4096 op, 9500.00 ns, 2.3193 ns/op
+
+OverheadActual   1: 4096 op, 9333.00 ns, 2.2786 ns/op
+OverheadActual   2: 4096 op, 9417.00 ns, 2.2991 ns/op
+OverheadActual   3: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual   4: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual   5: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual   6: 4096 op, 9167.00 ns, 2.2380 ns/op
+OverheadActual   7: 4096 op, 9167.00 ns, 2.2380 ns/op
+OverheadActual   8: 4096 op, 9542.00 ns, 2.3296 ns/op
+OverheadActual   9: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual  10: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual  11: 4096 op, 9250.00 ns, 2.2583 ns/op
+OverheadActual  12: 4096 op, 9167.00 ns, 2.2380 ns/op
+OverheadActual  13: 4096 op, 9208.00 ns, 2.2480 ns/op
+OverheadActual  14: 4096 op, 9208.00 ns, 2.2480 ns/op
+OverheadActual  15: 4096 op, 9209.00 ns, 2.2483 ns/op
+
+WorkloadWarmup   1: 4096 op, 628457542.00 ns, 153.4320 us/op
+WorkloadWarmup   2: 4096 op, 625660541.00 ns, 152.7492 us/op
+WorkloadWarmup   3: 4096 op, 626041000.00 ns, 152.8420 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 4096 op, 625527500.00 ns, 152.7167 us/op
+WorkloadActual   2: 4096 op, 625517542.00 ns, 152.7142 us/op
+WorkloadActual   3: 4096 op, 624877292.00 ns, 152.5579 us/op
+WorkloadActual   4: 4096 op, 627855750.00 ns, 153.2851 us/op
+WorkloadActual   5: 4096 op, 626425417.00 ns, 152.9359 us/op
+
+// AfterActualRun
+WorkloadResult   1: 4096 op, 625518250.00 ns, 152.7144 us/op
+WorkloadResult   2: 4096 op, 625508292.00 ns, 152.7120 us/op
+WorkloadResult   3: 4096 op, 624868042.00 ns, 152.5557 us/op
+WorkloadResult   4: 4096 op, 626416167.00 ns, 152.9336 us/op
+// GC:  43 0 0 360448000 4096
+// Threading:  0 0 4096
+
+// AfterAll
+// Benchmark Process 7381 has exited with code 0.
+
+Mean = 152.729 μs, StdErr = 0.078 μs (0.05%), N = 4, StdDev = 0.155 μs
+Min = 152.556 μs, Q1 = 152.673 μs, Median = 152.713 μs, Q3 = 152.769 μs, Max = 152.934 μs
+IQR = 0.096 μs, LowerFence = 152.528 μs, UpperFence = 152.914 μs
+ConfidenceInterval = [151.725 μs; 153.733 μs] (CI 99.9%), Margin = 1.004 μs (0.66% of Mean)
+Skewness = 0.22, Kurtosis = 1.14, MValue = 2
+
+// ** Remained 7 (25.0%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers1000_Orders1000)" --job ".NET 10.0.8" --benchmarkId 21 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 97791.00 ns, 97.7910 us/op
+WorkloadJitting  1: 1 op, 200916.00 ns, 200.9160 us/op
+
+OverheadJitting  2: 16 op, 173500.00 ns, 10.8438 us/op
+WorkloadJitting  2: 16 op, 3990917.00 ns, 249.4323 us/op
+
+WorkloadPilot    1: 16 op, 2542584.00 ns, 158.9115 us/op
+WorkloadPilot    2: 32 op, 4856292.00 ns, 151.7591 us/op
+WorkloadPilot    3: 64 op, 9607834.00 ns, 150.1224 us/op
+WorkloadPilot    4: 128 op, 18886750.00 ns, 147.5527 us/op
+WorkloadPilot    5: 256 op, 36684417.00 ns, 143.2985 us/op
+WorkloadPilot    6: 512 op, 74056667.00 ns, 144.6419 us/op
+WorkloadPilot    7: 1024 op, 26668042.00 ns, 26.0430 us/op
+WorkloadPilot    8: 2048 op, 42154667.00 ns, 20.5833 us/op
+WorkloadPilot    9: 4096 op, 84530583.00 ns, 20.6373 us/op
+WorkloadPilot   10: 8192 op, 168611459.00 ns, 20.5825 us/op
+WorkloadPilot   11: 16384 op, 337207542.00 ns, 20.5815 us/op
+WorkloadPilot   12: 32768 op, 675108000.00 ns, 20.6027 us/op
+
+OverheadWarmup   1: 32768 op, 62875.00 ns, 1.9188 ns/op
+OverheadWarmup   2: 32768 op, 64834.00 ns, 1.9786 ns/op
+OverheadWarmup   3: 32768 op, 61834.00 ns, 1.8870 ns/op
+OverheadWarmup   4: 32768 op, 66334.00 ns, 2.0244 ns/op
+OverheadWarmup   5: 32768 op, 64042.00 ns, 1.9544 ns/op
+
+OverheadActual   1: 32768 op, 63291.00 ns, 1.9315 ns/op
+OverheadActual   2: 32768 op, 64125.00 ns, 1.9569 ns/op
+OverheadActual   3: 32768 op, 62958.00 ns, 1.9213 ns/op
+OverheadActual   4: 32768 op, 64375.00 ns, 1.9646 ns/op
+OverheadActual   5: 32768 op, 66125.00 ns, 2.0180 ns/op
+OverheadActual   6: 32768 op, 63792.00 ns, 1.9468 ns/op
+OverheadActual   7: 32768 op, 68708.00 ns, 2.0968 ns/op
+OverheadActual   8: 32768 op, 69834.00 ns, 2.1312 ns/op
+OverheadActual   9: 32768 op, 63875.00 ns, 1.9493 ns/op
+OverheadActual  10: 32768 op, 64875.00 ns, 1.9798 ns/op
+OverheadActual  11: 32768 op, 63875.00 ns, 1.9493 ns/op
+OverheadActual  12: 32768 op, 75500.00 ns, 2.3041 ns/op
+OverheadActual  13: 32768 op, 67333.00 ns, 2.0548 ns/op
+OverheadActual  14: 32768 op, 63709.00 ns, 1.9442 ns/op
+OverheadActual  15: 32768 op, 63917.00 ns, 1.9506 ns/op
+
+WorkloadWarmup   1: 32768 op, 674446666.00 ns, 20.5825 us/op
+WorkloadWarmup   2: 32768 op, 675665375.00 ns, 20.6197 us/op
+WorkloadWarmup   3: 32768 op, 676070292.00 ns, 20.6320 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 32768 op, 675165667.00 ns, 20.6044 us/op
+WorkloadActual   2: 32768 op, 685793459.00 ns, 20.9288 us/op
+WorkloadActual   3: 32768 op, 681377500.00 ns, 20.7940 us/op
+WorkloadActual   4: 32768 op, 672683166.00 ns, 20.5287 us/op
+WorkloadActual   5: 32768 op, 681499833.00 ns, 20.7977 us/op
+
+// AfterActualRun
+WorkloadResult   1: 32768 op, 675101542.00 ns, 20.6025 us/op
+WorkloadResult   2: 32768 op, 685729334.00 ns, 20.9268 us/op
+WorkloadResult   3: 32768 op, 681313375.00 ns, 20.7920 us/op
+WorkloadResult   4: 32768 op, 672619041.00 ns, 20.5267 us/op
+WorkloadResult   5: 32768 op, 681435708.00 ns, 20.7958 us/op
+// GC:  410 107 0 3430678528 32768
+// Threading:  0 0 32768
+
+// AfterAll
+// Benchmark Process 7384 has exited with code 0.
+
+Mean = 20.729 μs, StdErr = 0.072 μs (0.35%), N = 5, StdDev = 0.162 μs
+Min = 20.527 μs, Q1 = 20.602 μs, Median = 20.792 μs, Q3 = 20.796 μs, Max = 20.927 μs
+IQR = 0.193 μs, LowerFence = 20.313 μs, UpperFence = 21.086 μs
+ConfidenceInterval = [20.106 μs; 21.351 μs] (CI 99.9%), Margin = 0.622 μs (3.00% of Mean)
+Skewness = -0.09, Kurtosis = 1.02, MValue = 2
+
+// ** Remained 6 (21.4%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers1000_Orders1000)" --job ".NET 10.0.8" --benchmarkId 22 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 87500.00 ns, 87.5000 us/op
+WorkloadJitting  1: 1 op, 129208.00 ns, 129.2080 us/op
+
+OverheadJitting  2: 16 op, 184041.00 ns, 11.5026 us/op
+WorkloadJitting  2: 16 op, 2518417.00 ns, 157.4011 us/op
+
+WorkloadPilot    1: 16 op, 1455417.00 ns, 90.9636 us/op
+WorkloadPilot    2: 32 op, 2761167.00 ns, 86.2865 us/op
+WorkloadPilot    3: 64 op, 5166625.00 ns, 80.7285 us/op
+WorkloadPilot    4: 128 op, 10091167.00 ns, 78.8372 us/op
+WorkloadPilot    5: 256 op, 19819084.00 ns, 77.4183 us/op
+WorkloadPilot    6: 512 op, 39878791.00 ns, 77.8883 us/op
+WorkloadPilot    7: 1024 op, 76632125.00 ns, 74.8361 us/op
+WorkloadPilot    8: 2048 op, 9815500.00 ns, 4.7927 us/op
+WorkloadPilot    9: 4096 op, 16464583.00 ns, 4.0197 us/op
+WorkloadPilot   10: 8192 op, 32603084.00 ns, 3.9799 us/op
+WorkloadPilot   11: 16384 op, 65543083.00 ns, 4.0004 us/op
+WorkloadPilot   12: 32768 op, 134761625.00 ns, 4.1126 us/op
+WorkloadPilot   13: 65536 op, 266246666.00 ns, 4.0626 us/op
+WorkloadPilot   14: 131072 op, 526845375.00 ns, 4.0195 us/op
+
+OverheadWarmup   1: 131072 op, 247458.00 ns, 1.8880 ns/op
+OverheadWarmup   2: 131072 op, 256875.00 ns, 1.9598 ns/op
+OverheadWarmup   3: 131072 op, 248458.00 ns, 1.8956 ns/op
+OverheadWarmup   4: 131072 op, 242041.00 ns, 1.8466 ns/op
+OverheadWarmup   5: 131072 op, 243833.00 ns, 1.8603 ns/op
+OverheadWarmup   6: 131072 op, 244834.00 ns, 1.8679 ns/op
+OverheadWarmup   7: 131072 op, 244584.00 ns, 1.8660 ns/op
+
+OverheadActual   1: 131072 op, 243750.00 ns, 1.8597 ns/op
+OverheadActual   2: 131072 op, 243542.00 ns, 1.8581 ns/op
+OverheadActual   3: 131072 op, 245917.00 ns, 1.8762 ns/op
+OverheadActual   4: 131072 op, 243250.00 ns, 1.8559 ns/op
+OverheadActual   5: 131072 op, 242375.00 ns, 1.8492 ns/op
+OverheadActual   6: 131072 op, 246166.00 ns, 1.8781 ns/op
+OverheadActual   7: 131072 op, 242250.00 ns, 1.8482 ns/op
+OverheadActual   8: 131072 op, 242667.00 ns, 1.8514 ns/op
+OverheadActual   9: 131072 op, 244833.00 ns, 1.8679 ns/op
+OverheadActual  10: 131072 op, 244083.00 ns, 1.8622 ns/op
+OverheadActual  11: 131072 op, 243000.00 ns, 1.8539 ns/op
+OverheadActual  12: 131072 op, 243375.00 ns, 1.8568 ns/op
+OverheadActual  13: 131072 op, 243708.00 ns, 1.8593 ns/op
+OverheadActual  14: 131072 op, 243708.00 ns, 1.8593 ns/op
+OverheadActual  15: 131072 op, 243417.00 ns, 1.8571 ns/op
+
+WorkloadWarmup   1: 131072 op, 528802167.00 ns, 4.0344 us/op
+WorkloadWarmup   2: 131072 op, 542638000.00 ns, 4.1400 us/op
+WorkloadWarmup   3: 131072 op, 527370500.00 ns, 4.0235 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 131072 op, 524473875.00 ns, 4.0014 us/op
+WorkloadActual   2: 131072 op, 524616000.00 ns, 4.0025 us/op
+WorkloadActual   3: 131072 op, 521630458.00 ns, 3.9797 us/op
+WorkloadActual   4: 131072 op, 517752125.00 ns, 3.9501 us/op
+WorkloadActual   5: 131072 op, 518828583.00 ns, 3.9583 us/op
+
+// AfterActualRun
+WorkloadResult   1: 131072 op, 524230333.00 ns, 3.9996 us/op
+WorkloadResult   2: 131072 op, 524372458.00 ns, 4.0006 us/op
+WorkloadResult   3: 131072 op, 521386916.00 ns, 3.9779 us/op
+WorkloadResult   4: 131072 op, 517508583.00 ns, 3.9483 us/op
+WorkloadResult   5: 131072 op, 518585041.00 ns, 3.9565 us/op
+// GC:  416 37 0 3487563776 131072
+// Threading:  0 0 131072
+
+// AfterAll
+// Benchmark Process 7389 has exited with code 0.
+
+Mean = 3.977 μs, StdErr = 0.011 μs (0.27%), N = 5, StdDev = 0.024 μs
+Min = 3.948 μs, Q1 = 3.956 μs, Median = 3.978 μs, Q3 = 4.000 μs, Max = 4.001 μs
+IQR = 0.043 μs, LowerFence = 3.892 μs, UpperFence = 4.064 μs
+ConfidenceInterval = [3.884 μs; 4.069 μs] (CI 99.9%), Margin = 0.093 μs (2.33% of Mean)
+Skewness = -0.07, Kurtosis = 0.85, MValue = 2
+
+// ** Remained 5 (17.9%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers1000_Orders1000)" --job ".NET 10.0.8" --benchmarkId 23 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 93459.00 ns, 93.4590 us/op
+WorkloadJitting  1: 1 op, 108167.00 ns, 108.1670 us/op
+
+OverheadJitting  2: 16 op, 172750.00 ns, 10.7969 us/op
+WorkloadJitting  2: 16 op, 1238625.00 ns, 77.4141 us/op
+
+WorkloadPilot    1: 16 op, 855250.00 ns, 53.4531 us/op
+WorkloadPilot    2: 32 op, 1589500.00 ns, 49.6719 us/op
+WorkloadPilot    3: 64 op, 3088416.00 ns, 48.2565 us/op
+WorkloadPilot    4: 128 op, 6000333.00 ns, 46.8776 us/op
+WorkloadPilot    5: 256 op, 11879917.00 ns, 46.4059 us/op
+WorkloadPilot    6: 512 op, 23711791.00 ns, 46.3121 us/op
+WorkloadPilot    7: 1024 op, 47064042.00 ns, 45.9610 us/op
+WorkloadPilot    8: 2048 op, 60345083.00 ns, 29.4654 us/op
+WorkloadPilot    9: 4096 op, 6493334.00 ns, 1.5853 us/op
+WorkloadPilot   10: 8192 op, 13120333.00 ns, 1.6016 us/op
+WorkloadPilot   11: 16384 op, 26360000.00 ns, 1.6089 us/op
+WorkloadPilot   12: 32768 op, 52402083.00 ns, 1.5992 us/op
+WorkloadPilot   13: 65536 op, 105080833.00 ns, 1.6034 us/op
+WorkloadPilot   14: 131072 op, 210387250.00 ns, 1.6051 us/op
+WorkloadPilot   15: 262144 op, 443774375.00 ns, 1.6929 us/op
+WorkloadPilot   16: 524288 op, 838907833.00 ns, 1.6001 us/op
+
+OverheadWarmup   1: 524288 op, 962166.00 ns, 1.8352 ns/op
+OverheadWarmup   2: 524288 op, 973250.00 ns, 1.8563 ns/op
+OverheadWarmup   3: 524288 op, 958250.00 ns, 1.8277 ns/op
+OverheadWarmup   4: 524288 op, 961375.00 ns, 1.8337 ns/op
+OverheadWarmup   5: 524288 op, 962625.00 ns, 1.8361 ns/op
+OverheadWarmup   6: 524288 op, 967416.00 ns, 1.8452 ns/op
+OverheadWarmup   7: 524288 op, 981583.00 ns, 1.8722 ns/op
+OverheadWarmup   8: 524288 op, 973209.00 ns, 1.8562 ns/op
+
+OverheadActual   1: 524288 op, 988791.00 ns, 1.8860 ns/op
+OverheadActual   2: 524288 op, 975292.00 ns, 1.8602 ns/op
+OverheadActual   3: 524288 op, 968583.00 ns, 1.8474 ns/op
+OverheadActual   4: 524288 op, 963250.00 ns, 1.8373 ns/op
+OverheadActual   5: 524288 op, 970208.00 ns, 1.8505 ns/op
+OverheadActual   6: 524288 op, 961750.00 ns, 1.8344 ns/op
+OverheadActual   7: 524288 op, 966500.00 ns, 1.8435 ns/op
+OverheadActual   8: 524288 op, 962167.00 ns, 1.8352 ns/op
+OverheadActual   9: 524288 op, 973625.00 ns, 1.8570 ns/op
+OverheadActual  10: 524288 op, 981125.00 ns, 1.8713 ns/op
+OverheadActual  11: 524288 op, 967500.00 ns, 1.8454 ns/op
+OverheadActual  12: 524288 op, 962250.00 ns, 1.8353 ns/op
+OverheadActual  13: 524288 op, 985250.00 ns, 1.8792 ns/op
+OverheadActual  14: 524288 op, 961708.00 ns, 1.8343 ns/op
+OverheadActual  15: 524288 op, 977958.00 ns, 1.8653 ns/op
+
+WorkloadWarmup   1: 524288 op, 838109834.00 ns, 1.5986 us/op
+WorkloadWarmup   2: 524288 op, 838509584.00 ns, 1.5993 us/op
+WorkloadWarmup   3: 524288 op, 838716000.00 ns, 1.5997 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 524288 op, 840198667.00 ns, 1.6026 us/op
+WorkloadActual   2: 524288 op, 837250709.00 ns, 1.5969 us/op
+WorkloadActual   3: 524288 op, 837765125.00 ns, 1.5979 us/op
+WorkloadActual   4: 524288 op, 838489750.00 ns, 1.5993 us/op
+WorkloadActual   5: 524288 op, 836976375.00 ns, 1.5964 us/op
+
+// AfterActualRun
+WorkloadResult   1: 524288 op, 839230084.00 ns, 1.6007 us/op
+WorkloadResult   2: 524288 op, 836282126.00 ns, 1.5951 us/op
+WorkloadResult   3: 524288 op, 836796542.00 ns, 1.5961 us/op
+WorkloadResult   4: 524288 op, 837521167.00 ns, 1.5974 us/op
+WorkloadResult   5: 524288 op, 836007792.00 ns, 1.5946 us/op
+// GC:  0 0 0 0 524288
+// Threading:  0 0 524288
+
+// AfterAll
+// Benchmark Process 7392 has exited with code 0.
+
+Mean = 1.597 μs, StdErr = 0.001 μs (0.07%), N = 5, StdDev = 0.002 μs
+Min = 1.595 μs, Q1 = 1.595 μs, Median = 1.596 μs, Q3 = 1.597 μs, Max = 1.601 μs
+IQR = 0.002 μs, LowerFence = 1.592 μs, UpperFence = 1.601 μs
+ConfidenceInterval = [1.587 μs; 1.606 μs] (CI 99.9%), Margin = 0.009 μs (0.59% of Mean)
+Skewness = 0.61, Kurtosis = 1.49, MValue = 2
+
+// ** Remained 4 (14.3%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.FirstInsideOrderLoop(Scenario: Customers10000_Orders10000)" --job ".NET 10.0.8" --benchmarkId 24 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 91000.00 ns, 91.0000 us/op
+WorkloadJitting  1: 1 op, 120439542.00 ns, 120.4395 ms/op
+
+WorkloadPilot    1: 2 op, 26454375.00 ns, 13.2272 ms/op
+WorkloadPilot    2: 3 op, 39900333.00 ns, 13.3001 ms/op
+WorkloadPilot    3: 4 op, 53082292.00 ns, 13.2706 ms/op
+WorkloadPilot    4: 5 op, 66392917.00 ns, 13.2786 ms/op
+WorkloadPilot    5: 6 op, 80011000.00 ns, 13.3352 ms/op
+WorkloadPilot    6: 7 op, 94773500.00 ns, 13.5391 ms/op
+WorkloadPilot    7: 8 op, 107786666.00 ns, 13.4733 ms/op
+WorkloadPilot    8: 9 op, 119483791.00 ns, 13.2760 ms/op
+WorkloadPilot    9: 10 op, 132621667.00 ns, 13.2622 ms/op
+WorkloadPilot   10: 11 op, 145645917.00 ns, 13.2405 ms/op
+WorkloadPilot   11: 12 op, 158838084.00 ns, 13.2365 ms/op
+WorkloadPilot   12: 13 op, 172077334.00 ns, 13.2367 ms/op
+WorkloadPilot   13: 14 op, 185681500.00 ns, 13.2630 ms/op
+WorkloadPilot   14: 15 op, 198314208.00 ns, 13.2209 ms/op
+WorkloadPilot   15: 16 op, 212023166.00 ns, 13.2514 ms/op
+WorkloadPilot   16: 32 op, 423229084.00 ns, 13.2259 ms/op
+WorkloadPilot   17: 64 op, 850888125.00 ns, 13.2951 ms/op
+
+WorkloadWarmup   1: 64 op, 851717458.00 ns, 13.3081 ms/op
+WorkloadWarmup   2: 64 op, 847855875.00 ns, 13.2477 ms/op
+WorkloadWarmup   3: 64 op, 847756500.00 ns, 13.2462 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 64 op, 848608125.00 ns, 13.2595 ms/op
+WorkloadActual   2: 64 op, 850471125.00 ns, 13.2886 ms/op
+WorkloadActual   3: 64 op, 848101625.00 ns, 13.2516 ms/op
+WorkloadActual   4: 64 op, 847381125.00 ns, 13.2403 ms/op
+WorkloadActual   5: 64 op, 848106667.00 ns, 13.2517 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 64 op, 848608125.00 ns, 13.2595 ms/op
+WorkloadResult   2: 64 op, 848101625.00 ns, 13.2516 ms/op
+WorkloadResult   3: 64 op, 847381125.00 ns, 13.2403 ms/op
+WorkloadResult   4: 64 op, 848106667.00 ns, 13.2517 ms/op
+// GC:  6 0 0 56320000 64
+// Threading:  0 0 64
+
+// AfterAll
+// Benchmark Process 7397 has exited with code 0.
+
+Mean = 13.251 ms, StdErr = 0.004 ms (0.03%), N = 4, StdDev = 0.008 ms
+Min = 13.240 ms, Q1 = 13.249 ms, Median = 13.252 ms, Q3 = 13.254 ms, Max = 13.260 ms
+IQR = 0.005 ms, LowerFence = 13.241 ms, UpperFence = 13.261 ms
+ConfidenceInterval = [13.200 ms; 13.302 ms] (CI 99.9%), Margin = 0.051 ms (0.38% of Mean)
+Skewness = -0.24, Kurtosis = 1.14, MValue = 2
+
+// ** Remained 3 (10.7%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.Join(Scenario: Customers10000_Orders10000)" --job ".NET 10.0.8" --benchmarkId 25 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 89334.00 ns, 89.3340 us/op
+WorkloadJitting  1: 1 op, 1072833.00 ns, 1.0728 ms/op
+
+OverheadJitting  2: 16 op, 188500.00 ns, 11.7813 us/op
+WorkloadJitting  2: 16 op, 16379458.00 ns, 1.0237 ms/op
+
+WorkloadPilot    1: 16 op, 14829250.00 ns, 926.8281 us/op
+WorkloadPilot    2: 32 op, 37065333.00 ns, 1.1583 ms/op
+WorkloadPilot    3: 64 op, 71969208.00 ns, 1.1245 ms/op
+WorkloadPilot    4: 128 op, 121976250.00 ns, 952.9395 us/op
+WorkloadPilot    5: 256 op, 160168875.00 ns, 625.6597 us/op
+WorkloadPilot    6: 512 op, 314569708.00 ns, 614.3940 us/op
+WorkloadPilot    7: 1024 op, 633162708.00 ns, 618.3230 us/op
+
+OverheadWarmup   1: 1024 op, 4125.00 ns, 4.0283 ns/op
+OverheadWarmup   2: 1024 op, 2541.00 ns, 2.4814 ns/op
+OverheadWarmup   3: 1024 op, 2375.00 ns, 2.3193 ns/op
+OverheadWarmup   4: 1024 op, 2292.00 ns, 2.2383 ns/op
+OverheadWarmup   5: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadWarmup   6: 1024 op, 2500.00 ns, 2.4414 ns/op
+OverheadWarmup   7: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadWarmup   8: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadWarmup   9: 1024 op, 2292.00 ns, 2.2383 ns/op
+
+OverheadActual   1: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadActual   2: 1024 op, 2292.00 ns, 2.2383 ns/op
+OverheadActual   3: 1024 op, 2375.00 ns, 2.3193 ns/op
+OverheadActual   4: 1024 op, 2250.00 ns, 2.1973 ns/op
+OverheadActual   5: 1024 op, 2375.00 ns, 2.3193 ns/op
+OverheadActual   6: 1024 op, 2500.00 ns, 2.4414 ns/op
+OverheadActual   7: 1024 op, 2375.00 ns, 2.3193 ns/op
+OverheadActual   8: 1024 op, 2291.00 ns, 2.2373 ns/op
+OverheadActual   9: 1024 op, 2375.00 ns, 2.3193 ns/op
+OverheadActual  10: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadActual  11: 1024 op, 2291.00 ns, 2.2373 ns/op
+OverheadActual  12: 1024 op, 2292.00 ns, 2.2383 ns/op
+OverheadActual  13: 1024 op, 2333.00 ns, 2.2783 ns/op
+OverheadActual  14: 1024 op, 2292.00 ns, 2.2383 ns/op
+OverheadActual  15: 1024 op, 2250.00 ns, 2.1973 ns/op
+
+WorkloadWarmup   1: 1024 op, 634562875.00 ns, 619.6903 us/op
+WorkloadWarmup   2: 1024 op, 634867292.00 ns, 619.9876 us/op
+WorkloadWarmup   3: 1024 op, 643025541.00 ns, 627.9546 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 1024 op, 636367166.00 ns, 621.4523 us/op
+WorkloadActual   2: 1024 op, 640024083.00 ns, 625.0235 us/op
+WorkloadActual   3: 1024 op, 633493459.00 ns, 618.6460 us/op
+WorkloadActual   4: 1024 op, 633271959.00 ns, 618.4296 us/op
+WorkloadActual   5: 1024 op, 632176917.00 ns, 617.3603 us/op
+
+// AfterActualRun
+WorkloadResult   1: 1024 op, 636364833.00 ns, 621.4500 us/op
+WorkloadResult   2: 1024 op, 640021750.00 ns, 625.0212 us/op
+WorkloadResult   3: 1024 op, 633491126.00 ns, 618.6437 us/op
+WorkloadResult   4: 1024 op, 633269626.00 ns, 618.4274 us/op
+WorkloadResult   5: 1024 op, 632174584.00 ns, 617.3580 us/op
+// GC:  144 82 41 1170036320 1024
+// Threading:  0 0 1024
+
+// AfterAll
+// Benchmark Process 7402 has exited with code 0.
+
+Mean = 620.180 μs, StdErr = 1.386 μs (0.22%), N = 5, StdDev = 3.100 μs
+Min = 617.358 μs, Q1 = 618.427 μs, Median = 618.644 μs, Q3 = 621.450 μs, Max = 625.021 μs
+IQR = 3.023 μs, LowerFence = 613.893 μs, UpperFence = 625.984 μs
+ConfidenceInterval = [608.242 μs; 632.118 μs] (CI 99.9%), Margin = 11.938 μs (1.92% of Mean)
+Skewness = 0.56, Kurtosis = 1.36, MValue = 2
+
+// ** Remained 2 (7.1%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.BuildDictionaryThenLookup(Scenario: Customers10000_Orders10000)" --job ".NET 10.0.8" --benchmarkId 26 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 94375.00 ns, 94.3750 us/op
+WorkloadJitting  1: 1 op, 793166.00 ns, 793.1660 us/op
+
+OverheadJitting  2: 16 op, 176416.00 ns, 11.0260 us/op
+WorkloadJitting  2: 16 op, 7181291.00 ns, 448.8307 us/op
+
+WorkloadPilot    1: 16 op, 6830834.00 ns, 426.9271 us/op
+WorkloadPilot    2: 32 op, 13526917.00 ns, 422.7162 us/op
+WorkloadPilot    3: 64 op, 27039667.00 ns, 422.4948 us/op
+WorkloadPilot    4: 128 op, 54031334.00 ns, 422.1198 us/op
+WorkloadPilot    5: 256 op, 107069958.00 ns, 418.2420 us/op
+WorkloadPilot    6: 512 op, 35162208.00 ns, 68.6762 us/op
+WorkloadPilot    7: 1024 op, 54534625.00 ns, 53.2565 us/op
+WorkloadPilot    8: 2048 op, 109002208.00 ns, 53.2237 us/op
+WorkloadPilot    9: 4096 op, 217080958.00 ns, 52.9983 us/op
+WorkloadPilot   10: 8192 op, 434976000.00 ns, 53.0977 us/op
+WorkloadPilot   11: 16384 op, 862188083.00 ns, 52.6238 us/op
+
+OverheadWarmup   1: 16384 op, 36042.00 ns, 2.1998 ns/op
+OverheadWarmup   2: 16384 op, 33750.00 ns, 2.0599 ns/op
+OverheadWarmup   3: 16384 op, 33833.00 ns, 2.0650 ns/op
+OverheadWarmup   4: 16384 op, 33958.00 ns, 2.0726 ns/op
+OverheadWarmup   5: 16384 op, 36042.00 ns, 2.1998 ns/op
+OverheadWarmup   6: 16384 op, 33875.00 ns, 2.0676 ns/op
+OverheadWarmup   7: 16384 op, 34292.00 ns, 2.0930 ns/op
+OverheadWarmup   8: 16384 op, 34750.00 ns, 2.1210 ns/op
+OverheadWarmup   9: 16384 op, 33958.00 ns, 2.0726 ns/op
+
+OverheadActual   1: 16384 op, 34500.00 ns, 2.1057 ns/op
+OverheadActual   2: 16384 op, 34042.00 ns, 2.0778 ns/op
+OverheadActual   3: 16384 op, 34083.00 ns, 2.0803 ns/op
+OverheadActual   4: 16384 op, 34125.00 ns, 2.0828 ns/op
+OverheadActual   5: 16384 op, 33916.00 ns, 2.0701 ns/op
+OverheadActual   6: 16384 op, 33875.00 ns, 2.0676 ns/op
+OverheadActual   7: 16384 op, 33833.00 ns, 2.0650 ns/op
+OverheadActual   8: 16384 op, 34083.00 ns, 2.0803 ns/op
+OverheadActual   9: 16384 op, 33667.00 ns, 2.0549 ns/op
+OverheadActual  10: 16384 op, 33792.00 ns, 2.0625 ns/op
+OverheadActual  11: 16384 op, 33417.00 ns, 2.0396 ns/op
+OverheadActual  12: 16384 op, 34250.00 ns, 2.0905 ns/op
+OverheadActual  13: 16384 op, 29416.00 ns, 1.7954 ns/op
+OverheadActual  14: 16384 op, 34917.00 ns, 2.1312 ns/op
+OverheadActual  15: 16384 op, 29750.00 ns, 1.8158 ns/op
+OverheadActual  16: 16384 op, 33875.00 ns, 2.0676 ns/op
+OverheadActual  17: 16384 op, 34000.00 ns, 2.0752 ns/op
+
+WorkloadWarmup   1: 16384 op, 863363250.00 ns, 52.6955 us/op
+WorkloadWarmup   2: 16384 op, 859099292.00 ns, 52.4353 us/op
+WorkloadWarmup   3: 16384 op, 862137917.00 ns, 52.6207 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 16384 op, 865312542.00 ns, 52.8145 us/op
+WorkloadActual   2: 16384 op, 855001625.00 ns, 52.1852 us/op
+WorkloadActual   3: 16384 op, 858852833.00 ns, 52.4202 us/op
+WorkloadActual   4: 16384 op, 856471208.00 ns, 52.2749 us/op
+WorkloadActual   5: 16384 op, 863428375.00 ns, 52.6995 us/op
+
+// AfterActualRun
+WorkloadResult   1: 16384 op, 865278626.00 ns, 52.8124 us/op
+WorkloadResult   2: 16384 op, 854967709.00 ns, 52.1831 us/op
+WorkloadResult   3: 16384 op, 858818917.00 ns, 52.4181 us/op
+WorkloadResult   4: 16384 op, 856437292.00 ns, 52.2728 us/op
+WorkloadResult   5: 16384 op, 863394459.00 ns, 52.6974 us/op
+// GC:  1023 1023 1023 3975576928 16384
+// Threading:  0 0 16384
+
+// AfterAll
+// Benchmark Process 7405 has exited with code 0.
+
+Mean = 52.477 μs, StdErr = 0.121 μs (0.23%), N = 5, StdDev = 0.270 μs
+Min = 52.183 μs, Q1 = 52.273 μs, Median = 52.418 μs, Q3 = 52.697 μs, Max = 52.812 μs
+IQR = 0.425 μs, LowerFence = 51.636 μs, UpperFence = 53.334 μs
+ConfidenceInterval = [51.435 μs; 53.518 μs] (CI 99.9%), Margin = 1.042 μs (1.98% of Mean)
+Skewness = 0.15, Kurtosis = 0.91, MValue = 2
+
+// ** Remained 1 (3.6%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// **************************
+// Benchmark: NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "LinqPatterns.Benchmarks-.NET 10.0.8-1.dll" --anonymousPipes 111 113 --benchmarkName "LinqPatterns.Benchmarks.NestedLookupBenchmarks.LookupInPrebuiltDictionary(Scenario: Customers10000_Orders10000)" --job ".NET 10.0.8" --benchmarkId 27 in /Users/kokosda/Downloads/LINQ-Isnt-Slow-These-LINQ-Patterns-Are.Benchmarks/bin/Release/net10.0/LinqPatterns.Benchmarks-.NET 10.0.8-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+// GC=Concurrent Workstation
+// HardwareIntrinsics=ArmBase+AdvSimd,AES,CRC32,DP,RDM,SHA1,SHA256 VectorSize=128
+// Job: .NET 10.0.8(Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 83500.00 ns, 83.5000 us/op
+WorkloadJitting  1: 1 op, 529375.00 ns, 529.3750 us/op
+
+OverheadJitting  2: 16 op, 208791.00 ns, 13.0494 us/op
+WorkloadJitting  2: 16 op, 6009000.00 ns, 375.5625 us/op
+
+WorkloadPilot    1: 16 op, 5586917.00 ns, 349.1823 us/op
+WorkloadPilot    2: 32 op, 11084750.00 ns, 346.3984 us/op
+WorkloadPilot    3: 64 op, 22042208.00 ns, 344.4095 us/op
+WorkloadPilot    4: 128 op, 44135000.00 ns, 344.8047 us/op
+WorkloadPilot    5: 256 op, 87718708.00 ns, 342.6512 us/op
+WorkloadPilot    6: 512 op, 54159833.00 ns, 105.7809 us/op
+WorkloadPilot    7: 1024 op, 20322250.00 ns, 19.8459 us/op
+WorkloadPilot    8: 2048 op, 40466958.00 ns, 19.7593 us/op
+WorkloadPilot    9: 4096 op, 81730792.00 ns, 19.9538 us/op
+WorkloadPilot   10: 8192 op, 160390042.00 ns, 19.5789 us/op
+WorkloadPilot   11: 16384 op, 321194708.00 ns, 19.6042 us/op
+WorkloadPilot   12: 32768 op, 646137333.00 ns, 19.7185 us/op
+
+OverheadWarmup   1: 32768 op, 61625.00 ns, 1.8806 ns/op
+OverheadWarmup   2: 32768 op, 106209.00 ns, 3.2412 ns/op
+OverheadWarmup   3: 32768 op, 64416.00 ns, 1.9658 ns/op
+OverheadWarmup   4: 32768 op, 65333.00 ns, 1.9938 ns/op
+OverheadWarmup   5: 32768 op, 65250.00 ns, 1.9913 ns/op
+
+OverheadActual   1: 32768 op, 62541.00 ns, 1.9086 ns/op
+OverheadActual   2: 32768 op, 59833.00 ns, 1.8260 ns/op
+OverheadActual   3: 32768 op, 60709.00 ns, 1.8527 ns/op
+OverheadActual   4: 32768 op, 61666.00 ns, 1.8819 ns/op
+OverheadActual   5: 32768 op, 99417.00 ns, 3.0340 ns/op
+OverheadActual   6: 32768 op, 62833.00 ns, 1.9175 ns/op
+OverheadActual   7: 32768 op, 59625.00 ns, 1.8196 ns/op
+OverheadActual   8: 32768 op, 60083.00 ns, 1.8336 ns/op
+OverheadActual   9: 32768 op, 59625.00 ns, 1.8196 ns/op
+OverheadActual  10: 32768 op, 61750.00 ns, 1.8845 ns/op
+OverheadActual  11: 32768 op, 71250.00 ns, 2.1744 ns/op
+OverheadActual  12: 32768 op, 60792.00 ns, 1.8552 ns/op
+OverheadActual  13: 32768 op, 60125.00 ns, 1.8349 ns/op
+OverheadActual  14: 32768 op, 65917.00 ns, 2.0116 ns/op
+OverheadActual  15: 32768 op, 58958.00 ns, 1.7993 ns/op
+
+WorkloadWarmup   1: 32768 op, 747971250.00 ns, 22.8263 us/op
+WorkloadWarmup   2: 32768 op, 649487667.00 ns, 19.8208 us/op
+WorkloadWarmup   3: 32768 op, 648071375.00 ns, 19.7776 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 32768 op, 636882417.00 ns, 19.4361 us/op
+WorkloadActual   2: 32768 op, 639396125.00 ns, 19.5128 us/op
+WorkloadActual   3: 32768 op, 644539625.00 ns, 19.6698 us/op
+WorkloadActual   4: 32768 op, 645708250.00 ns, 19.7055 us/op
+WorkloadActual   5: 32768 op, 645501167.00 ns, 19.6991 us/op
+
+// AfterActualRun
+WorkloadResult   1: 32768 op, 636821625.00 ns, 19.4343 us/op
+WorkloadResult   2: 32768 op, 639335333.00 ns, 19.5110 us/op
+WorkloadResult   3: 32768 op, 644478833.00 ns, 19.6679 us/op
+WorkloadResult   4: 32768 op, 645647458.00 ns, 19.7036 us/op
+WorkloadResult   5: 32768 op, 645440375.00 ns, 19.6973 us/op
+// GC:  0 0 0 0 32768
+// Threading:  0 0 32768
+
+// AfterAll
+// Benchmark Process 7410 has exited with code 0.
+
+Mean = 19.603 μs, StdErr = 0.055 μs (0.28%), N = 5, StdDev = 0.123 μs
+Min = 19.434 μs, Q1 = 19.511 μs, Median = 19.668 μs, Q3 = 19.697 μs, Max = 19.704 μs
+IQR = 0.186 μs, LowerFence = 19.231 μs, UpperFence = 19.977 μs
+ConfidenceInterval = [19.131 μs; 20.075 μs] (CI 99.9%), Margin = 0.472 μs (2.41% of Mean)
+Skewness = -0.37, Kurtosis = 0.95, MValue = 2
+
+// ** Remained 0 (0.0%) benchmark(s) to run. Estimated finish 2026-08-08 22:46 (0h 0m from now) **
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts/results/LinqPatterns.Benchmarks.NestedLookupBenchmarks-report.csv
+  BenchmarkDotNet.Artifacts/results/LinqPatterns.Benchmarks.NestedLookupBenchmarks-report-github.md
+  BenchmarkDotNet.Artifacts/results/LinqPatterns.Benchmarks.NestedLookupBenchmarks-report.html
+
+// * Detailed results *
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 303.019 ns, StdErr = 0.266 ns (0.09%), N = 5, StdDev = 0.595 ns
+Min = 302.516 ns, Q1 = 302.629 ns, Median = 302.735 ns, Q3 = 303.264 ns, Max = 303.951 ns
+IQR = 0.634 ns, LowerFence = 301.678 ns, UpperFence = 304.215 ns
+ConfidenceInterval = [300.729 ns; 305.309 ns] (CI 99.9%), Margin = 2.290 ns (0.76% of Mean)
+Skewness = 0.59, Kurtosis = 1.36, MValue = 2
+-------------------- Histogram --------------------
+[302.059 ns ; 304.408 ns) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 1.626 μs, StdErr = 0.007 μs (0.42%), N = 5, StdDev = 0.015 μs
+Min = 1.607 μs, Q1 = 1.612 μs, Median = 1.634 μs, Q3 = 1.637 μs, Max = 1.639 μs
+IQR = 0.025 μs, LowerFence = 1.574 μs, UpperFence = 1.674 μs
+ConfidenceInterval = [1.567 μs; 1.684 μs] (CI 99.9%), Margin = 0.059 μs (3.60% of Mean)
+Skewness = -0.3, Kurtosis = 0.82, MValue = 2
+-------------------- Histogram --------------------
+[1.595 μs ; 1.650 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 273.827 ns, StdErr = 0.396 ns (0.14%), N = 4, StdDev = 0.791 ns
+Min = 272.705 ns, Q1 = 273.621 ns, Median = 274.028 ns, Q3 = 274.233 ns, Max = 274.546 ns
+IQR = 0.612 ns, LowerFence = 272.703 ns, UpperFence = 275.152 ns
+ConfidenceInterval = [268.713 ns; 278.940 ns] (CI 99.9%), Margin = 5.113 ns (1.87% of Mean)
+Skewness = -0.51, Kurtosis = 1.19, MValue = 2
+-------------------- Histogram --------------------
+[272.050 ns ; 275.201 ns) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [21]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 15.852 ns, StdErr = 0.017 ns (0.11%), N = 5, StdDev = 0.039 ns
+Min = 15.818 ns, Q1 = 15.823 ns, Median = 15.831 ns, Q3 = 15.891 ns, Max = 15.898 ns
+IQR = 0.068 ns, LowerFence = 15.721 ns, UpperFence = 15.994 ns
+ConfidenceInterval = [15.702 ns; 16.003 ns] (CI 99.9%), Margin = 0.151 ns (0.95% of Mean)
+Skewness = 0.27, Kurtosis = 0.78, MValue = 2
+-------------------- Histogram --------------------
+[15.788 ns ; 15.928 ns) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 2.542 μs, StdErr = 0.001 μs (0.05%), N = 4, StdDev = 0.002 μs
+Min = 2.539 μs, Q1 = 2.540 μs, Median = 2.541 μs, Q3 = 2.543 μs, Max = 2.544 μs
+IQR = 0.003 μs, LowerFence = 2.535 μs, UpperFence = 2.548 μs
+ConfidenceInterval = [2.526 μs; 2.557 μs] (CI 99.9%), Margin = 0.015 μs (0.60% of Mean)
+Skewness = 0.1, Kurtosis = 0.72, MValue = 2
+-------------------- Histogram --------------------
+[2.537 μs ; 2.546 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 2.531 μs, StdErr = 0.001 μs (0.04%), N = 4, StdDev = 0.002 μs
+Min = 2.528 μs, Q1 = 2.530 μs, Median = 2.532 μs, Q3 = 2.533 μs, Max = 2.533 μs
+IQR = 0.002 μs, LowerFence = 2.527 μs, UpperFence = 2.536 μs
+ConfidenceInterval = [2.517 μs; 2.546 μs] (CI 99.9%), Margin = 0.015 μs (0.58% of Mean)
+Skewness = -0.46, Kurtosis = 1.09, MValue = 2
+-------------------- Histogram --------------------
+[2.526 μs ; 2.535 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 416.263 ns, StdErr = 0.071 ns (0.02%), N = 4, StdDev = 0.143 ns
+Min = 416.131 ns, Q1 = 416.181 ns, Median = 416.230 ns, Q3 = 416.313 ns, Max = 416.462 ns
+IQR = 0.132 ns, LowerFence = 415.983 ns, UpperFence = 416.511 ns
+ConfidenceInterval = [415.341 ns; 417.185 ns] (CI 99.9%), Margin = 0.922 ns (0.22% of Mean)
+Skewness = 0.45, Kurtosis = 1.13, MValue = 2
+-------------------- Histogram --------------------
+[416.013 ns ; 416.580 ns) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 166.360 ns, StdErr = 0.114 ns (0.07%), N = 5, StdDev = 0.255 ns
+Min = 166.163 ns, Q1 = 166.192 ns, Median = 166.231 ns, Q3 = 166.441 ns, Max = 166.772 ns
+IQR = 0.249 ns, LowerFence = 165.818 ns, UpperFence = 166.815 ns
+ConfidenceInterval = [165.379 ns; 167.341 ns] (CI 99.9%), Margin = 0.981 ns (0.59% of Mean)
+Skewness = 0.68, Kurtosis = 1.49, MValue = 2
+-------------------- Histogram --------------------
+[165.967 ns ; 166.967 ns) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 1.956 μs, StdErr = 0.002 μs (0.09%), N = 5, StdDev = 0.004 μs
+Min = 1.952 μs, Q1 = 1.953 μs, Median = 1.956 μs, Q3 = 1.957 μs, Max = 1.962 μs
+IQR = 0.004 μs, LowerFence = 1.947 μs, UpperFence = 1.963 μs
+ConfidenceInterval = [1.941 μs; 1.971 μs] (CI 99.9%), Margin = 0.015 μs (0.76% of Mean)
+Skewness = 0.39, Kurtosis = 1.34, MValue = 2
+-------------------- Histogram --------------------
+[1.949 μs ; 1.965 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 15.167 μs, StdErr = 0.385 μs (2.54%), N = 5, StdDev = 0.860 μs
+Min = 14.419 μs, Q1 = 14.517 μs, Median = 14.746 μs, Q3 = 15.800 μs, Max = 16.351 μs
+IQR = 1.282 μs, LowerFence = 12.594 μs, UpperFence = 17.723 μs
+ConfidenceInterval = [11.854 μs; 18.480 μs] (CI 99.9%), Margin = 3.313 μs (21.84% of Mean)
+Skewness = 0.36, Kurtosis = 0.97, MValue = 2
+-------------------- Histogram --------------------
+[13.922 μs ; 15.243 μs) | @@@
+[15.243 μs ; 16.736 μs) | @@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 2.449 μs, StdErr = 0.010 μs (0.40%), N = 4, StdDev = 0.020 μs
+Min = 2.431 μs, Q1 = 2.437 μs, Median = 2.445 μs, Q3 = 2.457 μs, Max = 2.476 μs
+IQR = 0.020 μs, LowerFence = 2.407 μs, UpperFence = 2.487 μs
+ConfidenceInterval = [2.322 μs; 2.577 μs] (CI 99.9%), Margin = 0.127 μs (5.20% of Mean)
+Skewness = 0.4, Kurtosis = 1.08, MValue = 2
+-------------------- Histogram --------------------
+[2.414 μs ; 2.493 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers10 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 15.658 ns, StdErr = 0.003 ns (0.02%), N = 4, StdDev = 0.007 ns
+Min = 15.650 ns, Q1 = 15.654 ns, Median = 15.658 ns, Q3 = 15.662 ns, Max = 15.666 ns
+IQR = 0.008 ns, LowerFence = 15.642 ns, UpperFence = 15.674 ns
+ConfidenceInterval = [15.614 ns; 15.702 ns] (CI 99.9%), Margin = 0.044 ns (0.28% of Mean)
+Skewness = 0.02, Kurtosis = 0.93, MValue = 2
+-------------------- Histogram --------------------
+[15.645 ns ; 15.672 ns) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 7.797 μs, StdErr = 0.039 μs (0.50%), N = 5, StdDev = 0.087 μs
+Min = 7.690 μs, Q1 = 7.746 μs, Median = 7.782 μs, Q3 = 7.858 μs, Max = 7.907 μs
+IQR = 0.112 μs, LowerFence = 7.578 μs, UpperFence = 8.026 μs
+ConfidenceInterval = [7.462 μs; 8.131 μs] (CI 99.9%), Margin = 0.334 μs (4.29% of Mean)
+Skewness = 0.08, Kurtosis = 1.05, MValue = 2
+-------------------- Histogram --------------------
+[7.659 μs ; 7.974 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 15.125 μs, StdErr = 0.084 μs (0.56%), N = 4, StdDev = 0.168 μs
+Min = 14.970 μs, Q1 = 14.993 μs, Median = 15.105 μs, Q3 = 15.237 μs, Max = 15.321 μs
+IQR = 0.244 μs, LowerFence = 14.627 μs, UpperFence = 15.603 μs
+ConfidenceInterval = [14.037 μs; 16.214 μs] (CI 99.9%), Margin = 1.088 μs (7.20% of Mean)
+Skewness = 0.13, Kurtosis = 0.73, MValue = 2
+-------------------- Histogram --------------------
+[14.938 μs ; 15.461 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 2.485 μs, StdErr = 0.013 μs (0.51%), N = 5, StdDev = 0.028 μs
+Min = 2.456 μs, Q1 = 2.458 μs, Median = 2.492 μs, Q3 = 2.493 μs, Max = 2.524 μs
+IQR = 0.035 μs, LowerFence = 2.406 μs, UpperFence = 2.545 μs
+ConfidenceInterval = [2.375 μs; 2.594 μs] (CI 99.9%), Margin = 0.109 μs (4.41% of Mean)
+Skewness = 0.18, Kurtosis = 1.13, MValue = 2
+-------------------- Histogram --------------------
+[2.450 μs ; 2.546 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)ers50 [22]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 81.895 ns, StdErr = 0.296 ns (0.36%), N = 5, StdDev = 0.662 ns
+Min = 81.346 ns, Q1 = 81.367 ns, Median = 81.646 ns, Q3 = 82.220 ns, Max = 82.897 ns
+IQR = 0.853 ns, LowerFence = 80.088 ns, UpperFence = 83.500 ns
+ConfidenceInterval = [79.346 ns; 84.444 ns] (CI 99.9%), Margin = 2.549 ns (3.11% of Mean)
+Skewness = 0.49, Kurtosis = 1.24, MValue = 2
+-------------------- Histogram --------------------
+[80.965 ns ; 83.405 ns) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 15.217 μs, StdErr = 0.023 μs (0.15%), N = 5, StdDev = 0.051 μs
+Min = 15.170 μs, Q1 = 15.185 μs, Median = 15.186 μs, Q3 = 15.266 μs, Max = 15.279 μs
+IQR = 0.082 μs, LowerFence = 15.062 μs, UpperFence = 15.389 μs
+ConfidenceInterval = [15.019 μs; 15.415 μs] (CI 99.9%), Margin = 0.198 μs (1.30% of Mean)
+Skewness = 0.27, Kurtosis = 0.8, MValue = 2
+-------------------- Histogram --------------------
+[15.130 μs ; 15.319 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 16.193 μs, StdErr = 0.262 μs (1.62%), N = 5, StdDev = 0.585 μs
+Min = 15.726 μs, Q1 = 15.758 μs, Median = 15.828 μs, Q3 = 16.714 μs, Max = 16.939 μs
+IQR = 0.957 μs, LowerFence = 14.323 μs, UpperFence = 18.149 μs
+ConfidenceInterval = [13.940 μs; 18.446 μs] (CI 99.9%), Margin = 2.253 μs (13.92% of Mean)
+Skewness = 0.32, Kurtosis = 0.83, MValue = 2
+-------------------- Histogram --------------------
+[15.276 μs ; 16.378 μs) | @@@
+[16.378 μs ; 17.389 μs) | @@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 2.524 μs, StdErr = 0.001 μs (0.02%), N = 4, StdDev = 0.001 μs
+Min = 2.522 μs, Q1 = 2.523 μs, Median = 2.523 μs, Q3 = 2.524 μs, Max = 2.525 μs
+IQR = 0.001 μs, LowerFence = 2.521 μs, UpperFence = 2.526 μs
+ConfidenceInterval = [2.516 μs; 2.532 μs] (CI 99.9%), Margin = 0.008 μs (0.32% of Mean)
+Skewness = 0.42, Kurtosis = 1.13, MValue = 2
+-------------------- Histogram --------------------
+[2.521 μs ; 2.526 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)rs100 [23]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 167.182 ns, StdErr = 0.025 ns (0.01%), N = 4, StdDev = 0.049 ns
+Min = 167.118 ns, Q1 = 167.168 ns, Median = 167.186 ns, Q3 = 167.199 ns, Max = 167.238 ns
+IQR = 0.031 ns, LowerFence = 167.123 ns, UpperFence = 167.245 ns
+ConfidenceInterval = [166.864 ns; 167.500 ns] (CI 99.9%), Margin = 0.318 ns (0.19% of Mean)
+Skewness = -0.16, Kurtosis = 1.13, MValue = 2
+-------------------- Histogram --------------------
+[167.078 ns ; 167.279 ns) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 152.729 μs, StdErr = 0.078 μs (0.05%), N = 4, StdDev = 0.155 μs
+Min = 152.556 μs, Q1 = 152.673 μs, Median = 152.713 μs, Q3 = 152.769 μs, Max = 152.934 μs
+IQR = 0.096 μs, LowerFence = 152.528 μs, UpperFence = 152.914 μs
+ConfidenceInterval = [151.725 μs; 153.733 μs] (CI 99.9%), Margin = 1.004 μs (0.66% of Mean)
+Skewness = 0.22, Kurtosis = 1.14, MValue = 2
+-------------------- Histogram --------------------
+[152.427 μs ; 153.062 μs) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 20.729 μs, StdErr = 0.072 μs (0.35%), N = 5, StdDev = 0.162 μs
+Min = 20.527 μs, Q1 = 20.602 μs, Median = 20.792 μs, Q3 = 20.796 μs, Max = 20.927 μs
+IQR = 0.193 μs, LowerFence = 20.313 μs, UpperFence = 21.086 μs
+ConfidenceInterval = [20.106 μs; 21.351 μs] (CI 99.9%), Margin = 0.622 μs (3.00% of Mean)
+Skewness = -0.09, Kurtosis = 1.02, MValue = 2
+-------------------- Histogram --------------------
+[20.403 μs ; 21.051 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 3.977 μs, StdErr = 0.011 μs (0.27%), N = 5, StdDev = 0.024 μs
+Min = 3.948 μs, Q1 = 3.956 μs, Median = 3.978 μs, Q3 = 4.000 μs, Max = 4.001 μs
+IQR = 0.043 μs, LowerFence = 3.892 μs, UpperFence = 4.064 μs
+ConfidenceInterval = [3.884 μs; 4.069 μs] (CI 99.9%), Margin = 0.093 μs (2.33% of Mean)
+Skewness = -0.07, Kurtosis = 0.85, MValue = 2
+-------------------- Histogram --------------------
+[3.930 μs ; 4.019 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)s1000 [24]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 1.597 μs, StdErr = 0.001 μs (0.07%), N = 5, StdDev = 0.002 μs
+Min = 1.595 μs, Q1 = 1.595 μs, Median = 1.596 μs, Q3 = 1.597 μs, Max = 1.601 μs
+IQR = 0.002 μs, LowerFence = 1.592 μs, UpperFence = 1.601 μs
+ConfidenceInterval = [1.587 μs; 1.606 μs] (CI 99.9%), Margin = 0.009 μs (0.59% of Mean)
+Skewness = 0.61, Kurtosis = 1.49, MValue = 2
+-------------------- Histogram --------------------
+[1.593 μs ; 1.603 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 13.251 ms, StdErr = 0.004 ms (0.03%), N = 4, StdDev = 0.008 ms
+Min = 13.240 ms, Q1 = 13.249 ms, Median = 13.252 ms, Q3 = 13.254 ms, Max = 13.260 ms
+IQR = 0.005 ms, LowerFence = 13.241 ms, UpperFence = 13.261 ms
+ConfidenceInterval = [13.200 ms; 13.302 ms] (CI 99.9%), Margin = 0.051 ms (0.38% of Mean)
+Skewness = -0.24, Kurtosis = 1.14, MValue = 2
+-------------------- Histogram --------------------
+[13.234 ms ; 13.266 ms) | @@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.Join: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 620.180 μs, StdErr = 1.386 μs (0.22%), N = 5, StdDev = 3.100 μs
+Min = 617.358 μs, Q1 = 618.427 μs, Median = 618.644 μs, Q3 = 621.450 μs, Max = 625.021 μs
+IQR = 3.023 μs, LowerFence = 613.893 μs, UpperFence = 625.984 μs
+ConfidenceInterval = [608.242 μs; 632.118 μs] (CI 99.9%), Margin = 11.938 μs (1.92% of Mean)
+Skewness = 0.56, Kurtosis = 1.36, MValue = 2
+-------------------- Histogram --------------------
+[614.978 μs ; 627.401 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 52.477 μs, StdErr = 0.121 μs (0.23%), N = 5, StdDev = 0.270 μs
+Min = 52.183 μs, Q1 = 52.273 μs, Median = 52.418 μs, Q3 = 52.697 μs, Max = 52.812 μs
+IQR = 0.425 μs, LowerFence = 51.636 μs, UpperFence = 53.334 μs
+ConfidenceInterval = [51.435 μs; 53.518 μs] (CI 99.9%), Margin = 1.042 μs (1.98% of Mean)
+Skewness = 0.15, Kurtosis = 0.91, MValue = 2
+-------------------- Histogram --------------------
+[51.975 μs ; 53.020 μs) | @@@@@
+---------------------------------------------------
+
+NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8(Runtime=.NET 10.0, Concurrent=True, Server=False, IterationCount=5, LaunchCount=1, WarmupCount=3) [Scenario=Custo(...)10000 [26]]
+Runtime = .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a; GC = Concurrent Workstation
+Mean = 19.603 μs, StdErr = 0.055 μs (0.28%), N = 5, StdDev = 0.123 μs
+Min = 19.434 μs, Q1 = 19.511 μs, Median = 19.668 μs, Q3 = 19.697 μs, Max = 19.704 μs
+IQR = 0.186 μs, LowerFence = 19.231 μs, UpperFence = 19.977 μs
+ConfidenceInterval = [19.131 μs; 20.075 μs] (CI 99.9%), Margin = 0.472 μs (2.41% of Mean)
+Skewness = -0.37, Kurtosis = 0.95, MValue = 2
+-------------------- Histogram --------------------
+[19.340 μs ; 19.798 μs) | @@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.8, macOS Sequoia 15.7.4 (24G517) [Darwin 24.6.0]
+Apple M4, 1 CPU, 10 logical and 10 physical cores
+.NET SDK 10.0.300
+  [Host]      : .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+  .NET 10.0.8 : .NET 10.0.8 (10.0.8, 10.0.826.23019), Arm64 RyuJIT armv8.0-a
+
+Job=.NET 10.0.8  Runtime=.NET 10.0  Concurrent=True  
+Server=False  IterationCount=5  LaunchCount=1  
+WarmupCount=3  
+
+| Method                     | Scenario             | Mean             | Error         | StdDev       | Ratio | RatioSD | Gen0     | Gen1    | Gen2    | Allocated | Alloc Ratio |
+|--------------------------- |--------------------- |-----------------:|--------------:|-------------:|------:|--------:|---------:|--------:|--------:|----------:|------------:|
+| FirstInsideOrderLoop       | Custo(...)ers10 [21] |        303.02 ns |      2.290 ns |     0.595 ns |  1.00 |    0.00 |   0.1049 |       - |       - |     880 B |        1.00 |
+| Join                       | Custo(...)ers10 [21] |      1,625.70 ns |     58.549 ns |    15.205 ns |  5.37 |    0.05 |   1.3313 |  0.0477 |       - |   11144 B |       12.66 |
+| BuildDictionaryThenLookup  | Custo(...)ers10 [21] |        273.83 ns |      5.113 ns |     0.791 ns |  0.90 |    0.00 |   0.3228 |  0.0019 |       - |    2704 B |        3.07 |
+| LookupInPrebuiltDictionary | Custo(...)ers10 [21] |         15.85 ns |      0.151 ns |     0.039 ns |  0.05 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)rs100 [22] |      2,541.51 ns |     15.248 ns |     2.360 ns |  1.00 |    0.00 |   1.0490 |       - |       - |    8800 B |        1.00 |
+| Join                       | Custo(...)rs100 [22] |      2,531.30 ns |     14.673 ns |     2.271 ns |  1.00 |    0.00 |   1.3313 |  0.0458 |       - |   11144 B |        1.27 |
+| BuildDictionaryThenLookup  | Custo(...)rs100 [22] |        416.26 ns |      0.922 ns |     0.143 ns |  0.16 |    0.00 |   0.3228 |  0.0019 |       - |    2704 B |        0.31 |
+| LookupInPrebuiltDictionary | Custo(...)rs100 [22] |        166.36 ns |      0.981 ns |     0.255 ns |  0.07 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)ers10 [22] |      1,955.87 ns |     14.855 ns |     3.858 ns | 1.000 |    0.00 |   0.1030 |       - |       - |     880 B |        1.00 |
+| Join                       | Custo(...)ers10 [22] |     15,166.68 ns |  3,312.875 ns |   860.343 ns | 7.754 |    0.40 |  12.5122 |  3.0975 |       - |  104728 B |      119.01 |
+| BuildDictionaryThenLookup  | Custo(...)ers10 [22] |      2,449.32 ns |    127.472 ns |    19.726 ns | 1.252 |    0.01 |   3.1738 |  0.2861 |       - |   26608 B |       30.24 |
+| LookupInPrebuiltDictionary | Custo(...)ers10 [22] |         15.66 ns |      0.044 ns |     0.007 ns | 0.008 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)ers50 [22] |      7,796.75 ns |    334.402 ns |    86.843 ns |  1.00 |    0.01 |   0.5188 |       - |       - |    4400 B |        1.00 |
+| Join                       | Custo(...)ers50 [22] |     15,125.16 ns |  1,088.350 ns |   168.423 ns |  1.94 |    0.03 |  12.5122 |  3.0823 |       - |  104728 B |       23.80 |
+| BuildDictionaryThenLookup  | Custo(...)ers50 [22] |      2,484.54 ns |    109.500 ns |    28.437 ns |  0.32 |    0.00 |   3.1738 |  0.2861 |       - |   26608 B |        6.05 |
+| LookupInPrebuiltDictionary | Custo(...)ers50 [22] |         81.90 ns |      2.549 ns |     0.662 ns |  0.01 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)rs100 [23] |     15,217.33 ns |    197.866 ns |    51.385 ns |  1.00 |    0.00 |   1.0376 |       - |       - |    8800 B |        1.00 |
+| Join                       | Custo(...)rs100 [23] |     16,193.03 ns |  2,253.348 ns |   585.187 ns |  1.06 |    0.04 |  12.5122 |  3.0823 |       - |  104728 B |       11.90 |
+| BuildDictionaryThenLookup  | Custo(...)rs100 [23] |      2,523.66 ns |      8.088 ns |     1.252 ns |  0.17 |    0.00 |   3.1738 |  0.2861 |       - |   26608 B |        3.02 |
+| LookupInPrebuiltDictionary | Custo(...)rs100 [23] |        167.18 ns |      0.318 ns |     0.049 ns |  0.01 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)s1000 [24] |    152,728.93 ns |  1,003.997 ns |   155.370 ns |  1.00 |    0.00 |  10.4980 |       - |       - |   88000 B |        1.00 |
+| Join                       | Custo(...)s1000 [24] |     20,728.75 ns |    622.359 ns |   161.625 ns |  0.14 |    0.00 |  12.5122 |  3.2654 |       - |  104696 B |        1.19 |
+| BuildDictionaryThenLookup  | Custo(...)s1000 [24] |      3,976.57 ns |     92.606 ns |    24.049 ns |  0.03 |    0.00 |   3.1738 |  0.2823 |       - |   26608 B |        0.30 |
+| LookupInPrebuiltDictionary | Custo(...)s1000 [24] |      1,596.77 ns |      9.467 ns |     2.459 ns |  0.01 |    0.00 |        - |       - |       - |         - |        0.00 |
+|                            |                      |                  |               |              |       |         |          |         |         |           |             |
+| FirstInsideOrderLoop       | Custo(...)10000 [26] | 13,250,771.65 ns | 50,979.039 ns | 7,889.063 ns | 1.000 |    0.00 |  93.7500 |       - |       - |  880000 B |        1.00 |
+| Join                       | Custo(...)10000 [26] |    620,180.06 ns | 11,937.977 ns | 3,100.255 ns | 0.047 |    0.00 | 140.6250 | 80.0781 | 40.0391 | 1142614 B |        1.30 |
+| BuildDictionaryThenLookup  | Custo(...)10000 [26] |     52,476.77 ns |  1,041.525 ns |   270.481 ns | 0.004 |    0.00 |  62.4390 | 62.4390 | 62.4390 |  242650 B |        0.28 |
+| LookupInPrebuiltDictionary | Custo(...)10000 [26] |     19,602.81 ns |    472.272 ns |   122.647 ns | 0.001 |    0.00 |        - |       - |       - |         - |        0.00 |
+
+// * Hints *
+Outliers
+  NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8  -> 1 outlier  was  removed, 2 outliers were detected (274.55 ns, 277.44 ns)
+  NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8       -> 1 outlier  was  removed (2.56 μs)
+  NestedLookupBenchmarks.Join: .NET 10.0.8                       -> 1 outlier  was  removed (2.54 μs)
+  NestedLookupBenchmarks.BuildDictionaryThenLookup: .NET 10.0.8  -> 1 outlier  was  removed (420.06 ns)
+  NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8 -> 1 outlier  was  removed (17.02 ns)
+  NestedLookupBenchmarks.Join: .NET 10.0.8                       -> 1 outlier  was  removed (15.82 μs)
+  NestedLookupBenchmarks.LookupInPrebuiltDictionary: .NET 10.0.8 -> 1 outlier  was  removed (169.39 ns)
+  NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8       -> 1 outlier  was  removed (153.29 μs)
+  NestedLookupBenchmarks.FirstInsideOrderLoop: .NET 10.0.8       -> 1 outlier  was  removed (13.29 ms)
+
+// * Legends *
+  Scenario    : Value of the 'Scenario' parameter
+  Mean        : Arithmetic mean of all measurements
+  Error       : Half of 99.9% confidence interval
+  StdDev      : Standard deviation of all measurements
+  Ratio       : Mean of the ratio distribution ([Current]/[Baseline])
+  RatioSD     : Standard deviation of the ratio distribution ([Current]/[Baseline])
+  Gen0        : GC Generation 0 collects per 1000 operations
+  Gen1        : GC Generation 1 collects per 1000 operations
+  Gen2        : GC Generation 2 collects per 1000 operations
+  Allocated   : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  Alloc Ratio : Allocated memory ratio distribution ([Current]/[Baseline])
+  1 ns        : 1 Nanosecond (0.000000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:03:39 (219.34 sec), executed benchmarks: 28
+
+Global total time: 00:03:42 (222.03 sec), executed benchmarks: 28
+// * Artifacts cleanup *
+Artifacts cleanup is finished
