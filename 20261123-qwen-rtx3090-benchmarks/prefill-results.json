@@ -1,0 +1,534 @@
+[
+  {
+    "WorkbookRecordId": 12,
+    "MeanPrefillTokensPerSecond": 60.1,
+    "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 59.2,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 1200.1,
+          "prompt_per_second": 59.2
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1200,
+            "prompt_tok_s": 59.2
+          }
+        ],
+        "SourceResult": "q4-2gpu-auto-262k-300w/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 61.0,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 4780.7,
+          "prompt_per_second": 14.9
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1163,
+            "prompt_tok_s": 61
+          },
+          {
+            "prompt_tokens": 3161,
+            "reused": 0,
+            "prompt_read": 3161,
+            "prompt_ms": 3617,
+            "prompt_tok_s": 873.8
+          }
+        ],
+        "SourceResult": "q4-2gpu-auto-262k-300w/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 7,
+    "MeanPrefillTokensPerSecond": 115.0,
+    "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 115.0,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 5053.5,
+          "prompt_per_second": 14
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 618,
+            "prompt_tok_s": 115
+          },
+          {
+            "prompt_tokens": 6233,
+            "reused": 0,
+            "prompt_read": 6233,
+            "prompt_ms": 4436,
+            "prompt_tok_s": 1405.1
+          }
+        ],
+        "SourceResult": "cause-iq4-lock/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 115.0,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 5025.8,
+          "prompt_per_second": 14.1
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 618,
+            "prompt_tok_s": 115
+          },
+          {
+            "prompt_tokens": 6233,
+            "reused": 0,
+            "prompt_read": 6233,
+            "prompt_ms": 4408,
+            "prompt_tok_s": 1414
+          }
+        ],
+        "SourceResult": "cause-iq4-lock/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 10,
+    "MeanPrefillTokensPerSecond": 59.9,
+    "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 60.0,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 1184.3,
+          "prompt_per_second": 60
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1184,
+            "prompt_tok_s": 60
+          }
+        ],
+        "SourceResult": "cause-q4-lock/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 59.8,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 5511,
+          "prompt_per_second": 12.9
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1188,
+            "prompt_tok_s": 59.8
+          },
+          {
+            "prompt_tokens": 3161,
+            "reused": 0,
+            "prompt_read": 3161,
+            "prompt_ms": 4323,
+            "prompt_tok_s": 731.2
+          }
+        ],
+        "SourceResult": "cause-q4-lock/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 32,
+    "MeanPrefillTokensPerSecond": 655.5319255626041,
+    "Metric": "api_timings.prompt_per_second",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 695.9351506062477,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 102.021,
+          "prompt_per_second": 695.9351506062477
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-1gpu/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 615.1287005189606,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 115.423,
+          "prompt_per_second": 615.1287005189606
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-1gpu/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 33,
+    "MeanPrefillTokensPerSecond": 700.795148727819,
+    "Metric": "api_timings.prompt_per_second",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 733.3801594843615,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 96.812,
+          "prompt_per_second": 733.3801594843615
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-1gpu-probe512-c262144/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 668.2101379712764,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 106.254,
+          "prompt_per_second": 668.2101379712764
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-1gpu-probe512-c262144/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 34,
+    "MeanPrefillTokensPerSecond": 704.2025462766203,
+    "Metric": "api_timings.prompt_per_second",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 695.2672862053096,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 102.119,
+          "prompt_per_second": 695.2672862053096
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-2gpu-layer-probe512-c262144/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 713.1378063479309,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 99.56,
+          "prompt_per_second": 713.1378063479309
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "llamAmpere-Benchmark-20261122/runs/dense-ai4-native-2gpu-layer-probe512-c262144/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 2,
+    "MeanPrefillTokensPerSecond": 44.400000000000006,
+    "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 44.1,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 1608.3,
+          "prompt_per_second": 44.1
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1608,
+            "prompt_tok_s": 44.1
+          }
+        ],
+        "SourceResult": "cause-q8-control/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 44.7,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 1589.3,
+          "prompt_per_second": 44.7
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 1589,
+            "prompt_tok_s": 44.7
+          }
+        ],
+        "SourceResult": "cause-q8-control/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 18,
+    "MeanPrefillTokensPerSecond": 38.43739748359128,
+    "Metric": "api_timings.prompt_per_second",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 38.20877273421978,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 4,
+        "CachedPromptTokens": 67,
+        "ApiTimings": {
+          "cache_n": 67,
+          "prompt_n": 4,
+          "prompt_ms": 104.688,
+          "prompt_per_second": 38.20877273421978
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "dedicated-mtp-qwen38-q4/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 38.66602223296278,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 4,
+        "CachedPromptTokens": 67,
+        "ApiTimings": {
+          "cache_n": 67,
+          "prompt_n": 4,
+          "prompt_ms": 103.45,
+          "prompt_per_second": 38.66602223296278
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "dedicated-mtp-qwen38-q4/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 14,
+    "MeanPrefillTokensPerSecond": 117.6,
+    "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 115.6,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 3990.6,
+          "prompt_per_second": 17.8
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 614,
+            "prompt_tok_s": 115.6
+          },
+          {
+            "prompt_tokens": 3161,
+            "reused": 0,
+            "prompt_read": 3161,
+            "prompt_ms": 3376,
+            "prompt_tok_s": 936.2
+          }
+        ],
+        "SourceResult": "q4-1gpu-auto-262k-300w/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 119.6,
+        "Metric": "engine_initial_prompt_segment.prompt_tok_s",
+        "ProcessedPromptTokens": 71,
+        "CachedPromptTokens": 0,
+        "ApiTimings": {
+          "cache_n": 0,
+          "prompt_n": 71,
+          "prompt_ms": 3926.1,
+          "prompt_per_second": 18.1
+        },
+        "EnginePromptSegments": [
+          {
+            "prompt_tokens": 71,
+            "reused": 0,
+            "prompt_read": 71,
+            "prompt_ms": 594,
+            "prompt_tok_s": 119.6
+          },
+          {
+            "prompt_tokens": 3161,
+            "reused": 0,
+            "prompt_read": 3161,
+            "prompt_ms": 3332,
+            "prompt_tok_s": 948.5
+          }
+        ],
+        "SourceResult": "q4-1gpu-auto-262k-300w/run2/result.json"
+      }
+    ]
+  },
+  {
+    "WorkbookRecordId": 19,
+    "MeanPrefillTokensPerSecond": 31.90143011244637,
+    "Metric": "api_timings.prompt_per_second",
+    "Runs": [
+      {
+        "Run": 1,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 36.7258871597117,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 4,
+        "CachedPromptTokens": 67,
+        "ApiTimings": {
+          "cache_n": 67,
+          "prompt_n": 4,
+          "prompt_ms": 108.915,
+          "prompt_per_second": 36.7258871597117
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "dedicated-mtp-qwen38-q2/run1/result.json"
+      },
+      {
+        "Run": 2,
+        "Warmup": false,
+        "Completed": true,
+        "PrefillTokensPerSecond": 27.076973065181043,
+        "Metric": "api_timings.prompt_per_second",
+        "ProcessedPromptTokens": 4,
+        "CachedPromptTokens": 67,
+        "ApiTimings": {
+          "cache_n": 67,
+          "prompt_n": 4,
+          "prompt_ms": 147.727,
+          "prompt_per_second": 27.076973065181043
+        },
+        "EnginePromptSegments": [],
+        "SourceResult": "dedicated-mtp-qwen38-q2/run2/result.json"
+      }
+    ]
+  }
+]

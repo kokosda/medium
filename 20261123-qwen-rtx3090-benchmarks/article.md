@@ -204,18 +204,22 @@ I ranked the workbook's 300 W-per-card results by **context capacity first, then
 
 One additional label appears here: `UD-IQ4_XS` is an Unsloth Dynamic variant using a compact, nonlinear four-bit weight encoding. “Nonlinear” means its representable values are unevenly spaced. The [quantizer's format list](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp) distinguishes it from the K-quant recipes.
 
-| Rank | Context | Tokens/s | Model and weight format | Vendor | GPUs |
-|---:|---:|---:|---|---|---|
-| 1 | 256K | **121** | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 GPUs, MTP shared |
-| 2 | 256K | **118** | Flash Next · UD-IQ4_XS (nonlinear 4-bit) | Unsloth | 3 GPUs, MTP shared |
-| 3 | 256K | **109** | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 3 GPUs, MTP shared |
-| 4 | 256K | **105** | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
-| 5 | 256K | **99** | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
-| 6 | 256K | **95** | Dense Swift · AI4 (custom 4-bit) | jakeatx | 2 GPUs, MTP shared |
-| 7 | 256K | **92** | Flash Next · Q8_0 (8-bit) | Unsloth | 3 GPUs, MTP shared |
-| 8 | 256K | **85** | Dense · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
-| 9 | 256K | **83** | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 1 GPU, MTP shared |
-| 10 | 256K | **81** | Dense · UD-Q2_K_XL (dynamic 2-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
+| Rank | Context | Generation tokens/s | Prefill tokens/s | Model and weight format | Vendor | GPUs |
+|---:|---:|---:|---:|---|---|---|
+| 1 | 256K | **121** | 60 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 GPUs, MTP shared |
+| 2 | 256K | **118** | 115 | Flash Next · UD-IQ4_XS (nonlinear 4-bit) | Unsloth | 3 GPUs, MTP shared |
+| 3 | 256K | **109** | 60 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 3 GPUs, MTP shared |
+| 4 | 256K | **105** | 656 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
+| 5 | 256K | **99** | 701 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
+| 6 | 256K | **95** | 704 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 2 GPUs, MTP shared |
+| 7 | 256K | **92** | 44 | Flash Next · Q8_0 (8-bit) | Unsloth | 3 GPUs, MTP shared |
+| 8 | 256K | **85** | 38† | Dense · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
+| 9 | 256K | **83** | 118 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 1 GPU, MTP shared |
+| 10 | 256K | **81** | 32† | Dense · UD-Q2_K_XL (dynamic 2-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
+
+**Prefill** is the prompt-reading stage before generation starts. The column shows the mean rate from the same two measured requests. For Strata, I used the initial engine-log prompt segment, excluding later internal prompt passes. For llama.cpp and llamAmpere, I used the API's `timings.prompt_per_second`. [The saved prefill measurements](https://github.com/kokosda/medium/blob/main/20261123-qwen-rtx3090-benchmarks/prefill-results.json) retain the per-request values and counters.
+
+**† Rows 8 and 10 reused 67 of the 71 prompt tokens**, leaving only four new tokens to process. The other rows processed all 71. Treat these as short-prompt processing rates; measuring how quickly a model reads a 256K-token prompt would require a separate workload. A 71-token prompt gives the GPU very little runway.
 
 The settings deserve a place beside the scores. These rows mix completed answers, deliberately short probes, and clock diagnostics. “Dense Swift” is the Swift1.5 Uncensored variant with SJ-KVaRN4 cache storage; the other entries use F16 KV. The two-GPU native AI4 probe also overlapped a restricted background download, as recorded in the workbook.
 
