@@ -37,14 +37,14 @@ Here are the conditions readers need before looking at the numbers.
 | Requests | One at a time |
 | Sampling | Temperature 0, seed 42 |
 | Target context capacity | 262,144 tokens |
-| KV cache | F16 for the controlled comparisons |
+| KV cache | F16 (16-bit floating point) for the controlled comparisons |
 | Warmup | One excluded request per case |
 | Repetitions | Actual measured count shown for each comparison |
 | Full-answer output limit | 8,192 generated tokens |
 | Short scaling probes | 512 generated tokens |
 | Clock diagnostic output limit | 4,096 generated tokens |
 
-The KV cache holds attention state as the conversation grows. Its storage format and allocated capacity are part of the memory budget alongside the model weights.
+The **KV cache**, short for key-value cache, stores intermediate attention data from earlier tokens so the model can reuse it as the conversation grows. **F16** stores those values as 16-bit floating-point numbers. The cache has its own memory budget and storage format, separate from the model weights.
 
 Context capacity and output limit are different settings. A 262,144-token context does not mean that this short prompt filled 262,144 tokens. It sets the capacity available to the server, and that allocation can affect which configurations fit in memory.
 
@@ -52,7 +52,9 @@ The output limit is an artificial ceiling on generation. A 512-token probe delib
 
 For llamAmpere, I used the server's `timings.predicted_per_second` and averaged completed measured requests after excluding warmup. The older Strata clock experiment used its engine-log aggregate. Both describe decoding, but I keep the two engines in separate comparisons. Neither number is the total end-to-end request rate including prompt processing.
 
-The dense llamAmpere cases used the same external Q8 MTP file at depth 3 and p-min 0. Flash Next used the vendor Q2 draft with adaptive depth 3–4 and p-min 0, with expert skipping off. The build's default mode-biased MTP setting remained enabled. Those drafting settings are part of the configuration being measured.
+**MTP means multi-token prediction.** A draft component proposes upcoming tokens, and the main model checks them. Draft depth is how many tokens it tries ahead in a round; adaptive depth changes that number while running. The controlled dense llamAmpere cases used the same external Q8 MTP file at depth 3. Flash Next used the vendor Q2 draft with adaptive depth 3–4, with expert skipping off. Both set the draft probability threshold (`p-min`) to 0.
+
+The build's default **mode-biased MTP** also remained enabled. This changes the draft-acceptance policy and can change the output compared with exact sampling. It is another reason these are configuration-speed results, with answer quality still to be evaluated. [The pinned speculative-decoding documentation](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/docs/speculative.md) describes these settings.
 
 ## The clock experiment that changed the investigation
 
@@ -104,7 +106,7 @@ That does not establish that Flash Next generally scales backward. It tells me t
 
 There is a useful clue in the project's own [Flash Next launcher at v0.7.2.1](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/scripts/flash-next-server.sh). It defaults to one GPU and describes the device-side expert-table path as single-GPU, with multi-GPU operation experimental. It also warns about very slow behavior when host-memory headroom is insufficient.
 
-Those restrictions matter for a mixture-of-experts model. The execution path has to make the relevant expert weights available as tokens are generated. Adding devices can change how that work is placed and moved, rather than simply dividing identical work into equal pieces.
+Those restrictions matter for a **mixture-of-experts model**: it routes each token to a selection of specialist parameter blocks called experts. A dense model uses the same core network for each token. The execution path has to make the relevant expert weights available as tokens are generated. Adding devices can change how that work is placed and moved, rather than simply dividing identical work into equal pieces.
 
 My measurements do not isolate transfer time or prove that paging caused the three-GPU slowdown. The source explains why a simple GPU-count expectation is unsafe here; it is not a profiler trace of these requests.
 
@@ -163,6 +165,12 @@ For reference, my dense ggml-org Q8 full-answer baseline at 262,144 context with
 There was also a **105.17-token/s** full-answer result on one GPU at 262,144 context.
 
 It came from jakeatx's native AI4 dense preset, using the **Swift1.5 Uncensored** variant, its built-in adaptive MTP, and **SJ-KVaRN4** KV storage. Two measured requests completed naturally.
+
+**SJ-KVaRN4 is a compression scheme for the attention cache.** AI4 is llamAmpere's custom four-bit format for model weights; SJ-KVaRN4 describes how the stored attention data is represented. The “4” refers to the four-bit representation used for the older, compressed cache entries, compared with the 16-bit values in F16.
+
+That does not make the entire cache exactly four times smaller. The format includes metadata and uses different storage for the initial tokens and the recent-token window. The conversion is lossy, so it can also affect the model's output. [The pinned cache-format documentation](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/docs/KV-cache-quantization.md#hybrid-sj-kvarn44-with-tq6-staging) explains the layout.
+
+For this benchmark, the consequence is practical: cache compression changes the memory footprint and the attention computation alongside the weight format. I did not isolate its contribution, so I cannot attribute the 105.17-token/s result to SJ-KVaRN4 alone.
 
 That is an interesting configuration result. It changes the fine-tuned weights, quant format, KV format, and drafting setup at once. Putting it at the top of an original-weights Q8-to-Q2 chart would conceal exactly the conditions that might explain its performance.
 
