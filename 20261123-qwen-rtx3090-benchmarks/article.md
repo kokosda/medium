@@ -14,9 +14,9 @@ That result changed the question. Before comparing smaller models, I needed to u
 
 Quantization stores model weights at reduced numerical precision. That can make a model easier to fit in memory. The speed you get still depends on how the inference engine executes it, where the data lives, and what the hardware is doing.
 
-We tested Qwen3.8-27B Dense and Flash Next under Strata and llama.cpp, then repeated selected workloads with llamAmpere. Some configurations finished comfortably. Others ran slower with more GPUs. Several never produced a completed measurement.
+I tested Qwen3.8-27B Dense and Flash Next under Strata and llama.cpp, then repeated selected workloads with llamAmpere. Some configurations finished comfortably. Others ran slower with more GPUs. Several never produced a completed measurement.
 
-This article focuses on the Strata clock diagnostic and the later llamAmpere comparisons that taught us the most. The [benchmark workbook](https://github.com/kokosda/medium/raw/refs/heads/main/20261123-qwen-rtx3090-benchmarks/Qwen3.8%20Benchmark.xlsx) contains the wider record: 101 experiment records, including exploratory runs and failed attempts. It is a record of configurations, not 101 interchangeable samples.
+This article focuses on the Strata clock diagnostic and the later llamAmpere comparisons that taught me the most. The [benchmark workbook](https://github.com/kokosda/medium/raw/refs/heads/main/20261123-qwen-rtx3090-benchmarks/Qwen3.8%20Benchmark.xlsx) contains the wider record: 101 experiment records, including exploratory runs and failed attempts. It is a record of configurations, not 101 interchangeable samples.
 
 ## One machine and one deliberately ordinary prompt
 
@@ -26,13 +26,13 @@ The prompt was always:
 
 > Write a C# implementation of an LRU cache. Explain the time complexity of each operation.
 
-It asks for code and an explanation, which makes it useful for observing sustained generation. It also gives this study a clear boundary: we measured one coding task, not a representative collection of workloads.
+It asks for code and an explanation, which makes it useful for observing sustained generation. It also gives this study a clear boundary: I measured one coding task, not a representative collection of workloads.
 
-An LRU cache combines a lookup structure with an ordering structure. We did **not** systematically compile the generated C#, test its eviction behavior, or score the explanations. A faster answer in these tables is not evidence of a better implementation.
+An LRU cache combines a lookup structure with an ordering structure. I did **not** systematically compile the generated C#, test its eviction behavior, or score the explanations. A faster answer in these tables is not evidence of a better implementation.
 
 Here are the conditions readers need before looking at the numbers.
 
-| Setting | How we used it |
+| Setting | How I used it |
 |---|---|
 | Requests | One at a time |
 | Sampling | Temperature 0, seed 42 |
@@ -50,15 +50,15 @@ Context capacity and output limit are different settings. A 262,144-token contex
 
 The output limit is an artificial ceiling on generation. A 512-token probe deliberately stops early; it is not a completed LRU explanation. The generated-token count includes reasoning as well as the visible answer.
 
-For llamAmpere, we used the server's `timings.predicted_per_second` and averaged completed measured requests after excluding warmup. The older Strata clock experiment used its engine-log aggregate. Both describe decoding, but we keep the two engines in separate comparisons. Neither number is the total end-to-end request rate including prompt processing.
+For llamAmpere, I used the server's `timings.predicted_per_second` and averaged completed measured requests after excluding warmup. The older Strata clock experiment used its engine-log aggregate. Both describe decoding, but I keep the two engines in separate comparisons. Neither number is the total end-to-end request rate including prompt processing.
 
 The dense llamAmpere cases used the same external Q8 MTP file at depth 3 and p-min 0. Flash Next used the vendor Q2 draft with adaptive depth 3–4 and p-min 0, with expert skipping off. The build's default mode-biased MTP setting remained enabled. Those drafting settings are part of the configuration being measured.
 
 ## The clock experiment that changed the investigation
 
-Our first useful surprise came from Flash Next with Unsloth's `UD-Q4_K_XL` weights under Strata. The model stayed loaded across three GPUs, with the same 300 W limit, F16 KV cache, and 262,144-token context capacity.
+The first useful surprise came from Flash Next with Unsloth's `UD-Q4_K_XL` weights under Strata. The model stayed loaded across three GPUs, with the same 300 W limit, F16 KV cache, and 262,144-token context capacity.
 
-We changed clock policy, measured, then returned to automatic clocks.
+I changed clock policy, measured, then returned to automatic clocks.
 
 ![Clock policy experiment showing 46.35, 108.75, and 51.29 tokens per second](assets/clock-policy.png)
 
@@ -72,7 +72,7 @@ We changed clock policy, measured, then returned to automatic clocks.
 
 The locked phase was about **2.35 times** as fast as the first automatic phase. Returning to automatic clocks moved the rate back toward the original slower state.
 
-That is useful evidence that clock state mattered in this configuration. It does not identify how much came from memory clocks, core clocks, power-state transitions, or their interaction. We did not independently vary each of those factors.
+That is useful evidence that clock state mattered in this configuration. It does not identify how much came from memory clocks, core clocks, power-state transitions, or their interaction. I did not independently vary each of those factors.
 
 It is also a small experiment. The return phase has one measured request, and the generated responses were not identical lengths. Treat it as a strong diagnostic observation rather than a universal speed multiplier.
 
@@ -80,13 +80,13 @@ The practical lesson is easy to miss when a quant name is the largest label in a
 
 The [clock telemetry and phase markers](https://github.com/kokosda/medium/tree/main/20261123-qwen-rtx3090-benchmarks/evidence/clock) are included with the article data.
 
-The later llamAmpere results below used automatic clocks. We did not carry the clock lock into those comparisons.
+The later llamAmpere results below used automatic clocks. I did not carry the clock lock into those comparisons.
 
 ## Three GPUs made this Flash Next probe slower
 
 Next came a result that looks backward if you expect every additional GPU to help.
 
-We ran the same Flash Next ISTA-DASLab `GSQ-RCO Q2_0` quant on one, two, and three GPUs. These were short, deliberately capped 512-token probes, all with F16 KV, 262,144-token context capacity, and two measured requests after warmup.
+I ran the same Flash Next ISTA-DASLab `GSQ-RCO Q2_0` quant on one, two, and three GPUs. These were short, deliberately capped 512-token probes, all with F16 KV, 262,144-token context capacity, and two measured requests after warmup.
 
 ![Flash Next Q2 scaling probe showing lower generation rate as GPU count increases](assets/flash-gpu-scaling.png)
 
@@ -100,19 +100,19 @@ We ran the same Flash Next ISTA-DASLab `GSQ-RCO Q2_0` quant on one, two, and thr
 
 The one-GPU configuration was about 5.5 times as fast as the three-GPU configuration in this probe.
 
-That does not establish that Flash Next generally scales backward. It tells us that this quant, placement, workload, and pinned Windows build did.
+That does not establish that Flash Next generally scales backward. It tells me that this quant, placement, workload, and pinned Windows build did.
 
 There is a useful clue in the project's own [Flash Next launcher at v0.7.2.1](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/scripts/flash-next-server.sh). It defaults to one GPU and describes the device-side expert-table path as single-GPU, with multi-GPU operation experimental. It also warns about very slow behavior when host-memory headroom is insufficient.
 
 Those restrictions matter for a mixture-of-experts model. The execution path has to make the relevant expert weights available as tokens are generated. Adding devices can change how that work is placed and moved, rather than simply dividing identical work into equal pieces.
 
-Our measurements do not isolate transfer time or prove that paging caused the three-GPU slowdown. The source explains why a simple GPU-count expectation is unsafe here; it is not a profiler trace of these requests.
+My measurements do not isolate transfer time or prove that paging caused the three-GPU slowdown. The source explains why a simple GPU-count expectation is unsafe here; it is not a profiler trace of these requests.
 
 A separate full-answer run of this Q2 configuration on one GPU averaged **73.96 tokens/s**, with two measured responses. That is reassuringly close to its short-probe rate, but it remains a separate measurement with an 8,192-token ceiling.
 
 ## A draft GPU still has to earn its place
 
-We also tried a different use for the third card: leave the main dense model on two GPUs and dedicate the third to MTP.
+I also tried a different use for the third card: leave the main dense model on two GPUs and dedicate the third to MTP.
 
 MTP supplies draft token proposals that the main model verifies. A separate draft device changes where that work happens; it does not remove verification or guarantee an overall speedup.
 
@@ -131,7 +131,7 @@ The main model stayed on CUDA1 and CUDA2. In the shared case, MTP used CUDA1; in
 
 Both configurations completed naturally, averaging 7,460 generated tokens per request. Sharing MTP on the two cards was about 5.4% faster in this comparison.
 
-We can measure the total effect of that placement choice. We cannot assign the difference to communication overhead, draft scheduling, or verification cost without further profiling. The dedicated draft GPU was a hypothesis worth testing, and this pair did not reward it.
+I can measure the total effect of that placement choice. I cannot assign the difference to communication overhead, draft scheduling, or verification cost without further profiling. The dedicated draft GPU was a hypothesis worth testing, and this pair did not reward it.
 
 ## Smaller dense quants changed what fit
 
@@ -148,15 +148,15 @@ The table below contains six full-answer configurations from the resumed tests. 
 | ggml-org | Q4_K_M | 2 GPUs, MTP shared | 262,144 | 48.03 | 2 |
 | ggml-org | Q4_K_M | 2 model GPUs + 1 MTP GPU | 262,144 | 45.58 | 2 |
 
-This is where an attractive leaderboard would mislead us.
+This is where an attractive leaderboard would mislead me.
 
-The 76.41-token/s one-GPU Q4 run used a quarter of the context capacity of the 48.03-token/s two-GPU run. The one-GPU Q4 attempts at 262,144 and 131,072 failed with out-of-memory errors before we reduced the capacity to 65,536.
+The 76.41-token/s one-GPU Q4 run used a quarter of the context capacity of the 48.03-token/s two-GPU run. The one-GPU Q4 attempts at 262,144 and 131,072 failed with out-of-memory errors before I reduced the capacity to 65,536.
 
 If you need 262,144 tokens available, the faster 65,536-token configuration does not meet your requirement. If your workload fits the smaller capacity, its speed is relevant. The useful choice depends on the constraint you actually have.
 
 The same care applies to quant labels. `UD-Q4_K_XL` and `Q4_K_M` identify different quantization variants. A shared “Q4” prefix does not make them identical weight files or interchangeable benchmark subjects.
 
-For reference, our dense ggml-org Q8 full-answer baseline at 262,144 context with two model GPUs plus a dedicated MTP GPU averaged **46.65 tokens/s** across two measured requests. That is close to the Q4 dedicated-draft result above. Reducing the nominal bit width did not automatically improve that particular deployment.
+For reference, my dense ggml-org Q8 full-answer baseline at 262,144 context with two model GPUs plus a dedicated MTP GPU averaged **46.65 tokens/s** across two measured requests. That is close to the Q4 dedicated-draft result above. Reducing the nominal bit width did not automatically improve that particular deployment.
 
 ## The fastest dense number had different conditions
 
@@ -170,19 +170,19 @@ It belongs in the workbook and deserves its own follow-up comparison, including 
 
 ## Failed attempts belong in the record
 
-The native Flash AI3 and AI4 paths did not give us completed controlled throughput measurements in the one-to-three-GPU probes. Several requests reached the 240-second deadline.
+The native Flash AI3 and AI4 paths did not give me completed controlled throughput measurements in the one-to-three-GPU probes. Several requests reached the 240-second deadline.
 
-We kept those attempts as failures or timeouts. Assigning them zero tokens/s would imply a completed measurement that never happened.
+I kept those attempts as failures or timeouts. Assigning them zero tokens/s would imply a completed measurement that never happened.
 
 Logs showed mapped-registration failures, a 1 GiB staging cap, and missing device expert tables in relevant attempts. The pinned source gives those messages useful context: [`pin_supported()` returns false on Windows](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/src/llama-moe-arena.cpp), and the full pinned-arena constructor also rejects Windows. A [private writable fallback remap](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/src/llama-model-loader.cpp) is guarded for Linux.
 
-Those are limitations of the version and path we tested. They do not prove that the model family is unusable on Windows or that a later build behaves the same way.
+Those are limitations of the version and path I tested. They do not prove that the model family is unusable on Windows or that a later build behaves the same way.
 
 ## Reproduce the question before comparing the answer
 
 The full measurement archive contains request JSON, streamed output, server logs, summaries, and GPU telemetry. The [public article folder](https://github.com/kokosda/medium/tree/main/20261123-qwen-rtx3090-benchmarks) includes the workbook, the data behind the figures, and the figure-rendering source.
 
-Our launch pattern started by setting the power limit on each participating card:
+My launch pattern started by setting the power limit on each participating card:
 
 ```powershell
 $watts = 300
