@@ -113,7 +113,7 @@ def _bars(rows, x, color, subtitle, footnotes, title, labels=None, ylabel="token
     ax.bar(x, means, width=0.55, color=color, zorder=2)
     ax.errorbar(x, means, yerr=[lo, hi], fmt="none", ecolor=INK, elinewidth=1.5, capsize=7, capthick=1.5, zorder=3)
     for xi, r in zip(x, rows):
-        ax.annotate(f"{r['mean']:.1f}  (n={r['n']})", (xi, r["max"]), xytext=(0, 10),
+        ax.annotate(f"{r['mean']:.0f}  (n={r['n']})", (xi, r["max"]), xytext=(0, 10),
                     textcoords="offset points", ha="center", fontsize=13, fontweight="bold", color=INK)
     ax.set_xticks(x, labels or [r["label"] for r in rows])
     ax.set_ylabel(ylabel, fontsize=14, color=INK)
@@ -130,7 +130,7 @@ def clock_chart(rows, outdir):
     rows = sorted(rows, key=lambda r: CLOCK_IDS.index(r["id"]))
     capped = ", ".join(f"{r['capped']}/{r['n']}" for r in rows)
     fig = _bars(rows, [0, 1, 2], TEAL,
-                "Strata Flash Next Unsloth UD-Q4_K_XL · 3 GPUs · 300 W\nF16 KV · 262144 context",
+                "Strata Flash Next Unsloth UD-Q4_K_XL · 3 GPUs · 300 W\nF16 KV · 256K context",
                 [f"4096-token output cap; runs capped: {capped} (Auto, Locked, Auto again).",
                  "Whiskers show observed min-max, not confidence intervals."],
                 "Same Q4 model, different clock policy")
@@ -140,7 +140,7 @@ def clock_chart(rows, outdir):
 def scaling_chart(rows, outdir):
     rows = sorted(rows, key=lambda r: SCALING_IDS.index(r["id"]))
     fig = _bars(rows, [0, 1, 2], ORANGE,
-                "llamAmpere 0.7.2.1 Windows · ISTA-DASLab GSQ-RCO Q2_0 · 300 W\nF16 KV · 262144 context",
+                "llamAmpere 0.7.2.1 Windows · ISTA-DASLab GSQ-RCO Q2_0 · 300 W\nF16 KV · 256K context",
                 ["512-token capped probes; MTP follows model devices; multi-GPU experimental in this path.",
                  "Whiskers show observed min-max, not confidence intervals."],
                 "Same Q2 model, different GPU count",

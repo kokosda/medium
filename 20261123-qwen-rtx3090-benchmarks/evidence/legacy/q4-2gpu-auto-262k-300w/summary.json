@@ -1,0 +1,46 @@
+{
+  "label": "q4-2gpu-auto-262k-300w",
+  "at": "2026-11-21T19:52:05.895Z",
+  "tokens": 4096,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "engine_log_aggregate"
+      ],
+      "n": 2,
+      "mean": 120.819,
+      "median": 120.819,
+      "min": 120.546,
+      "max": 121.092
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 1.222,
+      "median": 1.222,
+      "min": 1.194,
+      "max": 1.25
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 32.977,
+      "median": 32.9765,
+      "min": 27.472,
+      "max": 38.481
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 3629.5,
+      "median": 3629.5,
+      "min": 3163,
+      "max": 4096
+    },
+    "length_capped_runs": [
+      2
+    ],
+    "error_runs": []
+  }
+}

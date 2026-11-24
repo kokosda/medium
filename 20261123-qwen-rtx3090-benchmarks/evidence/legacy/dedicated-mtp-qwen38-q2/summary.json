@@ -1,0 +1,47 @@
+{
+  "label": "dedicated-mtp-qwen38-q2",
+  "at": "2026-11-20T19:02:29.367Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 80.669,
+      "median": 80.66938005398166,
+      "min": 80.12899133917223,
+      "max": 81.2097687687911
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.261,
+      "median": 0.2605,
+      "min": 0.163,
+      "max": 0.358
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 101.806,
+      "median": 101.8055,
+      "min": 101.028,
+      "max": 102.583
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 8192,
+      "median": 8192,
+      "min": 8192,
+      "max": 8192
+    },
+    "length_capped_runs": [
+      1,
+      2
+    ],
+    "error_runs": []
+  }
+}

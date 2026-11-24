@@ -81,6 +81,23 @@ test("renders all six figure files non-empty", (t) => {
   for (const f of FIGURES)
     for (const ext of ["png", "svg"])
       assert.ok(statSync(path.join(out, `${f}.${ext}`)).size > 0, `${f}.${ext} is empty`);
+  // Display-only regression: Matplotlib keeps each text label as an SVG comment.
+  // Mean tokens/s labels are whole numbers and both context subtitles read "256K context".
+  const labelsOf = (name) => [...readFileSync(path.join(out, `${name}.svg`), "utf8")
+    .matchAll(/<!--(.*?)-->/gs)].map((m) => m[1]).join("\n");
+  const clockLabels = labelsOf("clock-policy");
+  const scalingLabels = labelsOf("flash-gpu-scaling");
+  for (const want of ["46  (n=2)", "109  (n=2)"])
+    assert.ok(clockLabels.includes(want), `clock SVG missing integer mean label ${want}: ${clockLabels}`);
+  assert.ok(scalingLabels.includes("76  (n=2)"),
+    `scaling SVG missing integer mean label 76  (n=2): ${scalingLabels}`);
+  for (const stale of ["46.3  (n=", "108.7  (n=", "75.5  (n="])
+    assert.ok(!(clockLabels + scalingLabels).includes(stale),
+      `one-decimal mean label ${stale} still rendered`);
+  for (const labels of [clockLabels, scalingLabels]) {
+    assert.match(labels, /256K context/);
+    assert.doesNotMatch(labels, /262144/);
+  }
 });
 
 rejected("mean above max", (d) => { d.clock[0].mean = d.clock[0].max + 10; });

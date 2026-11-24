@@ -1,0 +1,44 @@
+{
+  "label": "cause-iq4-lock",
+  "at": "2026-11-21T00:22:35.534Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "engine_log_aggregate"
+      ],
+      "n": 2,
+      "mean": 117.718,
+      "median": 117.7175,
+      "min": 117.094,
+      "max": 118.341
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.635,
+      "median": 0.635,
+      "min": 0.635,
+      "max": 0.635
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 67.752,
+      "median": 67.7515,
+      "min": 67.663,
+      "max": 67.84
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 7398,
+      "median": 7398,
+      "min": 7370,
+      "max": 7426
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}
