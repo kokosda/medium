@@ -1,6 +1,6 @@
 # Qwen RTX 3090 benchmark article
 
-[Read the article](article.md) · [Download the Excel workbook](https://github.com/kokosda/medium/raw/refs/heads/main/20261123-qwen-rtx3090-benchmarks/Qwen3.8%20Benchmark.xlsx)
+[Read v2](article-v2.md) · [Read v1](article.md) · [Download the Excel workbook](https://github.com/kokosda/medium/raw/refs/heads/main/20261123-qwen-rtx3090-benchmarks/Qwen3.8%20Benchmark.xlsx)
 
 This folder accompanies an investigation of Qwen3.8 Dense and Flash Next generation speed on a Windows workstation with three RTX 3090s. Measurements were collected in November 2026. The article is a draft for Medium; it has not been published to Medium by this workflow.
 
