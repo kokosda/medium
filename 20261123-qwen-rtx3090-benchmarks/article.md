@@ -74,11 +74,11 @@ In the **automatic phase**, NVIDIA's normal clock management chose the GPU's ope
 
 *Whiskers show the observed minimum and maximum, not confidence intervals. Each phase excluded one warmup. All phases used a 4,096-token output ceiling; completion lengths differed.*
 
-| Clock policy | Mean tokens/s | Observed range | Measured runs | Runs reaching output limit |
-|---|---:|---:|---:|---:|
-| Automatic | 46 | 45–48 | 2 | 2 of 2 |
-| Locked | 109 | 108–110 | 2 | 1 of 2 |
-| Automatic again | 51 | 51 | 1 | 0 of 1 |
+| Clock policy | Quantization | Mean tokens/s | Observed range | Measured runs | Runs reaching output limit |
+|---|---|---:|---:|---:|---:|
+| Automatic | Q4 | 46 | 45–48 | 2 | 2 of 2 |
+| Locked | Q4 | 109 | 108–110 | 2 | 1 of 2 |
+| Automatic again | Q4 | 51 | 51 | 1 | 0 of 1 |
 
 The locked phase was **more than twice as fast** as the first automatic phase. Returning to automatic clocks moved the rate back toward the original slower state.
 
@@ -104,11 +104,11 @@ These were short, deliberately capped 512-token probes, all with F16 KV, 256K-to
 
 *llamAmpere v0.7.2.1, Windows CUDA12 build 15466, commit 857ccba7d. Multi-GPU runs used layer splitting; the MTP draft followed the model devices. Every measured probe reached its 512-token ceiling.*
 
-| GPUs | Mean tokens/s | Measured runs |
-|---|---:|---:|
-| 1 GPU with MTP shared | 76 | 2 |
-| 2 GPUs with MTP following model devices | 44 | 2 |
-| 3 GPUs with MTP following model devices | 14 | 2 |
+| GPUs | Quantization | Mean tokens/s | Measured runs |
+|---|---|---:|---:|
+| 1 GPU with MTP shared | Q2 | 76 | 2 |
+| 2 GPUs with MTP following model devices | Q2 | 44 | 2 |
+| 3 GPUs with MTP following model devices | Q2 | 14 | 2 |
 
 The one-GPU configuration was about 5.5 times as fast as the three-GPU configuration in this probe. My three-card setup had just lost a race to one of its own cards.
 
@@ -136,10 +136,10 @@ The cleanest full-answer comparison here used ggml-org's dense `Q4_K_M`. The lab
 
 Both cases used the same external Q8 MTP file, the same F16 KV format, and the same 256K-token context capacity.
 
-| Vendor | Quant | GPU arrangement | Mean tokens/s | Measured runs |
+| Vendor | Quantization | GPU arrangement | Mean tokens/s | Measured runs |
 |---|---|---|---:|---:|
-| ggml-org | Q4_K_M (mixed 4-bit) | 2 GPUs with MTP shared | 48 | 2 |
-| ggml-org | Q4_K_M (mixed 4-bit) | 2 model GPUs + 1 MTP GPU | 46 | 2 |
+| ggml-org | Q4 | 2 GPUs with MTP shared | 48 | 2 |
+| ggml-org | Q4 | 2 model GPUs + 1 MTP GPU | 46 | 2 |
 
 The main model stayed on CUDA1 and CUDA2. In the shared case, MTP used CUDA1; in the dedicated case, it used CUDA0.
 
@@ -153,14 +153,14 @@ The dense model produced a more familiar tradeoff: lower quants could fit on one
 
 The table below contains six full-answer configurations from the resumed tests. Each excluded one warmup, measured two requests, and stopped naturally before the 8,192-token ceiling. Power limits were 300 W and clocks were automatic.
 
-| Vendor | Dense quant | GPUs | Context capacity | Mean tokens/s | Measured runs |
+| Vendor | Quantization | GPUs | Context capacity | Mean tokens/s | Measured runs |
 |---|---|---|---:|---:|---:|
-| Unsloth | UD-Q2_K_XL (dynamic 2-bit class) | 1 GPU, MTP shared | 128K | 83 | 2 |
-| Unsloth | UD-Q3_K_XL (dynamic 3-bit class) | 1 GPU, MTP shared | 128K | 80 | 2 |
-| Unsloth | UD-Q5_K_XL (dynamic 5-bit class) | 1 GPU, MTP shared | 32K | 71 | 2 |
-| ggml-org | Q4_K_M (mixed 4-bit) | 1 GPU, MTP shared | 64K | 76 | 2 |
-| ggml-org | Q4_K_M (mixed 4-bit) | 2 GPUs, MTP shared | 256K | 48 | 2 |
-| ggml-org | Q4_K_M (mixed 4-bit) | 2 model GPUs + 1 MTP GPU | 256K | 46 | 2 |
+| Unsloth | Q2 | 1 GPU, MTP shared | 128K | 83 | 2 |
+| Unsloth | Q3 | 1 GPU, MTP shared | 128K | 80 | 2 |
+| Unsloth | Q5 | 1 GPU, MTP shared | 32K | 71 | 2 |
+| ggml-org | Q4 | 1 GPU, MTP shared | 64K | 76 | 2 |
+| ggml-org | Q4 | 2 GPUs, MTP shared | 256K | 48 | 2 |
+| ggml-org | Q4 | 2 model GPUs + 1 MTP GPU | 256K | 46 | 2 |
 
 This is where an attractive leaderboard would mislead me. A faster 64K configuration does not get to borrow a 256K badge.
 
@@ -202,24 +202,26 @@ Those are limitations of the version and path I tested. They do not prove that t
 
 I ranked the workbook's 300 W-per-card results by **context capacity first, then generation speed**, both from highest to lowest. Each entry below has two measured requests. For the repeated Flash Next Q8 baseline, I kept the later control run. All ten entries land at **256K** because capacity takes priority in this ordering. The smaller-context results remain in the dense table above.
 
-One additional label appears here: `UD-IQ4_XS` is an Unsloth Dynamic variant using a compact, nonlinear four-bit weight encoding. “Nonlinear” means its representable values are unevenly spaced. The [quantizer's format list](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp) distinguishes it from the K-quant recipes.
+The short table label **IQ4** refers to `UD-IQ4_XS`, an Unsloth Dynamic variant using a compact, nonlinear four-bit weight encoding. “Nonlinear” means its representable values are unevenly spaced. The [quantizer's format list](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp) distinguishes it from the K-quant recipes.
 
-| Rank | Context | Generation tokens/s | Prefill tokens/s | Model and weight format | Vendor | GPUs |
-|---:|---:|---:|---:|---|---|---|
-| 1 | 256K | **121** | 60 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 GPUs, MTP shared |
-| 2 | 256K | **118** | 115 | Flash Next · UD-IQ4_XS (nonlinear 4-bit) | Unsloth | 3 GPUs, MTP shared |
-| 3 | 256K | **109** | 60 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 3 GPUs, MTP shared |
-| 4 | 256K | **105** | 656 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
-| 5 | 256K | **99** | 701 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 1 GPU, built-in MTP |
-| 6 | 256K | **95** | 704 | Dense Swift · AI4 (custom 4-bit) | jakeatx | 2 GPUs, MTP shared |
-| 7 | 256K | **92** | 44 | Flash Next · Q8_0 (8-bit) | Unsloth | 3 GPUs, MTP shared |
-| 8 | 256K | **85** | 38† | Dense · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
-| 9 | 256K | **83** | 118 | Flash Next · UD-Q4_K_XL (dynamic 4-bit) | Unsloth | 1 GPU, MTP shared |
-| 10 | 256K | **81** | 32† | Dense · UD-Q2_K_XL (dynamic 2-bit) | Unsloth | 2 model GPUs + 1 MTP GPU |
+| Rank | Context | Generation tokens/s | Prefill tokens/s | Model | Quantization | Vendor | GPUs |
+|---:|---:|---:|---:|---|---|---|---|
+| 1 | 256K | **121** | 60 | Flash Next | Q4 | Unsloth | 2 GPUs, MTP shared |
+| 2 | 256K | **118** | 115 | Flash Next | IQ4 | Unsloth | 3 GPUs, MTP shared |
+| 3 | 256K | **109** | 60 | Flash Next | Q4 | Unsloth | 3 GPUs, MTP shared |
+| 4 | 256K | **105** | 656 | Dense Swift | AI4 | jakeatx | 1 GPU, built-in MTP |
+| 5 | 256K | **99** | 701 | Dense Swift | AI4 | jakeatx | 1 GPU, built-in MTP |
+| 6 | 256K | **95** | 704 | Dense Swift | AI4 | jakeatx | 2 GPUs, MTP shared |
+| 7 | 256K | **92** | 44 | Flash Next | Q8 | Unsloth | 3 GPUs, MTP shared |
+| 8 | 256K | **85** | 38† | Dense | Q4 | Unsloth | 2 model GPUs + 1 MTP GPU |
+| 9 | 256K | **83** | 118 | Flash Next | Q4 | Unsloth | 1 GPU, MTP shared |
+| 10 | 256K | **81** | 32† | Dense | Q2 | Unsloth | 2 model GPUs + 1 MTP GPU |
 
 **Prefill** is the prompt-reading stage before generation starts. The column shows the mean rate from the same two measured requests. For Strata, I used the initial engine-log prompt segment, excluding later internal prompt passes. For llama.cpp and llamAmpere, I used the API's `timings.prompt_per_second`. [The saved prefill measurements](https://github.com/kokosda/medium/blob/main/20261123-qwen-rtx3090-benchmarks/prefill-results.json) retain the per-request values and counters.
 
 **† Rows 8 and 10 reused 67 of the 71 prompt tokens**, leaving only four new tokens to process. The other rows processed all 71. Treat these as short-prompt processing rates; measuring how quickly a model reads a 256K-token prompt would require a separate workload. A 71-token prompt gives the GPU very little runway.
+
+The Q4 entries here use Unsloth's dynamic four-bit recipe; AI4 keeps its custom-format name. Full quantization labels remain in the surrounding explanations and downloadable data.
 
 The settings deserve a place beside the scores. These rows mix completed answers, deliberately short probes, and clock diagnostics. “Dense Swift” is the Swift1.5 Uncensored variant with SJ-KVaRN4 cache storage; the other entries use F16 KV. The two-GPU native AI4 probe also overlapped a restricted background download, as recorded in the workbook.
 
