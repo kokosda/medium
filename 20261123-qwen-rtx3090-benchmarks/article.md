@@ -4,15 +4,15 @@ Three RTX 3090s, one C# prompt, and a benchmark that kept turning into a configu
 
 ![An engineer inspecting three graphics cards and a clock mechanism](assets/hero.png)
 
-I started with a straightforward question: how much generation speed would I gain by moving below Q8?
+I started with a straightforward question: how much generation speed would I gain by moving below Q8, the eight-bit weight-quantization class?
 
-Then the same Q4 model produced **46.35 tokens per second in one configuration and 108.75 in another**. Returning to automatic clocks brought it back to 51.29.
+Then the same Q4 model, using a four-bit-class weight quantization, produced **46.35 tokens per second in one configuration and 108.75 in another**. Returning to automatic clocks brought it back to 51.29.
 
 The weights had not changed. The quant label had not changed. The clock policy had.
 
 That result changed the question. Before comparing smaller models, I needed to understand what the machine was actually doing with them.
 
-Quantization stores model weights at reduced numerical precision. That can make a model easier to fit in memory. The speed you get still depends on how the inference engine executes it, where the data lives, and what the hardware is doing.
+Quantization stores model weights at reduced numerical precision. That can make a model easier to fit in memory. Labels such as Q2, Q4, and Q8 describe precision classes, not the number of model parameters. A file can mix precisions and include storage overhead, so its label is not an exact average number of bits per weight. The speed you get still depends on how the inference engine executes it, where the data lives, and what the hardware is doing.
 
 I tested Qwen3.8-27B Dense and Flash Next under Strata and llama.cpp, then repeated selected workloads with llamAmpere. Some configurations finished comfortably. Others ran slower with more GPUs. Several never produced a completed measurement.
 
@@ -58,7 +58,9 @@ The build's default **mode-biased MTP** also remained enabled. This changes the 
 
 ## The clock experiment that changed the investigation
 
-The first useful surprise came from Flash Next with Unsloth's `UD-Q4_K_XL` weights under Strata. The model stayed loaded across three GPUs, with the same 300 W limit, F16 KV cache, and 262,144-token context capacity.
+The first useful surprise came from Flash Next with Unsloth's `UD-Q4_K_XL` weights under Strata. This is a four-bit-class **Unsloth Dynamic** recipe: it assigns different precisions to different parts of the model. `K` refers to the block-based K-quant family, and `XL` identifies this particular vendor recipe. The model's parameter count stays the same. [Unsloth describes its dynamic quantization approach here](https://unsloth.ai/docs/basics/dynamic-3.0-ggufs).
+
+The model stayed loaded across three GPUs, with the same 300 W limit, F16 KV cache, and 262,144-token context capacity.
 
 I changed clock policy, measured, then returned to automatic clocks.
 
@@ -88,7 +90,9 @@ The later llamAmpere results below used automatic clocks. I did not carry the cl
 
 Next came a result that looks backward if you expect every additional GPU to help.
 
-I ran the same Flash Next ISTA-DASLab `GSQ-RCO Q2_0` quant on one, two, and three GPUs. These were short, deliberately capped 512-token probes, all with F16 KV, 262,144-token context capacity, and two measured requests after warmup.
+I ran the same Flash Next ISTA-DASLab `GSQ-RCO Q2_0` quant on one, two, and three GPUs. This is a two-bit-class, mixed-precision weight build. GSQ is the method used to quantize the weight arrays; RCO chooses their precision under a size budget. The publisher reports an average of **2.40 bits per transformer weight** for this variant, which shows why the “Q2” label is shorthand rather than an exact whole-file measurement. [The model card explains the recipe](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF).
+
+These were short, deliberately capped 512-token probes, all with F16 KV, 262,144-token context capacity, and two measured requests after warmup.
 
 ![Flash Next Q2 scaling probe showing lower generation rate as GPU count increases](assets/flash-gpu-scaling.png)
 
@@ -122,12 +126,14 @@ MTP supplies draft token proposals that the main model verifies. A separate draf
 
 *Conceptual placement diagram. Arrows show proposals and verification, not measured transfer rates or the workstation's PCIe topology.*
 
-The cleanest full-answer comparison here used ggml-org's dense `Q4_K_M`, the same external Q8 MTP file, the same F16 KV format, and the same 262,144-token context capacity.
+The cleanest full-answer comparison here used ggml-org's dense `Q4_K_M`: a mostly four-bit, block-based weight quantization. `K` names the K-quant family and `M` means the medium variant, which keeps selected weight arrays at higher precision. It is a mixed-precision recipe rather than a promise that every weight occupies four bits. [The quantizer's selection rules show this distinction](https://github.com/ggml-org/llama.cpp/blob/master/src/llama-quant.cpp).
+
+Both cases used the same external Q8 MTP file, the same F16 KV format, and the same 262,144-token context capacity.
 
 | Vendor | Quant | GPU arrangement | Mean tokens/s | Measured runs |
 |---|---|---|---:|---:|
-| ggml-org | Q4_K_M | 2 GPUs with MTP shared | 48.03 | 2 |
-| ggml-org | Q4_K_M | 2 model GPUs + 1 MTP GPU | 45.58 | 2 |
+| ggml-org | Q4_K_M (mixed 4-bit) | 2 GPUs with MTP shared | 48.03 | 2 |
+| ggml-org | Q4_K_M (mixed 4-bit) | 2 model GPUs + 1 MTP GPU | 45.58 | 2 |
 
 The main model stayed on CUDA1 and CUDA2. In the shared case, MTP used CUDA1; in the dedicated case, it used CUDA0.
 
@@ -143,12 +149,12 @@ The table below contains six full-answer configurations from the resumed tests. 
 
 | Vendor | Dense quant | GPUs | Context capacity | Mean tokens/s | Measured runs |
 |---|---|---|---:|---:|---:|
-| Unsloth | UD-Q2_K_XL | 1 GPU, MTP shared | 131,072 | 83.16 | 2 |
-| Unsloth | UD-Q3_K_XL | 1 GPU, MTP shared | 131,072 | 79.64 | 2 |
-| Unsloth | UD-Q5_K_XL | 1 GPU, MTP shared | 32,768 | 71.13 | 2 |
-| ggml-org | Q4_K_M | 1 GPU, MTP shared | 65,536 | 76.41 | 2 |
-| ggml-org | Q4_K_M | 2 GPUs, MTP shared | 262,144 | 48.03 | 2 |
-| ggml-org | Q4_K_M | 2 model GPUs + 1 MTP GPU | 262,144 | 45.58 | 2 |
+| Unsloth | UD-Q2_K_XL (dynamic 2-bit class) | 1 GPU, MTP shared | 131,072 | 83.16 | 2 |
+| Unsloth | UD-Q3_K_XL (dynamic 3-bit class) | 1 GPU, MTP shared | 131,072 | 79.64 | 2 |
+| Unsloth | UD-Q5_K_XL (dynamic 5-bit class) | 1 GPU, MTP shared | 32,768 | 71.13 | 2 |
+| ggml-org | Q4_K_M (mixed 4-bit) | 1 GPU, MTP shared | 65,536 | 76.41 | 2 |
+| ggml-org | Q4_K_M (mixed 4-bit) | 2 GPUs, MTP shared | 262,144 | 48.03 | 2 |
+| ggml-org | Q4_K_M (mixed 4-bit) | 2 model GPUs + 1 MTP GPU | 262,144 | 45.58 | 2 |
 
 This is where an attractive leaderboard would mislead me.
 
@@ -156,17 +162,17 @@ The 76.41-token/s one-GPU Q4 run used a quarter of the context capacity of the 4
 
 If you need 262,144 tokens available, the faster 65,536-token configuration does not meet your requirement. If your workload fits the smaller capacity, its speed is relevant. The useful choice depends on the constraint you actually have.
 
-The same care applies to quant labels. `UD-Q4_K_XL` and `Q4_K_M` identify different quantization variants. A shared “Q4” prefix does not make them identical weight files or interchangeable benchmark subjects.
+The same care applies to quant labels. `UD-Q4_K_XL`, Unsloth's dynamic four-bit-class recipe, and `Q4_K_M`, the medium mixed-precision K-quant recipe, identify different quantization variants. A shared “Q4” prefix does not make them identical weight files or interchangeable benchmark subjects.
 
-For reference, my dense ggml-org Q8 full-answer baseline at 262,144 context with two model GPUs plus a dedicated MTP GPU averaged **46.65 tokens/s** across two measured requests. That is close to the Q4 dedicated-draft result above. Reducing the nominal bit width did not automatically improve that particular deployment.
+For reference, my dense ggml-org baseline used `Q8_0`, the standard eight-bit weight quantization. At 262,144 context with two model GPUs plus a dedicated MTP GPU, it averaged **46.65 tokens/s** across two measured requests. That is close to the Q4 dedicated-draft result above. Reducing the nominal bit width did not automatically improve that particular deployment.
 
 ## The fastest dense number had different conditions
 
 There was also a **105.17-token/s** full-answer result on one GPU at 262,144 context.
 
-It came from jakeatx's native AI4 dense preset, using the **Swift1.5 Uncensored** variant, its built-in adaptive MTP, and **SJ-KVaRN4** KV storage. Two measured requests completed naturally.
+It came from jakeatx's native dense preset for the **Swift1.5 Uncensored** variant. **AI4** names its custom four-bit-class weight format. The preset also used built-in adaptive MTP and **SJ-KVaRN4** KV storage. Two measured requests completed naturally.
 
-**SJ-KVaRN4 is a compression scheme for the attention cache.** AI4 is llamAmpere's custom four-bit format for model weights; SJ-KVaRN4 describes how the stored attention data is represented. The “4” refers to the four-bit representation used for the older, compressed cache entries, compared with the 16-bit values in F16.
+**SJ-KVaRN4 is a compression scheme for the attention cache.** It describes how the stored attention data is represented, independently of the AI4 weight format. The “4” refers to the four-bit representation used for the older, compressed cache entries, compared with the 16-bit values in F16.
 
 That does not make the entire cache exactly four times smaller. The format includes metadata and uses different storage for the initial tokens and the recent-token window. The conversion is lossy, so it can also affect the model's output. [The pinned cache-format documentation](https://github.com/JakeATX/llamAmpere/blob/v0.7.2.1/docs/KV-cache-quantization.md#hybrid-sj-kvarn44-with-tq6-staging) explains the layout.
 
@@ -178,7 +184,7 @@ It belongs in the workbook and deserves its own follow-up comparison, including 
 
 ## Failed attempts belong in the record
 
-The native Flash AI3 and AI4 paths did not give me completed controlled throughput measurements in the one-to-three-GPU probes. Several requests reached the 240-second deadline.
+The native Flash **AI3** (custom three-bit-class weights) and **AI4** (custom four-bit-class weights) paths did not give me completed controlled throughput measurements in the one-to-three-GPU probes. Several requests reached the 240-second deadline.
 
 I kept those attempts as failures or timeouts. Assigning them zero tokens/s would imply a completed measurement that never happened.
 
@@ -230,6 +236,8 @@ spec-draft-p-min = 0.0
 ```
 
 The [complete recorded preset](https://github.com/kokosda/medium/blob/main/20261123-qwen-rtx3090-benchmarks/dense-q4-2plus1.ini) also specifies the main model file, full GPU offload, and Flash Attention. Its paths are specific to this workstation.
+
+The `.gguf` extension in these paths names the model-file container. A suffix such as `Q8_0` identifies the weight encoding inside it; here it means the eight-bit variant.
 
 The preset matters as much as the launch command. Record the actual devices, split mode, context capacity, KV format, fit behavior, MTP file, and MTP device placement. A model name in a request does not tell you those settings.
 
