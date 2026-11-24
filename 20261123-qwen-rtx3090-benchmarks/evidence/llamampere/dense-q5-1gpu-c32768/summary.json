@@ -1,0 +1,44 @@
+{
+  "label": "dense-q5-1gpu-c32768",
+  "at": "2026-11-23T22:49:29.494Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 71.128,
+      "median": 71.12804432196891,
+      "min": 71.02106680219619,
+      "max": 71.23502184174164
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.168,
+      "median": 0.1675,
+      "min": 0.085,
+      "max": 0.25
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 103.096,
+      "median": 103.0955,
+      "min": 102.858,
+      "max": 103.333
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 7322,
+      "median": 7322,
+      "min": 7322,
+      "max": 7322
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

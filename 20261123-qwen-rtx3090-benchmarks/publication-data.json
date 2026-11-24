@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "clock": [
+    {
+      "id": "cause-q4-auto",
+      "label": "Auto",
+      "mean": 46.349,
+      "min": 44.603,
+      "max": 48.095,
+      "n": 2,
+      "cap": 4096,
+      "capped": 2,
+      "source": "clock/cause-q4-auto/summary.json"
+    },
+    {
+      "id": "cause-q4-lock",
+      "label": "Locked",
+      "mean": 108.749,
+      "min": 107.888,
+      "max": 109.61,
+      "n": 2,
+      "cap": 4096,
+      "capped": 1,
+      "source": "clock/cause-q4-lock/summary.json"
+    },
+    {
+      "id": "cause-q4-auto-return",
+      "label": "Auto again",
+      "mean": 51.292,
+      "min": 51.292,
+      "max": 51.292,
+      "n": 1,
+      "cap": 4096,
+      "capped": 0,
+      "source": "clock/cause-q4-auto-return/summary.json"
+    }
+  ],
+  "scaling": [
+    {
+      "id": "flash-q2-1gpu-f16-swiftmtp-probe512-c262144",
+      "label": "1 GPU (MTP shared)",
+      "mean": 75.526,
+      "min": 75.14817499495213,
+      "max": 75.90424835038233,
+      "n": 2,
+      "context": 262144,
+      "cap": 512,
+      "source": "llamampere/flash-q2-1gpu-f16-swiftmtp-probe512-c262144/summary.json"
+    },
+    {
+      "id": "flash-q2-2gpu-f16-swiftmtp-probe512-c262144",
+      "label": "2 GPUs (MTP follows model devices)",
+      "mean": 43.54,
+      "min": 42.874742237636994,
+      "max": 44.205727747390306,
+      "n": 2,
+      "context": 262144,
+      "cap": 512,
+      "source": "llamampere/flash-q2-2gpu-f16-swiftmtp-probe512-c262144/summary.json"
+    },
+    {
+      "id": "flash-q2-3gpu-f16-swiftmtp-probe512-c262144",
+      "label": "3 GPUs (MTP follows model devices)",
+      "mean": 13.72,
+      "min": 13.577507039512271,
+      "max": 13.861562486716567,
+      "n": 2,
+      "context": 262144,
+      "cap": 512,
+      "source": "llamampere/flash-q2-3gpu-f16-swiftmtp-probe512-c262144/summary.json"
+    }
+  ]
+}

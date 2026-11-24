@@ -1,0 +1,44 @@
+{
+  "label": "dense-ggmlq4-2plus1-c262144",
+  "at": "2026-11-23T22:58:15.542Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 45.583,
+      "median": 45.58286239705049,
+      "min": 45.48263499642721,
+      "max": 45.68308979767377
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.237,
+      "median": 0.237,
+      "min": 0.128,
+      "max": 0.346
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 163.875,
+      "median": 163.875,
+      "min": 163.624,
+      "max": 164.126
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 7460,
+      "median": 7460,
+      "min": 7460,
+      "max": 7460
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

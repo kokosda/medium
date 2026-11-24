@@ -1,0 +1,44 @@
+{
+  "label": "dense-ggmlq4-2gpu-c262144",
+  "at": "2026-11-23T23:06:16.87Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 48.028,
+      "median": 48.02796604607056,
+      "min": 47.65357112373753,
+      "max": 48.4023609684036
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.263,
+      "median": 0.263,
+      "min": 0.114,
+      "max": 0.412
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 155.58,
+      "median": 155.5795,
+      "min": 154.22,
+      "max": 156.939
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 7460,
+      "median": 7460,
+      "min": 7460,
+      "max": 7460
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

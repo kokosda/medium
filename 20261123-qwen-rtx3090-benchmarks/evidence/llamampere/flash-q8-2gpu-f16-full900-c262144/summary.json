@@ -1,0 +1,44 @@
+{
+  "label": "flash-q8-2gpu-f16-full900-c262144",
+  "at": "2026-11-23T18:57:56.61Z",
+  "tokens": 8192,
+  "repeat": 2,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 1,
+    "n_ok": 1,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 1,
+      "mean": 14.309,
+      "median": 14.30896532883363,
+      "min": 14.30896532883363,
+      "max": 14.30896532883363
+    },
+    "ttft_s": {
+      "n": 1,
+      "mean": 8.336,
+      "median": 8.336,
+      "min": 8.336,
+      "max": 8.336
+    },
+    "wall_s": {
+      "n": 1,
+      "mean": 461.062,
+      "median": 461.062,
+      "min": 461.062,
+      "max": 461.062
+    },
+    "completion_tokens": {
+      "n": 1,
+      "mean": 6479,
+      "median": 6479,
+      "min": 6479,
+      "max": 6479
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

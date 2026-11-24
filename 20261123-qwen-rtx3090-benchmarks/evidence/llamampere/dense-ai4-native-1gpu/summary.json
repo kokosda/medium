@@ -1,0 +1,44 @@
+{
+  "label": "dense-ai4-native-1gpu",
+  "at": "2026-11-23T07:44:18.191Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 105.169,
+      "median": 105.16942288363808,
+      "min": 105.02851473922291,
+      "max": 105.31033102805324
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.149,
+      "median": 0.1485,
+      "min": 0.121,
+      "max": 0.176
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 55.795,
+      "median": 55.7945,
+      "min": 55.692,
+      "max": 55.897
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 5853,
+      "median": 5853,
+      "min": 5853,
+      "max": 5853
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

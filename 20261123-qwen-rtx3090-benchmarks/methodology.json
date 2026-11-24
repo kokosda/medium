@@ -1,0 +1,48 @@
+{
+  "prompt": "Write a C# implementation of an LRU cache. Explain the time complexity of each operation.",
+  "hardware": "Threadripper PRO 5955WX, 128 GB RAM, three RTX 3090 24 GB, Windows",
+  "power_w_per_gpu": 300,
+  "sampling": {
+    "temperature": 0,
+    "seed": 42
+  },
+  "parallel_requests": 1,
+  "target_context_capacity": 262144,
+  "controlled_kv": "F16",
+  "warmup_requests_excluded_per_case": 1,
+  "llamampere": {
+    "version": "v0.7.2.1",
+    "build": "Windows CUDA12 build 15466",
+    "commit": "857ccba7d",
+    "clock_policy": "automatic for completed measurements",
+    "full_answer_output_cap": 8192,
+    "scaling_probe_output_cap": 512,
+    "metric": "API timings.predicted_per_second; arithmetic mean of completed measured requests",
+    "dense_mtp": "Fixed mtp-Qwen3.8-27B-Q8_0.gguf, max depth 3, p-min 0",
+    "flash_mtp": "jakeatx mtp-Swift-Qwen3.8-Flash-Next-GSQ-RCO-Q2S-B.gguf, adaptive depth 3..4, p-min 0, expert skipping off",
+    "native_dense_ai4_exception": "Swift1.5 Uncensored fine-tuned weights; SJ-KVaRN4 KV; built-in adaptive MTP; separate cohort",
+    "full_answer_thinking_reservation": "At max_tokens 8192, default answer reserve can close thinking at 6144; short probes can close thinking at 256 of 512",
+    "context_fallback": "Reduced only after OOM. See each row for actual context.",
+    "repetitions": "Actual count recorded per row. Latest six dense full-answer cases: two measured requests, all natural stops.",
+    "mode_biased_mtp": "Default enabled; no --no-spec-mb-mtp override in the recorded controlled configurations"
+  },
+  "clock_experiment": {
+    "engine": "Strata",
+    "model": "Flash Next Unsloth UD-Q4_K_XL",
+    "gpus": 3,
+    "context_capacity": 262144,
+    "kv": "F16",
+    "output_cap": 4096,
+    "metric": "Strata engine-log aggregate",
+    "phases": "Automatic n=2; locked n=2; automatic return n=1. Same loaded model. Completion lengths differ.",
+    "mtp": "depth 3, p-min 0.5"
+  },
+  "limits": [
+    "Single prompt, small repetition counts, no systematic answer-quality or code-correctness evaluation",
+    "Reasoning and answer tokens both count toward generated tokens",
+    "Context capacity is not actual prompt occupancy",
+    "Observed min-max ranges are not confidence intervals",
+    "Some exploratory earlier rows used different conditions; read workbook Methodology before comparing",
+    "Failures and timeouts have no completed throughput value; they are not zero-speed results"
+  ]
+}

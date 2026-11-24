@@ -1,0 +1,44 @@
+{
+  "label": "flash-q2-1gpu-f16-swiftmtp-c262144",
+  "at": "2026-11-23T08:09:12.732Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 73.956,
+      "median": 73.95566275677896,
+      "min": 73.93311836802874,
+      "max": 73.9782071455292
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.164,
+      "median": 0.16449999999999998,
+      "min": 0.124,
+      "max": 0.205
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 43.544,
+      "median": 43.5435,
+      "min": 43.49,
+      "max": 43.597
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 3209,
+      "median": 3209,
+      "min": 3209,
+      "max": 3209
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "label": "dense-q2-1gpu-c131072-resume2",
+  "at": "2026-11-23T22:39:06.801Z",
+  "tokens": 8192,
+  "repeat": 3,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 2,
+    "n_ok": 2,
+    "decode_tok_s": {
+      "sources": [
+        "api_predicted_per_second"
+      ],
+      "n": 2,
+      "mean": 83.164,
+      "median": 83.16412802631403,
+      "min": 82.75991640440016,
+      "max": 83.5683396482279
+    },
+    "ttft_s": {
+      "n": 2,
+      "mean": 0.171,
+      "median": 0.1705,
+      "min": 0.08,
+      "max": 0.261
+    },
+    "wall_s": {
+      "n": 2,
+      "mean": 86.342,
+      "median": 86.3415,
+      "min": 86.013,
+      "max": 86.67
+    },
+    "completion_tokens": {
+      "n": 2,
+      "mean": 7167,
+      "median": 7167,
+      "min": 7167,
+      "max": 7167
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}

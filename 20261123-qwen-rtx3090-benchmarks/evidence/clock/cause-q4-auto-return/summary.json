@@ -1,0 +1,44 @@
+{
+  "label": "cause-q4-auto-return",
+  "at": "2026-11-21T01:01:43.474Z",
+  "tokens": 4096,
+  "repeat": 2,
+  "summary": {
+    "n_warmup_excluded": 1,
+    "n_measured": 1,
+    "n_ok": 1,
+    "decode_tok_s": {
+      "sources": [
+        "engine_log_aggregate"
+      ],
+      "n": 1,
+      "mean": 51.292,
+      "median": 51.292,
+      "min": 51.292,
+      "max": 51.292
+    },
+    "ttft_s": {
+      "n": 1,
+      "mean": 1.558,
+      "median": 1.558,
+      "min": 1.558,
+      "max": 1.558
+    },
+    "wall_s": {
+      "n": 1,
+      "mean": 66.116,
+      "median": 66.116,
+      "min": 66.116,
+      "max": 66.116
+    },
+    "completion_tokens": {
+      "n": 1,
+      "mean": 3312,
+      "median": 3312,
+      "min": 3312,
+      "max": 3312
+    },
+    "length_capped_runs": [],
+    "error_runs": []
+  }
+}
